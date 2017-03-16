@@ -1,4 +1,3 @@
-library(purrr)
 
 # modified from testhat expect_equal_to_reference
 expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL,
