@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/AliciaSchep/iheatmapr.svg?branch=master)](https://travis-ci.org/AliciaSchep/iheatmapr)
+[![codecov](https://codecov.io/gh/AliciaSchep/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI)](https://codecov.io/gh/AliciaSchep/iheatmapr)
+
 
 # iheatmapr
 
