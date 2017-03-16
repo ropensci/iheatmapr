@@ -1,11 +1,10 @@
 
 # modified from testhat expect_equal_to_reference
-expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL,
-                                      label = NULL, expected.label = NULL) {
+expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
   
-  lab_act <- make_label(object, label)
-  lab_exp <- expected.label %||% paste0("reference from `", file, "`")
-  
+  lab_act <- testthat:::make_label(object, NULL)
+  lab_exp <- paste0("reference from `", file, "`")
+    
   if (!file.exists(file)) {
     # first time always succeeds
     saveRDS(object, file)

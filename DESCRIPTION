@@ -38,8 +38,7 @@ Suggests:
     rmarkdown,
     reshape2,
     roxygen2,
-    covr,
-    purrr
+    covr
 biocViews: Visualization
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
