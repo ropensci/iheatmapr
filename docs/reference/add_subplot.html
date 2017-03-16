@@ -133,7 +133,10 @@ an interactive graphic</p>
 Alicia Schep
 
 mat &lt;- matrix(rnorm(24, ncol = 6))
-iheatmap(mat) <!-- %&gt;% add_subplot(x = 1:5, y=1:5, side = &quot;top&quot;) -->
+hm &lt;- iheatmap(mat) <!-- %&gt;% add_subplot(x = 1:5, y=1:5, side = &quot;top&quot;) -->
+
+# Print heatmap if interactive session 
+if (interactive()) hm
 
   </div>
 </div>

@@ -104,7 +104,10 @@ new_iheatmap <- function(plot,
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' main_heatmap(mat) 
+#' hm <- main_heatmap(mat) 
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(main_heatmap, "matrix",
           function(data,
                    name = "Signal",
@@ -255,7 +258,10 @@ setMethod(main_heatmap, "matrix",
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4) 
 #' mat2 <-  matrix(rnorm(24), ncol = 6, nrow = 4) 
-#' iheatmap(mat) %>% add_main_heatmap(mat2)
+#' hm <- iheatmap(mat) %>% add_main_heatmap(mat2)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod("add_main_heatmap", c(p = "IheatmapHorizontal", data = "matrix"),
           function(p,
                    data,

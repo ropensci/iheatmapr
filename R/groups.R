@@ -34,7 +34,10 @@
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 #' row_groups <- c("A","A","B","D")
-#' iheatmap(mat) %>% add_row_groups(row_groups, name = "My Groups")
+#' hm <- iheatmap(mat) %>% add_row_groups(row_groups, name = "My Groups")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_groups,
           c(p = "Iheatmap", groups = "ANY"),
           function(p,
@@ -129,7 +132,10 @@ setMethod(add_row_groups,
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 #' col_groups <- c("A","A","B","D","B")
-#' iheatmap(mat) %>% add_col_groups(col_groups, name = "My Groups")
+#' hm <- iheatmap(mat) %>% add_col_groups(col_groups, name = "My Groups")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_groups,
           c(p = "Iheatmap", groups = "ANY"),
           function(p,

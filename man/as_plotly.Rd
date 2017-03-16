@@ -22,7 +22,11 @@ Function to convert \code{link{Iheatmap-class}} object to plotly widget object
 \examples{
 
 mat <- matrix(rnorm(24), nrow = 6)
-iheatmap(mat) \%>\% as_plotly()
+hm <- iheatmap(mat) \%>\% as_plotly()
+class(hm)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{main_heatmap}}

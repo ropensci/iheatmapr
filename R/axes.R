@@ -18,7 +18,10 @@
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 #' dend <- hclust(dist(mat))
-#' iheatmap(mat) %>% reorder_rows(dend$order)
+#' hm <- iheatmap(mat) %>% reorder_rows(dend$order)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(reorder_rows, c(p = "IheatmapHorizontal", row_order = "integer"),
           function(p, row_order){
             stopifnot(yaxes(p)[["y"]]@categorical)
@@ -55,7 +58,10 @@ setMethod(reorder_rows, c(p = "IheatmapVertical", row_order = "integer"),
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 #' dend <- hclust(dist(t(mat)))
-#' iheatmap(mat) %>% reorder_cols(dend$order)
+#' hm <- iheatmap(mat) %>% reorder_cols(dend$order)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(reorder_cols, c(p = "IheatmapHorizontal", col_order = "integer"),
           function(p, col_order, xname = current_xaxis(p)){
             stopifnot(xaxes(p)[[xname]]@categorical)

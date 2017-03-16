@@ -62,7 +62,10 @@ Adds single column heatmap to iheatmap object
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-iheatmap(mat) \%>\% add_row_signal(signal = 1:4, name = "Strength")
+hm <- iheatmap(mat) \%>\% add_row_signal(signal = 1:4, name = "Strength")
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{as_plotly}}, 

@@ -47,8 +47,12 @@
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_row_summary()
-#' iheatmap(mat) %>% add_row_summary(groups = c("A","A","B","B","B"))
+#' hm1 <- iheatmap(mat) %>% add_row_summary()
+#' hm2 <- iheatmap(mat) %>% add_row_summary(groups = c("A","A","B","B","B"))
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm1
+#' if (interactive()) hm2
 setMethod(add_row_summary, c(p = "Iheatmap"),
           function(p,
                    groups = NULL,
@@ -240,8 +244,12 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_col_summary()
-#' iheatmap(mat) %>% add_col_summary(groups = c("A","A","B","B"))
+#' hm1 <- iheatmap(mat) %>% add_col_summary()
+#' hm2 <- iheatmap(mat) %>% add_col_summary(groups = c("A","A","B","B"))
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm1
+#' if (interactive()) hm2
 setMethod(add_col_summary, c(p = "Iheatmap"),
           function(p,
                    groups = NULL,

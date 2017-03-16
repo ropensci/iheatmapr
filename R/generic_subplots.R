@@ -84,7 +84,10 @@ setMethod("make_trace", signature = c(x = "ColumnPlot"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_col_plot(y = 1:5, tracename = "Strength")
+#' hm <- iheatmap(mat) %>% add_col_plot(y = 1:5, tracename = "Strength")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_plot, c(p = "Iheatmap"),
           function(p,
                    y,
@@ -180,7 +183,10 @@ setMethod(add_col_plot, c(p = "Iheatmap"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_row_plot(x = 1:4, tracename = "Strength")
+#' hm <- iheatmap(mat) %>% add_row_plot(x = 1:4, tracename = "Strength")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_plot, c(p = "Iheatmap"),
           function(p,
                    x,

@@ -80,7 +80,10 @@ setMethod("make_shapes", signature = c(x = "Dendrogram"),
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 #' dend <- hclust(dist(mat))
-#' iheatmap(mat) %>% add_row_dendro(dend)
+#' hm <- iheatmap(mat) %>% add_row_dendro(dend)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_dendro, c(p = "Iheatmap", dendro = "hclust"),
           function(p,
                    dendro,
@@ -145,7 +148,10 @@ setMethod(add_row_dendro, c(p = "Iheatmap", dendro = "hclust"),
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 #' dend <- hclust(dist(t(mat)))
-#' iheatmap(mat) %>% add_col_dendro(dend)
+#' hm <- iheatmap(mat) %>% add_col_dendro(dend)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_dendro, c(p = "Iheatmap", dendro = "hclust"),
           function(p,
                    dendro,

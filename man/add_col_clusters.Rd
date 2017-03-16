@@ -38,8 +38,11 @@ Add column groups and order columns based on groups
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 clusters <- c("A","B","A","B","A")
-iheatmap(mat)
-iheatmap(mat) \%>\% add_col_clusters(clusters)
+
+hm <- iheatmap(mat) \%>\% add_col_clusters(clusters)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_row_clusters}}, \code{\link{add_col_clustering}}, 

@@ -57,7 +57,10 @@ belongs to
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 row_groups <- c("A","A","B","D")
-iheatmap(mat) \%>\% add_row_groups(row_groups, name = "My Groups")
+hm <- iheatmap(mat) \%>\% add_row_groups(row_groups, name = "My Groups")
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{as_plotly}}, 

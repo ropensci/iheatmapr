@@ -40,9 +40,12 @@ annotations for each column of a main heatmap.
 \examples{
 
 mat <- matrix(rnorm(24), ncol = 6)
-annotation = data.frame(gender = c(rep("M", 3),rep("F",3)),
+annotation <- data.frame(gender = c(rep("M", 3),rep("F",3)),
                         age = c(20,34,27,19,23,30))
-iheatmap(mat) \%>\% add_col_annotation(annotation)
+hm <- iheatmap(mat) \%>\% add_col_annotation(annotation)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{add_row_annotation}}, 

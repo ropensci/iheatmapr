@@ -51,7 +51,10 @@ Add bar plot with one bar per column above or below a main heatmap
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-iheatmap(mat) \%>\% add_col_barplot(y = 1:5, tracename = "Strength")
+hm <- iheatmap(mat) \%>\% add_col_barplot(y = 1:5, tracename = "Strength")
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_col_signal}}, \code{\link{iheatmap}}, 

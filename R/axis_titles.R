@@ -75,7 +75,10 @@ setMethod("make_annotations", signature = c(x = "RowTitle"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_col_title("My x-axis")
+#' hm <- iheatmap(mat) %>% add_col_title("My x-axis")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_title, c(p = "Iheatmap"),
           function(p,
                    title,
@@ -145,7 +148,10 @@ setMethod(add_col_title, c(p = "Iheatmap"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_row_title("Samples")
+#' hm <- iheatmap(mat) %>% add_row_title("Samples")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_title, c(p = "Iheatmap"),
           function(p,
                    title,

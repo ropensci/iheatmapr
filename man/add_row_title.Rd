@@ -41,7 +41,10 @@ Add y axis title to plot
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-iheatmap(mat) \%>\% add_row_title("Samples")
+hm <- iheatmap(mat) \%>\% add_row_title("Samples")
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_col_title}}, \code{\link{iheatmap}}, 

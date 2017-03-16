@@ -32,7 +32,10 @@ Reorder the columns of an \code{\link{Iheatmap-class}} object
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 dend <- hclust(dist(t(mat)))
-iheatmap(mat) \%>\% reorder_cols(dend$order)
+hm <- iheatmap(mat) \%>\% reorder_cols(dend$order)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_row_clustering}}, \code{\link{reorder_cols}}

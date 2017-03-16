@@ -159,7 +159,10 @@ an interactive graphic</p>
     <pre class="examples"><div class='input'>
 <span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>4</span>)
 <span class='no'>mat2</span> <span class='kw'>&lt;-</span>  <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>24</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>6</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='fu'><a href='iheatmap.html'>iheatmap</a></span>(<span class='no'>mat</span>) <span class='kw'>%&gt;%</span> <span class='fu'>add_main_heatmap</span>(<span class='no'>mat2</span>)</div></pre>
+<span class='no'>hm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='iheatmap.html'>iheatmap</a></span>(<span class='no'>mat</span>) <span class='kw'>%&gt;%</span> <span class='fu'>add_main_heatmap</span>(<span class='no'>mat2</span>)
+
+<span class='co'># Print heatmap if interactive session </span>
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()) <span class='no'>hm</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

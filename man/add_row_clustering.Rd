@@ -50,7 +50,10 @@ add_row_clustering
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
-iheatmap(mat) \%>\% add_row_clustering(method = "hclust", k = 2)
+hm <- iheatmap(mat) \%>\% add_row_clustering(method = "hclust", k = 2)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_col_clustering}}, \code{\link{iheatmap}}

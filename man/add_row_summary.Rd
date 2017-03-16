@@ -69,8 +69,12 @@ groups added to the plot.
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-iheatmap(mat) \%>\% add_row_summary()
-iheatmap(mat) \%>\% add_row_summary(groups = c("A","A","B","B","B"))
+hm1 <- iheatmap(mat) \%>\% add_row_summary()
+hm2 <- iheatmap(mat) \%>\% add_row_summary(groups = c("A","A","B","B","B"))
+
+# Print heatmap if interactive session 
+if (interactive()) hm1
+if (interactive()) hm2
 }
 \seealso{
 \code{\link{add_col_summary}}, \code{\link{iheatmap}}, 

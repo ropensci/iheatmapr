@@ -127,7 +127,10 @@ an interactive graphic</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='fu'><a href='iheatmap.html'>iheatmap</a></span>(<span class='no'>mat</span>) <span class='kw'>%&gt;%</span> <span class='fu'>add_col_clustering</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"hclust"</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div></pre>
+<span class='no'>hm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='iheatmap.html'>iheatmap</a></span>(<span class='no'>mat</span>) <span class='kw'>%&gt;%</span> <span class='fu'>add_col_clustering</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"hclust"</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+
+<span class='co'># Print heatmap if interactive session </span>
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()) <span class='no'>hm</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

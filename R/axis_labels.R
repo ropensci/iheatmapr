@@ -235,8 +235,13 @@ setMethod("make_annotations", signature = c(x = "ColumnLabels"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_row_labels()
-#' iheatmap(mat) %>% add_row_labels(ticktext = letters[23:26])
+#' hm1 <- iheatmap(mat) %>% add_row_labels()
+#' hm2 <- iheatmap(mat) %>% add_row_labels(ticktext = letters[23:26])
+#' 
+#' 
+#' # Print heatmaps if interactive session 
+#' if (interactive()) hm1
+#' if (interactive()) hm2 
 setMethod(add_row_labels, c(p = "Iheatmap"),
           function(p,
                    tickvals = NULL,
@@ -308,8 +313,12 @@ setMethod(add_row_labels, c(p = "Iheatmap"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_col_labels()
-#' iheatmap(mat) %>% add_col_labels(ticktext = letters[22:26])
+#' hm1 <- iheatmap(mat) %>% add_col_labels()
+#' hm2 <- iheatmap(mat) %>% add_col_labels(ticktext = letters[22:26])
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm1
+#' if (interactive()) hm2
 setMethod(add_col_labels, c(p = "Iheatmap"),
           function(p,
                    tickvals = NULL,

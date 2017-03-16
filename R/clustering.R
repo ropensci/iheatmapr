@@ -29,7 +29,10 @@
 #' @examples
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
-#' iheatmap(mat) %>% add_row_clustering(method = "hclust", k = 2)
+#' hm <- iheatmap(mat) %>% add_row_clustering(method = "hclust", k = 2)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_clustering,
           c(p = "Iheatmap"),
           function(p,
@@ -123,7 +126,10 @@ setMethod(add_row_clustering,
 #' @examples
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
-#' iheatmap(mat) %>% add_col_clustering(method = "hclust", k = 2)
+#' hm <- iheatmap(mat) %>% add_col_clustering(method = "hclust", k = 2)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_clustering,
           c(p = "Iheatmap"),
           function(p,

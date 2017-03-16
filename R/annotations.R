@@ -25,9 +25,12 @@
 #' @examples
 #'
 #' mat <- matrix(rnorm(24), nrow = 6)
-#' annotation = data.frame(gender = c(rep("M", 3),rep("F",3)),
+#' annotation <- data.frame(gender = c(rep("M", 3),rep("F",3)),
 #'                         age = c(20,34,27,19,23,30))
-#' iheatmap(mat) %>% add_row_annotation(annotation)
+#' hm <- iheatmap(mat) %>% add_row_annotation(annotation)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_annotation,
           c(p = "Iheatmap"),
           function(p,
@@ -112,9 +115,12 @@ setMethod(add_row_annotation,
 #' @examples
 #'
 #' mat <- matrix(rnorm(24), ncol = 6)
-#' annotation = data.frame(gender = c(rep("M", 3),rep("F",3)),
+#' annotation <- data.frame(gender = c(rep("M", 3),rep("F",3)),
 #'                         age = c(20,34,27,19,23,30))
-#' iheatmap(mat) %>% add_col_annotation(annotation)
+#' hm <- iheatmap(mat) %>% add_col_annotation(annotation)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_annotation,
           c(p = "Iheatmap"),
           function(p,

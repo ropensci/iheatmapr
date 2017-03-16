@@ -16,7 +16,11 @@
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(24), nrow = 6)
-#' iheatmap(mat) %>% as_plotly()
+#' hm <- iheatmap(mat) %>% as_plotly()
+#' class(hm)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(as_plotly,
           signature = c("Iheatmap"),
           function(p, source = "Iheatmap"){

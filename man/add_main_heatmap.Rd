@@ -83,7 +83,10 @@ Adds an additional main heatmap to an iheatmap object
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4) 
 mat2 <-  matrix(rnorm(24), ncol = 6, nrow = 4) 
-iheatmap(mat) \%>\% add_main_heatmap(mat2)
+hm <- iheatmap(mat) \%>\% add_main_heatmap(mat2)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{main_heatmap}}

@@ -67,7 +67,10 @@ Plots initial heatmap, creates Iheatmap object
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-main_heatmap(mat) 
+hm <- main_heatmap(mat) 
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_iheatmap}}, \code{\link{as_plotly}},  

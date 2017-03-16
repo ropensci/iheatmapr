@@ -41,7 +41,10 @@ Adds row dendrogram to iheatmap object
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
 dend <- hclust(dist(mat))
-iheatmap(mat) \%>\% add_row_dendro(dend)
+hm <- iheatmap(mat) \%>\% add_row_dendro(dend)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
 }
 \seealso{
 \code{\link{add_row_clustering}}, \code{\link{iheatmap}}, 

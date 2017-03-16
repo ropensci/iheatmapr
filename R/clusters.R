@@ -24,8 +24,11 @@
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 #' clusters <- c("A","B","A","B")
-#' iheatmap(mat)
-#' iheatmap(mat) %>% add_row_clusters(clusters)
+#' 
+#' hm <- iheatmap(mat) %>% add_row_clusters(clusters)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm
 setMethod(add_row_clusters,
           c(p = "Iheatmap", clusters = "ANY"),
           function(p,
@@ -78,8 +81,11 @@ setMethod(add_row_clusters,
 #'
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 #' clusters <- c("A","B","A","B","A")
-#' iheatmap(mat)
-#' iheatmap(mat) %>% add_col_clusters(clusters)
+#' 
+#' hm <- iheatmap(mat) %>% add_col_clusters(clusters)
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_clusters,
           c(p = "Iheatmap", clusters = "ANY"),
           function(p,

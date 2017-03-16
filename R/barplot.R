@@ -29,7 +29,10 @@
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_col_barplot(y = 1:5, tracename = "Strength")
+#' hm <- iheatmap(mat) %>% add_col_barplot(y = 1:5, tracename = "Strength")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_col_barplot, c(p = "Iheatmap"),
           function(p,
                    y,
@@ -113,7 +116,10 @@ setMethod(add_col_barplot, c(p = "Iheatmap"),
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
-#' iheatmap(mat) %>% add_row_barplot(x = 1:4, tracename = "Strength")
+#' hm <- iheatmap(mat) %>% add_row_barplot(x = 1:4, tracename = "Strength")
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm 
 setMethod(add_row_barplot, c(p = "Iheatmap"),
           function(p,
                    x,

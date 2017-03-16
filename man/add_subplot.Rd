@@ -47,5 +47,8 @@ Adds an arbitrary subplot to iheatmap
 Alicia Schep
 
 mat <- matrix(rnorm(24, ncol = 6))
-iheatmap(mat) %>% add_subplot(x = 1:5, y=1:5, side = "top")
+hm <- iheatmap(mat) %>% add_subplot(x = 1:5, y=1:5, side = "top")
+
+# Print heatmap if interactive session 
+if (interactive()) hm
 }

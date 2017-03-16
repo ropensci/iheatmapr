@@ -39,8 +39,11 @@ Add row groups and order rows based on groups
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)
 clusters <- c("A","B","A","B")
-iheatmap(mat)
-iheatmap(mat) \%>\% add_row_clusters(clusters)
+
+hm <- iheatmap(mat) \%>\% add_row_clusters(clusters)
+
+# Print heatmap if interactive session 
+if (interactive()) hm
 }
 \seealso{
 \code{\link{add_row_clustering}}, \code{\link{add_col_clusters}}, 
