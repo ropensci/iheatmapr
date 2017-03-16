@@ -6,6 +6,14 @@
 
 iheatmapr is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features. iheatmapr uses the [plotly](https://plot.ly) library for interactivity. 
 
+## Installation
+
+iheatmapr is not yet on CRAN -- install using devtools:
+
+```r
+devtools::install_github("AliciaSchep/iheatmapr")
+```
+
 ## Example Complex Heatmap
 
 As an example of a complex heatmap, we can make a version of the famous vaccines plot from the Wall Street Journal that has been recreated in several other heatmap frameworks in R. 
