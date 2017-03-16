@@ -1,0 +1,23 @@
+---
+title: "Reference plots"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+library(plotly)
+```
+
+
+```{r, echo = FALSE}
+out <- list()
+for (i in list.files("testthat/reference/","*.rds", full.names = TRUE)){
+   out <- c(out,strsplit(basename(i),".rds")[[1]])
+   tmp <- readRDS(i)
+   out <- c(out, list(tmp))
+}
+
+tagList(out)
+```
+

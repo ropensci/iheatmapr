@@ -1,0 +1,10 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^CONDUCT\.md$
+^\.travis\.yml$
+^README\.md$
+^codecov\.yml$
+^paper$
+^vaccine\.gif$
+^_pkgdown.yml$
+^docs$

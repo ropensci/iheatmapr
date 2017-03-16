@@ -1,0 +1,602 @@
+---
+title: iheatmapr
+author: Alicia Schep
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    theme: cerulean
+    toc_float:
+      collapsed: true
+      smooth_scroll: false
+vignette: >
+  %\VignetteIndexEntry{iheatmapr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(figure.width = 3, figure.height = 2)
+```
+
+
+# Introduction
+
+iheatmapr is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features.  
+
+For this vignette, we will use the Indometh data included in the datasets package. This data set contains data on the pharmacokinetics of Indometacin, specifically the observed plasma concentration of indometacin at various time points after intravenous injection for 6 different patients. We will first cast the data into a matrix of concentrations by patients (rows) and time (columns).  We will also compute correlation matrices for the patients, and the maximum and minimum concentration of Indometacin per patient. Finally, we will assign patients into some groups -- in this dataset no extra patient information is provided and so we'll just make arbitrary groups that are intended to show how one might use actual groupings like gender or ethnicity. 
+
+```{r, message = FALSE}
+library(iheatmapr)
+library(plotly)
+library(datasets)
+library(reshape2)
+
+Indometh_matrix <- acast(Indometh, Subject ~ time, value.var = "conc")
+Indometh_matrix <- Indometh_matrix[as.character(1:6),]
+rownames(Indometh_matrix) <- paste("Patient",rownames(Indometh_matrix))
+Indometh_patient_cor <- cor(t(Indometh_matrix))
+
+patient_max_conc <- apply(Indometh_matrix,1,max)
+patient_min_conc <- apply(Indometh_matrix,1,min)
+patient_groups <- c("A","A","B","A","B","A") # Arbitrary groups
+```
+
+## Example Complex Heatmap
+
+We will start off by showing an example of the type of complex heatmap we can create using the iheatmapr package. In our example complex heatmap, we will plot:
+
+* a heatmap of the correlation matrix 
+* dendrogram for column clustering
+* adendrogram for row clustering as well as annotation heatmap showing 3 clusters
+* annotation heatmaps showing the max and min Indometacin concentrations per patient
+* annotation heatmap showing whether patients fall in group "A" or "B"
+* a heatmap showing the actual Indometacin timecourse data for each patient
+* a plot showing the average Indometacin timecourse response
+* titles and labels for heatmaps
+
+
+```{r, figure.width = 6, figure.height = 4}
+main_heatmap(Indometh_patient_cor,name = "Correlation") %>%
+  add_col_clustering() %>%
+  add_row_clustering(k = 3) %>%
+  add_row_title("Patients") %>%
+  add_col_title("Patients") %>%
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = patient_groups)) %>%
+  add_main_heatmap(Indometh_matrix,
+                   name = "Indometacin<br>Concentration") %>%
+  add_col_labels() %>%
+  add_col_title("Time") %>%
+  add_col_summary()
+
+```
+
+All the plots aligned with the correlation heatmap horizontally share the same y axis and thus zooming in the y direction within the heatmap will also zoom in to those subplots. The plots aligned with either the correlation heatmap or the concentration heatmap vertically share an x axis with that heatmap and zooming horizontally within those plots will be linked.  
+
+Hovering over the heatmaps yields a tooltip with the name of the row and column as well as the value represented.
+
+## Modular system for building up complex heatmaps
+
+In our example complex heatmap above, the various components are added iteratively. There are two main types of plots in iheatmapr-- "main heatmaps" and subplots. Subplots can be added to the left, right, top, or bottom of a main heatmap. We will go over the basics of adding together different components of a plot in this section, and the [Modular buidling blocks](#modular-building-blocks) section of the vignette will go into detail into each of the modular components available.   
+
+### Starting with basic heatmap
+
+To initialize a complex heatmap, we start off by making a very simple heatmap using the `main_heatmap` function.  
+
+```{r}
+example_heatmap <- main_heatmap(Indometh_patient_cor, name = "Correlation")
+
+example_heatmap
+```
+
+### Adding subplots to right or left
+
+To this heatmap, we can add subplots to the top, bottom, left, or right. To illustrate how subplots are added we will start with one kind of subplot -- annotation heatmaps. The function `add_row_annotation` adds annotation heatmap(s) to the side of a heatmap. These functions are most easily chained together using the `%>%` operator from the magrittr package.  
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_row_annotation(data.frame("Groups" = patient_groups))
+
+example_heatmap
+```
+
+After adding one subplot to the right of a heatmap, we can easily add another. We can add as many subplots to any side of the heatmap as we want.    
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_row_annotation(data.frame("Groups" = patient_groups))
+
+example_heatmap
+```
+
+We can also add the subplot to the left instead of the right by specifying `side = left`.
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_row_annotation(data.frame("Groups" = patient_groups), side = "left")
+
+example_heatmap
+```
+
+### Adding subplot to top or bottom 
+
+The analogous function add_col_annotation can be used for adding annotation heatmap(s) to the top or bottom of a heatmap. We will first add one to the top (default side).
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_col_annotation(data.frame("Groups" = patient_groups))
+
+example_heatmap
+```
+
+Now we add one to the bottom:
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_col_annotation(data.frame("Groups" = patient_groups), side = "bottom")
+
+example_heatmap
+```
+
+The axis titles seem to overlap a bit -- to avoid this we can potentially alter the spacing between the plots -- see [Altering plot sizes and spacing](#altering-plot-sizes-and-spacing).  
+
+### Additional main heatmaps
+
+We can add another "main heatmap" using the `add_main_heatmap` function.
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_main_heatmap(Indometh_patient_cor, name = "Correlation")
+
+example_heatmap
+```
+
+Once we've added another main heatmap, when we add a subplot to the top or bottom, by default it will go on top/bottom of the most recently added heatmap.
+
+```{r}
+example_heatmap <- example_heatmap %>% 
+  add_col_annotation(data.frame("Groups" = patient_groups))
+
+example_heatmap
+```
+
+To specify that we want to add the subplot to another main heatmap, the same "xname" argument can be passed both to the desired main heatmap and the subplot to be added. 
+
+### Row and Column ordering
+
+When we initialize a heatmap using `main_heatmap` we can specify the row and/ or column order using the `row_order` and `col_order` arguments respectively. The functions `add_row_clustering` or `add_col_clustering` (See [Add clustering](#add-clustering)) can also be used to order the rows or columns. When the row or column order is specified (either initially or through a later function), this ordering is carried through to all plots along the same axis. 
+
+## The iheatmap and add_iheatmap functions
+
+The iheatmapr package includes two functions, `iheatmap` and `add_iheatmap`, that wrap together several of the modular building blocks that are often used in conjunction to make common types of heatmaps. Rather than calling many of the modular functions individually, additional arguments can be passed to `iheatmap` or `add_iheatmap`. Not all modular subcomponents can be specified this way, but such components can still be added directly through their function calls (e.g. `add_col_summary`). The following code generates the same plot as our first example heatmap above:
+
+```{r, figure.width = 6, figure.height = 4}
+iheatmap(Indometh_patient_cor, 
+         cluster_cols = "hclust", 
+         cluster_rows = "hclust",
+         col_title = "Patients",
+         row_title = "Patients",
+         name = "Correlation",
+         row_k = 3,
+         row_annotation = data.frame("Max" = patient_max_conc,
+                                     "Min" = patient_min_conc,
+                                     "Groups" = patient_groups)) %>%
+  add_iheatmap(Indometh_matrix,
+               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+               col_title = "Time",
+               col_labels = TRUE) %>% 
+  add_col_summary()
+```
+
+These functions can be useful for quickly creating a fairly standard plot. However, fewer options are available with `iheatmap` than if using each of the modular functions by themselves and there is much less flexibility in the ordering and sizing of the different subcomponents. 
+
+## Saving plots
+
+The `save_iheatmap` function can be used to save an iheatmap object as a standalone html file or as a static pdf/png/jpeg.
+
+```{r, eval = FALSE}
+myplot <- iheatmap(Indometh_patient_cor, 
+         cluster_cols = "hclust", 
+         cluster_rows = "hclust",
+         col_title = "Patients",
+         name = "Correlation") 
+
+myplot %>% save_iheatmap("myplot.html") # Save interactive HTML
+myplot %>% save_iheatmap("myplot.pdf") # Save static plot (pdf, png, or jpeg)
+```
+
+
+# Modular building blocks
+
+In this section of the vignette, we will explore each of the modular components included in the iheatmapr package.  
+
+## Main heatmap
+
+The `main_heatmap` function creates a basic heatmap. By default, the column and row names of the input matrix are used for determining the "Row" and "Column" labels in the tooltip above each cell.   
+
+```{r}
+main_heatmap(Indometh_patient_cor, 
+             name = "Correlation")
+```
+
+Alternatively one can provide the "y" or "x" arguments to use different labels in the tooltip. Providing these arguments will also affect the row and column labels if those are added later (See [Add labels](#add-labels))
+
+
+```{r}
+patient_names <- paste0("Patient ",seq_len(ncol(Indometh_patient_cor)))
+
+main_heatmap(Indometh_patient_cor, 
+             x = patient_names,
+             y = patient_names,
+             name = "Correlation")
+```
+
+To change the color use the "colors" argument with either the name of an RColorBrewer palette or a vector of colors:
+
+```{r}
+main_heatmap(Indometh_patient_cor,
+             colors = "Blues",
+             name = "Correlation")
+```
+
+
+## Add main heatmap
+
+The `add_main_heatmap` function is very similar to the main heatmap function, it just adds a new main heatmap to the left or right of the existing plots.  
+
+```{r}
+main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
+  add_main_heatmap(Indometh_matrix, name = "Indometacin<br>Concentration")
+```
+
+Note that if the same "name" argument is given to both the first main heatmap and the additional main heatmap, the two heatmaps will share the same colorscale and colorbar. 
+
+See [Orientation](#orientation) for adding main heataps vertically instead of horizontally!
+
+## Add labels
+
+Row and column labels are not shown by default. To add them, use the `add_row_labels` or `add_col_labels`.  By default, these will use the row and column names provided to the `main_heatmap` or `add_main_heatmap` either directly or indirectly via the row and column names of the matrix. 
+
+```{r}
+main_heatmap(Indometh_matrix, name = "Correlation") %>%
+  add_row_labels() %>% 
+  add_col_labels() %>% 
+  add_row_title("Patients") %>% 
+  add_col_title("Patients")
+```
+
+## Add clustering 
+
+The functions `add_row_clustering` and `add_col_clustering` will cluster the rows or columns. By default, the clustering is via hierarchical clustering and a dendrogram is added. 
+
+```{r}
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_clustering() %>% 
+  add_col_clustering()
+```
+
+Specifying a value of k will result in cluster assignments being made based on the dendrogram and an annotation heatmap gets added showing the clustering. 
+
+```{r}
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_clustering(k = 3) %>% 
+  add_col_clustering()
+```
+
+Alternatively, clustering can be done using kmeans by setting `method = "kmeans"`. In that case, a value of k must be given!
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_row_clustering(k = 3, method = "kmeans") 
+```
+
+Another way of clustering the results is by giving group assignments. 
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_row_clustering(method = "groups", groups = c("A","A","B","B","A","A")) 
+```
+
+### Add row dendrogram
+
+If you want to perform the hierarchical clustering yourself, you can use the `add_row_dendro` or `add_col_dendro` functions to add the dendrogram. The clustering result should be provided as an "hclust" object.
+
+```{r}
+clust_res <- hclust(as.dist(1 - Indometh_patient_cor))
+
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_dendro(clust_res) %>%
+  add_col_dendro(clust_res)
+```
+
+If you want to add a dendrogram but have already ordered your matrix, you can set the "reorder" argument to `FALSE`.
+
+## Add annotations
+
+The functions `add_row_annotation` and `add_col_annotation` add one or more annotation heatmaps. Annotations should be provided as a data.frame or something that can be coerced into a data.frame.  
+```{r}
+
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = c("A","A","B","B","A","A")))
+
+```
+
+By default, colors will be chosen for each annotation. To assign colors yourself, provide a list of colors, with the names of the list matching the column names of the annotation. Colors can either be the name of an RColorBrewer palette or a vector of colors.  
+
+```{r}
+
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = c("A","A","B","B","A","A")),
+                     colors = list("Max" = "Reds",
+                                   "Min" = "Blues",
+                                   "Groups" = c("purple","pink")))
+
+```
+
+For more control over annotation heatmaps, use the functions `add_col_signal` and `add_row_signal` for adding a single continuous annotation or `add_col_groups` and `add_row_groups` for adding a single discrete annotation.
+
+```{r}
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_signal(patient_max_conc, "Max<br>Concentration", title = "Max", colors = "Reds") %>%
+  add_row_signal(patient_min_conc, "Min<br>Concentration", title = "Min", colors = "Reds") %>%
+  add_row_groups(c("A","A","B","B","A","A"), "Groups") 
+
+```
+
+## Add summary
+
+One type of subplot that can be added is a summary of the values over the rows or the columns. For example when plotting Indometh concentrations per patient over time we might want to plot the average time response using `add_col_summary`.  
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_col_summary() 
+```
+
+`add_row_summary` is similar but adds plot along left summarizing rows.
+
+With `add_col_summary` or `add_row_summary` we can pass groups to divide by the rows or columns respectively when computing the summary:
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_col_summary(groups = c("A","A","B","B","A","A")) 
+```
+
+If groups is set to `TRUE` rather than a vector of groups, then the function will try to use an existing set of groups or clusters that have been added to the plot. This should be avoided if more than one set of groups has been added (only one of the existing sets of groups will be used in that case.)
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_row_clustering(k = 3) %>% 
+  add_col_summary(groups = TRUE) 
+```
+
+## Add barplot
+
+The functions `add_col_barplot` and `add_row_barplot` add barplots along the columns or rows of a main heatmap.  
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_col_barplot(y = as.numeric(colnames(Indometh_matrix)),
+                  tracename = "time", 
+                  layout = list(title = "Time"))
+```
+
+## Add line plot
+
+The functions `add_col_barplot` and `add_row_barplot` add a line plot along the columns or rows of a main heatmap.  
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_col_plot(y = as.numeric(colnames(Indometh_matrix)),
+                  tracename = "time", 
+                  layout = list(title = "Time"))
+```
+
+## Add arbitrary plot
+
+The functions for adding barplots or lineplots assume one data point per row or column. To add an arbitrary plot, one can use `add_subplot`.  
+
+```{r}
+main_heatmap(Indometh_matrix) %>% 
+  add_subplot(x = 1:3, y = 4:6, side = "top")
+```
+
+# Customization options
+
+The next section of this vignette will cover some customization options available in iheatmapr.
+
+## Color selection
+
+iheatmapr tries to choose colors automatically in a sensible way. If a heatmap with the same "name" argument as another heatmap is added, the two heatmaps will share the same colorbar and scale. Functions to make and add heatmaps and subplots have a "colors" argument that can be used to specify colors manually. These arguments take in RColorBrewer palette names or vectors of colors. 
+
+For example, if we simply repeat the same exact main heatmap with the same "name" argument and the same column names for the annotation matrices, the colorbars are not duplicated.  
+
+```{r}
+main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = c("A","A","B","B","A","A")),
+                     colors = list("Max" = "Reds",
+                                   "Min" = "Blues",
+                                   "Groups" = c("purple","pink"))) %>% add_main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = c("A","A","B","B","A","A")),
+                     colors = list("Max" = "Reds",
+                                   "Min" = "Blues",
+                                   "Groups" = c("purple","pink")))
+
+```
+
+
+## Colorbars
+
+When additional heatmaps or annotations with colorscales are added to an iheatmap object, the colorbars will be added according a grid pattern.  The layout and spacing of that grid can be specified using the "colorbar_grid" parameter to iheatmap or simple_heatmap. By default, the grid has three rows. To change the layout of the grid to only have 2 rows and adjust the spacing and sizing of the colorbars, we can use the function setup_colorbar_grid to create a ColorbarGridParameters object that can be passed to the colorbar_grid argument to simple_heatmap.
+
+```{r, figure.width = 6, figure.height = 4}
+grid_params <- setup_colorbar_grid(nrows = 2, 
+                                   y_length = 0.3, 
+                                   x_spacing = 0.2,
+                                   y_spacing = 0.5, 
+                                   x_start = 1.1, 
+                                   y_start = 1)
+
+
+iheatmap(Indometh_patient_cor, 
+         cluster_cols = "hclust", 
+         cluster_rows = "hclust",
+         col_title = "Patients",
+         name = "Correlation",
+         row_k = 3,
+         row_annotation = data.frame("Max" = patient_max_conc,
+                                     "Min" = patient_min_conc,
+                                     "Groups" = patient_groups),
+         colorbar_grid = grid_params) %>%
+  add_iheatmap(Indometh_matrix,
+               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+               col_title = "Time",
+         row_title = "Patients") %>% 
+  add_col_summary()
+```
+
+
+## Continuous Axes
+
+In all the plots above, the axes of the main heatmaps have been treated as categorical, with the columns of equal widths and rows of equal widths. In some cases, it may make sense to treat one or both axes as continuous. There are several ways to indicate to iheatmapr that the axes should be continuous. The first is to use the `x_categorical` and `y_categorical` arguments, setting them to false.  
+
+```{r}
+main_heatmap(Indometh_matrix, x_categorical = FALSE)
+```
+
+By default, names of rows and columns are taken from the row and column names of the matrix, respectively. Alternatively, these can be provided to the x and y arguments to `main_heatmap` or `iheatmap`. If the values are given as numeric and do not correspond simply to the row or column number, then the axis is assumed to be continuous. 
+
+```{r}
+main_heatmap(Indometh_matrix, x = as.numeric(colnames(Indometh_matrix)))
+```
+
+### Labels
+
+Labels will be a bit different for continuous axes -- rather than labelling every row or column,
+labels are chosen more similarly to a regular plot.
+
+```{r}
+main_heatmap(Indometh_matrix, x_categorical = FALSE) %>%
+  add_col_labels()
+```
+
+### Clustering
+
+Another major difference with categorical axes is that continuous axes can't be clustered!
+
+```{r, error = TRUE}
+main_heatmap(Indometh_matrix, x_categorical = FALSE) %>%
+  add_col_clustering() # will give error
+```
+
+
+## Orientation
+
+By default, additional heatmaps are added horizontally to left or right of existing heatmap(s). It is also possible to build up complex heatmaps vertically rather than horizontally by setting `orientation = vertical` to the initial call to `iheatmap` or `main_heatmap`.
+
+```{r, figure.width = 4, figure.height = 6}
+iheatmap(Indometh_patient_cor, 
+         cluster_cols = "hclust", 
+         cluster_rows = "hclust",
+         row_title = "Patients",
+         name = "Correlation",
+         orientation = "vertical") %>%
+  add_iheatmap(t(Indometh_matrix),
+               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+               row_title = "Time",
+         col_title = "Patients") 
+```
+
+
+## Plotly modifications
+
+When displaying an Iheatmap object, iheatmapr converts the object into a plotly htmlwidget. If you want to be able to inspect or modify that object, the `as_plotly` function will convert an Iheatmap object to a plotly htmlwidgets object. If you are familiar with the plotly R package, this is the type of object that results from the "plotly_build" command. Note that after such conversion, none of the iheatmap functions can be used anymore. However, the object can be passed to plotly functions, like layout.
+
+```{r}
+main_heatmap(Indometh_matrix) %>% as_plotly() %>% 
+  layout(margin = list(b = 120))
+```
+
+Converting the object to a plotly object also enables use of these heatmaps in shiny, as we can then take advantage of the plotly R packages renderPlotly, plotlyOutput, and event_data functions.
+
+## Axis properties
+
+Most functions for adding a subplot include a "layout" argument for providing layout parameters for the additional axis that is created.  This layout parameter accepts a list of layout parameters that plotly uses for altering the layout of an axis.  See the [plotly documentation](https://plot.ly/javascript/reference/#layout-xaxis) for more information about the various options.
+
+As an example, here is a plot with default axis options:
+
+```{r}
+iheatmap(Indometh_matrix,
+               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+               col_title = "Time",
+         row_title = "Patients") %>% 
+  add_col_summary()
+```
+
+Adding `zeroline = FALSE` removes the zero line, and `title = "Average"` adds yaxis label.  
+
+```{r}
+iheatmap(Indometh_matrix,
+               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+               col_title = "Time",
+         row_title = "Patients") %>% 
+  add_col_summary(layout = list(zeroline = FALSE, title = "Average"))
+```
+
+## Sharing axes
+
+By default subplots stacked vertically share the X axis with a main heatmap, and subplots stacked horizontally share their Y axis with a main heatmap. Subplots can also be made to share the other axis with an existing subplot. 
+
+Here is an example of two subplots with independent axes:
+
+```{r}
+main_heatmap(Indometh_matrix) %>%
+  add_col_summary() %>%
+  add_main_heatmap(Indometh_matrix) %>%
+  add_col_summary()
+```
+
+By passing the same "yname" argument to both axes, the axes become shared:
+
+```{r}
+main_heatmap(Indometh_matrix) %>%
+  add_col_summary(yname = "Summary") %>%
+  add_main_heatmap(Indometh_matrix) %>%
+  add_col_summary(yname = "Summary")
+```
+
+## Altering plot sizes and spacing
+
+Each type of subplot has a default relative size and default relative spacing from the previous plots, but both the size and spacing can be altered by passing a 'buffer' or 'size' argument. Both arguments are relative to the size of the first main heatmap along that dimension.  
+
+```{r}
+main_heatmap(Indometh_matrix) %>%
+  add_col_summary()
+```
+
+```{r}
+main_heatmap(Indometh_matrix) %>%
+  add_col_summary(buffer = 0.2, size = 1)
+```
+
+## Sizing in knitr
+
+To change the sizing within knitr, use the fig.width and fig.height chunk options.
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+

@@ -1,0 +1,10 @@
+templates:
+  params:
+    bootswatch: cerulean
+
+navbar:
+  left:
+  - text: Vignette
+    href: articles/iheatmapr.html
+  - text: Reference
+    href: reference/index.html

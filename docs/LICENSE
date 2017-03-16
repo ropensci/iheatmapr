@@ -1,0 +1,6 @@
+COPYRIGHT AND LICENSE
+       This software is copyright (c) by Genentech.
+
+       This is unreleased software and should not be distributed outside of Genentech.
+
+       All rights reserved.

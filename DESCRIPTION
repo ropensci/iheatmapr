@@ -1,0 +1,71 @@
+Package: iheatmapr
+Type: Package
+Title: Interactive Complex Heatmaps
+Version: 0.2.3
+Date: 2017-02-09
+Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
+                  role = c("aut", "cre")),
+              person("Sarah","Kummerfeld", email = "kummerfeld.sarah@gene.com",
+                  role = c("aut")),
+              person("Genentech", role = "cph"))
+Description: iheatmapr is a package for making complex, interactive heatmaps.
+    The package includes a modular system for iteratively building up complex
+    heatmaps, as well as the iheatmap function for making relatively standard
+    heatmaps.
+License: MIT + file LICENSE
+Depends:
+    plotly (>= 4.1.1),
+    R (>= 2.10)
+Imports:
+    methods,
+    plyr,
+    utils,
+    magrittr,
+    S4Vectors,
+    stats,
+    ggdendro,
+    fastcluster,
+    RColorBrewer,
+    htmlwidgets,
+    jsonlite,
+    scales,
+    knitr
+Suggests:
+    htmltools,
+    datasets,
+    shiny,
+    testthat,
+    rmarkdown,
+    reshape2,
+    roxygen2,
+    covr,
+    purrr
+biocViews: Visualization
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
+Collate:
+    'AllClasses.R'
+    'AllGenerics.R'
+    'annotations.R'
+    'as_plotly.R'
+    'axes.R'
+    'axis_labels.R'
+    'axis_titles.R'
+    'barplot.R'
+    'clustering.R'
+    'clusters.R'
+    'colorbars.R'
+    'colors.R'
+    'components.R'
+    'dendogram.R'
+    'generic_subplots.R'
+    'groups.R'
+    'main_heatmap.R'
+    'iheatmap.R'
+    'iheatmapr.R'
+    'layout.R'
+    'shiny_click_test.R'
+    'signal.R'
+    'subplot.R'
+    'summary.R'
+    'utils.R'
