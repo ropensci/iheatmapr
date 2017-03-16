@@ -1,5 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/.svg?branch=master)](https://travis-ci.org/)
-[![Coverage Status](https://img.shields.io/codecov/c/github//master.svg)](https://codecov.io/github/?branch=master)
+[![Build Status](https://travis-ci.org/AliciaSchep/iheatmapr.svg?branch=master)](https://travis-ci.org/AliciaSchep/iheatmapr)
 
 # iheatmapr
 
@@ -43,4 +42,4 @@ Hovering over the heatmaps yields a tooltip with the name of the row and column 
 
 # Documentation
 
-See the vignette for a more thorough introduction to the package.
+See the [vignette](https://aliciaschep.github.io/iheatmapr/articles/iheatmapr.html) for a more thorough introduction to the package.
