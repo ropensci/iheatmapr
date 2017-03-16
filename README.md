@@ -9,7 +9,7 @@ iheatmapr is an R package for building complex, interactive heatmaps using modul
 
 As an example of a complex heatmap, we can make a version of the famous vaccines plot from the Wall Street Journal that has been recreated in several other heatmap frameworks in R. 
 
-![](vaccine.gif)
+![](https://raw.githubusercontent.com/AliciaSchep/iheatmapr/master/vaccine.gif)
 
 The code to create this heatmap is:
 
