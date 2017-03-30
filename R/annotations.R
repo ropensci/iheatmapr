@@ -42,7 +42,7 @@ setMethod(add_row_annotation,
                    inner_buffer = buffer / 2,
                    layout = list()){
             
-            side = match.arg(side)
+            side <- match.arg(side)
             # Convert to data.frame
             x <- as.data.frame(annotation)
             
@@ -132,7 +132,7 @@ setMethod(add_col_annotation,
                    inner_buffer = buffer / 2,
                    layout = list()){
             
-            side = match.arg(side)
+            side <- match.arg(side)
             # Convert to data.frame
             x <- as.data.frame(annotation)
             

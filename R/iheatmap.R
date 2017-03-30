@@ -98,10 +98,10 @@ setMethod("iheatmap", c(data = "matrix"),
                    font = list(),
                    ...){
             
-            cluster_rows = match.arg(cluster_rows)
-            cluster_cols = match.arg(cluster_cols)
-            scale = match.arg(scale)
-            scale_method = match.arg(scale_method)
+            cluster_rows <- match.arg(cluster_rows)
+            cluster_cols <- match.arg(cluster_cols)
+            scale <- match.arg(scale)
+            scale_method <- match.arg(scale_method)
             
             if (scale != "none") data <- scale_mat(data, 
                                                    scale = scale, 
@@ -282,9 +282,9 @@ setMethod("add_iheatmap", c(p = "IheatmapHorizontal", data = "matrix"),
                    ...){
             
             
-            cluster_cols = match.arg(cluster_cols)
-            scale = match.arg(scale)
-            scale_method = match.arg(scale_method)
+            cluster_cols <- match.arg(cluster_cols)
+            scale <- match.arg(scale)
+            scale_method <- match.arg(scale_method)
             
             if (scale != "none") data <- scale_mat(data, scale = scale, 
                                                    scale_method = scale_method)
@@ -380,9 +380,9 @@ setMethod("add_iheatmap", c(p = "IheatmapVertical", data = "matrix"),
                    ...){
             
             
-            cluster_rows = match.arg(cluster_rows)
-            scale = match.arg(scale)
-            scale_method = match.arg(scale_method)
+            cluster_rows <- match.arg(cluster_rows)
+            scale <- match.arg(scale)
+            scale_method <- match.arg(scale_method)
             
             if (scale != "none") data <- scale_mat(data, scale = scale, 
                                                    scale_method = scale_method)

@@ -32,7 +32,7 @@ new_iheatmap <- function(plot,
                          colorbar_name = NULL,
                          font = list(),
                          ...){
-  orientation = match.arg(orientation)
+  orientation <- match.arg(orientation)
   if (orientation == "horizontal"){
     new("IheatmapHorizontal",
         plots = new_plots(plot, pname),

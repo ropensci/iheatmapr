@@ -8,7 +8,7 @@ setMethod("get_colorbar_position", c(x = "Iheatmap"),
       }
       return(j)
     } else{
-      return(sapply(colorbars(x), get_colorbar_position))
+      return(vapply(colorbars(x), get_colorbar_position, 1))
     }
   }
 )
@@ -17,7 +17,7 @@ setMethod("get_colorbar_position", c(x = "IheatmapColorbar"),
           function(x){ x@position})
 
 setMethod("get_colorbar_position", c(x = "IheatmapColorbars"),
-          function(x){sapply(x, get_colorbar_position)})
+          function(x){vapply(x, get_colorbar_position, 1)})
 
 setMethod("get_legend_position", c(x = "Iheatmap"),
           function(x){
@@ -77,7 +77,7 @@ tickvals_helper <- function(zmin, zmid, zmax) {
   
   span <- if (zero_range(rng)) abs(rng[1]) else diff(rng)
   if (span == 0){
-    precision = 1
+    precision <- 1
   } else{
     precision <- 10 ^ floor(log10(span)-1)
   }
@@ -167,10 +167,10 @@ setMethod("colorbars", c( x= "IheatmapColorbars"),
           function(x, what = c("all","continuous","discrete")){
             what <- match.arg(what)
             if (what == "continuous"){
-              ix <- sapply(x, inherits, "ContinuousColorbar")
+              ix <- vapply(x, inherits, FALSE, "ContinuousColorbar")
               return(x[ix])
             } else if (what == "discrete"){
-              ix <- sapply(x, inherits, "DiscreteColorbar")
+              ix <- vapply(x, inherits, FALSE, "DiscreteColorbar")
               return(x[ix])
             } else{
               return(x)
@@ -186,7 +186,7 @@ setMethod("color_palette", c(x = "Iheatmap"),
 setMethod("color_palette", c(x = "IheatmapColorbars"),
           function(x, what = c("all","continuous","discrete")){
             what <- match.arg(what)
-            sapply(colorbars(x,what), color_palette)
+            lapply(colorbars(x,what), color_palette)
           })
 
 setMethod("color_palette",c(x = "IheatmapColorbar"),

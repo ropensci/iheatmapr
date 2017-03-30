@@ -1,8 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive Complex Heatmaps
-Version: 0.2.3
-Date: 2017-02-09
+Version: 0.2.4
 Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
                   role = c("aut", "cre")),
               person("Sarah","Kummerfeld", email = "kummerfeld.sarah@gene.com",
@@ -42,6 +41,8 @@ Suggests:
 biocViews: Visualization
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
+URL: https://github.com/AliciaSchep/iheatmapr
+BugReports: https://github.com/AliciaSchep/iheatmapr/issues
 Collate:
     'AllClasses.R'
     'AllGenerics.R'

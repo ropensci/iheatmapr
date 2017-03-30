@@ -8,14 +8,14 @@ dendro_to_coords <- function(dendro,
   d$x <- d$x 
   d$xend <- d$xend 
   if (orientation == "left"){
-    d[,c("y","yend")] = (d[,c("y","yend")])*-1
+    d[,c("y","yend")] <- (d[,c("y","yend")])*-1
     out <-  data.frame(x0 = d$y, x1 = d$yend, y0 = d$x, y1 = d$xend)
   } else if (orientation == "top"){
     out <- data.frame(x0 = d$x, x1 = d$xend, y0 = d$y, y1 = d$yend)
   } else if (orientation == "right"){
     out <- data.frame(x0 = d$y, x1 = d$yend, y0 = d$x, y1 = d$xend)
   } else if (orientation == "bottom"){
-    d[,c("y","yend")] = (d[,c("y","yend")])*-1
+    d[,c("y","yend")] <- (d[,c("y","yend")])*-1
     out <- data.frame(x0 = d$x, x1 = d$xend, y0 = d$y, y1 = d$yend)
   }
   return(out)

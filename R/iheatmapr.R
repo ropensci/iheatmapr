@@ -23,6 +23,7 @@
 #' @importFrom utils modifyList
 #' @importFrom magrittr %>%
 #' @importFrom scales zero_range
+#' @importFrom fastcluster hclust
 #' @name iheatmapr
 #' @rdname iheatmapr
 #' @seealso \code{\link{main_heatmap}}, \code{\link{iheatmap}},

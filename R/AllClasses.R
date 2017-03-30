@@ -570,7 +570,7 @@ setClass("IheatmapAxes",
 setValidity("IheatmapAxes",
             function(object){
               if (length(object) > 0)
-                return(all(sapply(object, validObject)))
+                return(all(vapply(object, validObject, FALSE)))
               return(TRUE)
             })
 

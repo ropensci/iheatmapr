@@ -1,8 +1,8 @@
 context("clustering")
 
-a = matrix(rnorm(200),ncol=10)
-col_grp = c(rep("A",5),rep("B",5))
-row_grp = c(rep("A",15),rep("B",5))
+a <- matrix(rnorm(200),ncol=10)
+col_grp <- c(rep("A",5),rep("B",5))
+row_grp <- c(rep("A",15),rep("B",5))
 
 # Col clustering with default option (hclust) ---------------------------------
 

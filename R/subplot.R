@@ -54,7 +54,7 @@ setMethod("add_subplot", c(p = "Iheatmap"),
                    yname = if (side %in% c("left","right")) 
                      current_yaxis(p) else NULL,
                    pname = "subplot"){
-            side = match.arg(side)
+            side <- match.arg(side)
             if (side %in% c("left","right")){
               p <- add_subplot_horizontal(p,
                                           ..., 

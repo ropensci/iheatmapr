@@ -25,7 +25,7 @@ setMethod('yaxes', c(p = "Iheatmap"),
             if (is.null(xaxis)){
               p@yaxes
             } else{
-              ids = unique(yaxis_name(p)[which(xaxis_name(p) %in% xaxis)])
+              ids <- unique(yaxis_name(p)[which(xaxis_name(p) %in% xaxis)])
               p@yaxes[ids]
             }
           })
@@ -37,7 +37,7 @@ setMethod('xaxes', c(p = "Iheatmap"),
             if (is.null(yaxis)){
               p@xaxes
             } else{
-              ids = unique(xaxis_name(p)[which(yaxis_name(p) %in% yaxis)])
+              ids <- unique(xaxis_name(p)[which(yaxis_name(p) %in% yaxis)])
               p@xaxes[ids]
             }
           })

@@ -57,9 +57,9 @@ setMethod(add_row_clustering,
             mat <- get_data(hm)
             
             if (method == "hclust"){
-              dendro = fastcluster::hclust(clust_dist(mat))
+              dendro <- hclust(clust_dist(mat))
               if (!is.null(k)){
-                groups = stats::cutree(dendro, k = k)
+                groups <- stats::cutree(dendro, k = k)
                 if (is.null(colors)) colors <- pick_discrete_colors(groups, p)
                 p <- add_row_groups(p,
                                     groups, 
@@ -72,7 +72,7 @@ setMethod(add_row_clustering,
               p <- add_row_dendro(p, dendro, side = side)
             } else if (method == "kmeans"){
               if (is.null(k)) stop("No k provided")
-              groups = stats::kmeans(mat, centers = k)$cluster
+              groups <- stats::kmeans(mat, centers = k)$cluster
               if (is.null(colors)) colors <- pick_discrete_colors(groups, p)
               p <- add_row_clusters(p,
                                     groups, 
@@ -154,9 +154,9 @@ setMethod(add_col_clustering,
             mat <- get_data(hm)
             
             if (method == "hclust"){
-              dendro = fastcluster::hclust(clust_dist(t(mat)))
+              dendro <- hclust(clust_dist(t(mat)))
               if (!is.null(k)){
-                groups = stats::cutree(dendro, k = k)
+                groups <- stats::cutree(dendro, k = k)
                 if (is.null(colors)) colors <- pick_discrete_colors(groups, p)
                 p <- add_col_groups(p,
                                     groups, 
@@ -169,7 +169,7 @@ setMethod(add_col_clustering,
               p <- add_col_dendro(p, dendro, side = side)
             } else if (method == "kmeans"){
               if (is.null(k)) stop("No k provided")
-              groups = stats::kmeans(t(mat), centers = k)$cluster
+              groups <- stats::kmeans(t(mat), centers = k)$cluster
               if (is.null(colors)) colors <- pick_discrete_colors(groups, p)
               p <- add_col_clusters(p,
                                     groups,

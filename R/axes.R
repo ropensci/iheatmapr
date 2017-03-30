@@ -124,7 +124,7 @@ one_bounded <- function(x){
   return(out)
 }
 
-no_axis = list(title = "",
+no_axis <- list(title = "",
                zeroline = FALSE,
                showline = FALSE,
                showticklabels = FALSE,
@@ -179,7 +179,7 @@ setMethod(domain_start, c(x = "IheatmapAxis"),
           function(x){x@domain_start})
 
 setMethod(domain_start, c(x = "IheatmapAxes"),
-          function(x){sapply(x, domain_start)})
+          function(x){vapply(x, domain_start, 1)})
 
 
 setReplaceMethod("domain_start", c(x = "IheatmapAxis"),
@@ -199,7 +199,7 @@ setMethod(domain_end, c(x = "IheatmapAxis"),
 
 
 setMethod(domain_end, c(x = "IheatmapAxes"),
-          function(x){sapply(x, domain_end)})
+          function(x){vapply(x, domain_end, 1)})
 
 
 setReplaceMethod("domain_end", c(x = "IheatmapAxis"),
@@ -219,7 +219,7 @@ setMethod(id, c(x = "IheatmapAxis"),
 
 
 setMethod(id, c(x = "IheatmapAxes"),
-          function(x){sapply(x, id)})
+          function(x){vapply(x, id, "")})
 
 
 setMethod(xaxis_name, c(x = "IheatmapPanel"),
@@ -227,7 +227,7 @@ setMethod(xaxis_name, c(x = "IheatmapPanel"),
 
 
 setMethod(xaxis_name, c(x = "IheatmapPanels"),
-          function(x){sapply(x, xaxis_name)})
+          function(x){vapply(x, xaxis_name,"")})
 
 
 setMethod(xaxis_name, c(x = "Iheatmap"),
@@ -243,7 +243,7 @@ setMethod(yaxis_name, c(x = "IheatmapPanel"),
 
 
 setMethod(yaxis_name, c(x = "IheatmapPanels"),
-          function(x){sapply(x, yaxis_name)})
+          function(x){vapply(x, yaxis_name, "")})
 
 
 setMethod(yaxis_name, c(x = "Iheatmap"),
@@ -321,8 +321,8 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapX"),
               domain_start(axes) <- starts / norm_factor
               domain_end(axes) <- ends / norm_factor
 
-              domain_start(new_axis) = 1 - new_size
-              domain_end(new_axis) = 1
+              domain_start(new_axis) <- 1 - new_size
+              domain_end(new_axis) <- 1
 
               axes[[xname]] <- new_axis
 
@@ -331,8 +331,8 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapX"),
               domain_start(axes) <- 1  - ((1 - starts) / norm_factor)
               domain_end(axes) <- 1 - ((1 - ends) / norm_factor)
 
-              domain_start(new_axis) = 0
-              domain_end(new_axis) = new_size
+              domain_start(new_axis) <- 0
+              domain_end(new_axis) <- new_size
 
               axes[[xname]] <- new_axis
 
@@ -355,10 +355,10 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
               if (yname %in% names(yaxes(p, xname))){
                 return(p)
               } else{
-                existing = TRUE
+                existing <- TRUE
               }
             } else{
-              existing = FALSE
+              existing <- FALSE
             }
 
             axes <- yaxes(p)
@@ -416,11 +416,11 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
                 sizes <- sizes / norm_factor
                 buffer_sizes <- c(buffer_sizes, new_buffer_size) / norm_factor
                 new_size <- new_size / norm_factor
-                j = min(starts) / norm_factor
+                j <- min(starts) / norm_factor
                 for (i in seq_along(sizes)){
-                  domain_start(axes[[names(current)[i]]]) = j
-                  domain_end(axes[[names(current)[i]]]) = j + sizes[i]
-                  j = j + sizes[i] + buffer_sizes[i]
+                  domain_start(axes[[names(current)[i]]]) <- j
+                  domain_end(axes[[names(current)[i]]]) <- j + sizes[i]
+                  j <- j + sizes[i] + buffer_sizes[i]
                 }
                 if (existing){
                   domain_start(axes[[yname]]) <- j
@@ -463,9 +463,9 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
                 new_size <- new_size / norm_factor
                 j <- 1 - ((1 - (max(ends))) / norm_factor)
                 for (i in rev(seq_along(sizes))){
-                  domain_start(axes[[names(current)[i]]]) = j - sizes[i]
-                  domain_end(axes[[names(current)[i]]]) = j
-                  j = j - sizes[i] - buffer_sizes[i]
+                  domain_start(axes[[names(current)[i]]]) <- j - sizes[i]
+                  domain_end(axes[[names(current)[i]]]) <- j
+                  j <- j - sizes[i] - buffer_sizes[i]
                 }
                 if (existing){
                   domain_start(axes[[yname]]) <- zero_bounded(j - new_size)
@@ -502,16 +502,16 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
                   old_ybottom <- domain_start(yaxes(p)[[which(id(yaxes(p)) == 
                                                                 "y")]])
                   old_bottom <- min(additional_starts)
-                  j = zero_bounded(new_ybottom - ((old_ybottom - old_bottom) / 
+                  j <- zero_bounded(new_ybottom - ((old_ybottom - old_bottom) / 
                                              norm_factor))
                   for (i in seq_along(additional_sizes)){
                     if (names(additional)[i] %ni% c(yname,names(current))){
                       domain_start(axes[[names(additional)[i]]]) <- j
                       domain_end(axes[[names(additional)[i]]]) <- one_bounded(j +
                         additional_sizes[i])
-                      j = j + additional_sizes[i] + additional_buffer_sizes[i]
+                      j <- j + additional_sizes[i] + additional_buffer_sizes[i]
                     } else{
-                      j = domain_end(axes[[names(additional)[i]]]) +
+                      j <- domain_end(axes[[names(additional)[i]]]) +
                         additional_buffer_sizes[i]
                     }
                   }
@@ -562,8 +562,8 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapY"),
               domain_start(axes) <- starts / norm_factor
               domain_end(axes) <- ends / norm_factor
 
-              domain_start(new_axis) = 1 - new_size
-              domain_end(new_axis) = 1
+              domain_start(new_axis) <- 1 - new_size
+              domain_end(new_axis) <- 1
 
               axes[[yname]] <- new_axis
 
@@ -572,8 +572,8 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapY"),
               domain_start(axes) <- 1  - ((1 - starts) / norm_factor)
               domain_end(axes) <- 1 - ((1 - ends) / norm_factor)
 
-              domain_start(new_axis) = 0
-              domain_end(new_axis) = new_size
+              domain_start(new_axis) <- 0
+              domain_end(new_axis) <- new_size
 
               axes[[yname]] <- new_axis
 
@@ -596,10 +596,10 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
               if (xname %in% names(xaxes(p, yname))){
                 return(p)
               } else{
-                existing = TRUE
+                existing <- TRUE
               }
             } else{
-              existing = FALSE
+              existing <- FALSE
             }
 
             axes <- xaxes(p)
@@ -657,11 +657,11 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
                 sizes <- sizes / norm_factor
                 buffer_sizes <- c(buffer_sizes, new_buffer_size) / norm_factor
                 new_size <- new_size / norm_factor
-                j = min(starts) / norm_factor
+                j <- min(starts) / norm_factor
                 for (i in seq_along(sizes)){
-                  domain_start(axes[[names(current)[i]]]) = j
-                  domain_end(axes[[names(current)[i]]]) = j + sizes[i]
-                  j = j + sizes[i] + buffer_sizes[i]
+                  domain_start(axes[[names(current)[i]]]) <- j
+                  domain_end(axes[[names(current)[i]]]) <- j + sizes[i]
+                  j <- j + sizes[i] + buffer_sizes[i]
                 }
                 if (existing){
                   domain_start(axes[[xname]]) <- j
@@ -703,9 +703,9 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
                 new_size <- new_size / norm_factor
                 j <- 1 - ((1 - (max(ends))) / norm_factor)
                 for (i in rev(seq_along(sizes))){
-                  domain_start(axes[[names(current)[i]]]) = j - sizes[i]
-                  domain_end(axes[[names(current)[i]]]) = j
-                  j = j - sizes[i] - buffer_sizes[i]
+                  domain_start(axes[[names(current)[i]]]) <- j - sizes[i]
+                  domain_end(axes[[names(current)[i]]]) <- j
+                  j <- j - sizes[i] - buffer_sizes[i]
                 }
                 if (existing){
                   domain_start(axes[[xname]]) <- zero_bounded(j - new_size)
@@ -741,16 +741,16 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
                   old_xbottom <- domain_start(xaxes(p)[[which(id(xaxes(p)) == 
                                                                 "x")]])
                   old_bottom <- min(additional_starts)
-                  j = zero_bounded(new_xbottom - ((old_xbottom - old_bottom) / 
+                  j <- zero_bounded(new_xbottom - ((old_xbottom - old_bottom) / 
                                              norm_factor))
                   for (i in seq_along(additional_sizes)){
                     if (names(additional)[i] %ni% c(xname,names(current))){
                       domain_start(axes[[names(additional)[i]]]) <- j
                       domain_end(axes[[names(additional)[i]]]) <- one_bounded(j +
                         additional_sizes[i])
-                      j = j + additional_sizes[i] + additional_buffer_sizes[i]
+                      j <- j + additional_sizes[i] + additional_buffer_sizes[i]
                     } else{
-                      j = domain_end(axes[[names(additional)[i]]]) +
+                      j <- domain_end(axes[[names(additional)[i]]]) +
                         additional_buffer_sizes[i]
                     }
                   }

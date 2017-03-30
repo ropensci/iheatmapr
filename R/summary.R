@@ -93,7 +93,7 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
             mat <- get_data(hm)
             
             row_summary_without_groups <- function(p){
-              x = rowMeans(mat, na.rm = TRUE)
+              x <- rowMeans(mat, na.rm = TRUE)
               p <- if (type == "scatter"){
                 add_row_plot(p,
                                 x = x, 
@@ -124,8 +124,8 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
             
             row_summary_with_groups <- function(p, groups, colors){
               for (i in seq_along(levels(groups))){
-                sel = which(groups == levels(groups)[i])
-                x = rowMeans(mat[,sel,drop = FALSE],na.rm=TRUE)
+                sel <- which(groups == levels(groups)[i])
+                x <- rowMeans(mat[,sel,drop = FALSE],na.rm=TRUE)
                 p <- if (type == "scatter"){
                   add_row_plot(p,
                                   x = x, color = colors[i], 
@@ -186,9 +186,9 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
             } else{
               groups <- as.factor(groups)
               if (is.null(colors)){ 
-                colors = pick_row_summary_colors(p, groups, xname, yname, side)
+                colors <- pick_row_summary_colors(p, groups, xname, yname, side)
               } 
-              colors = discrete_colors(nlevels(groups), palette = colors)
+              colors <- discrete_colors(nlevels(groups), palette = colors)
               p <- row_summary_with_groups(p, groups, colors)
             }
             validObject(p)
@@ -290,7 +290,7 @@ setMethod(add_col_summary, c(p = "Iheatmap"),
             mat <- get_data(hm)
             
             col_summary_without_groups <- function(p){
-              y = colMeans(mat, na.rm = TRUE)
+              y <- colMeans(mat, na.rm = TRUE)
               
               p <- if (type == "scatter"){
                 add_col_plot(p,
@@ -322,8 +322,8 @@ setMethod(add_col_summary, c(p = "Iheatmap"),
             
             col_summary_with_groups <- function(p, groups, colors){
               for (i in seq_along(levels(groups))){
-                sel = which(groups == levels(groups)[i])
-                y = colMeans(mat[sel,,drop = FALSE],na.rm=TRUE)
+                sel <- which(groups == levels(groups)[i])
+                y <- colMeans(mat[sel,,drop = FALSE],na.rm=TRUE)
                 p <- if (type == "scatter"){
                   add_col_plot(p,
                                   y = y, 
@@ -386,9 +386,9 @@ setMethod(add_col_summary, c(p = "Iheatmap"),
             } else{
               groups <- as.factor(groups)
               if (is.null(colors)){ 
-                colors = pick_col_summary_colors(p, groups, xname, yname, side)
+                colors <- pick_col_summary_colors(p, groups, xname, yname, side)
               } 
-              colors = discrete_colors(nlevels(groups), palette = colors)
+              colors <- discrete_colors(nlevels(groups), palette = colors)
               p <- col_summary_with_groups(p, groups, colors)
             }
             validObject(p)
@@ -417,10 +417,10 @@ summary_colors_helper <- function(p, groups, cands){
       return(pick_discrete_colors(groups, p))
     }
   } else{
-    cands <- cands[sapply(cands, function(x){
+    cands <- cands[vapply(cands, function(x){
       all(as.character(groups) == as.character(get_data(x))) &&
         all(levels(groups) == levels(colorbars(p)[[x@colorbar]]@ticktext))
-    })]
+    }, FALSE)]
     if (length(cands == 1)){
       return(colorbars(p)[[cands[[1]]@colorbar]]@colors)
     } else{

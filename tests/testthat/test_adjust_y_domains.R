@@ -2,7 +2,7 @@
 context("adjust_y_domains")
 
 
-a = matrix(rnorm(200),ncol=10)
+a <- matrix(rnorm(200),ncol=10)
 
 test_that("adding a col_plot on top gives correct sizing",{
   p <- main_heatmap(a) %>% add_col_signal(1:10, "test", size = 0.2, buffer = 0.015)

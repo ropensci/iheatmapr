@@ -53,10 +53,10 @@ setMethod(add_col_barplot, c(p = "Iheatmap"),
             additional_data <- modifyList(list(orientation = 'v'), list(...))
             
             if (is.null(color) && !isTRUE(showlegend)){
-              color = "gray"
+              color <- "gray"
             }
             if (!is.null(color)){
-              color_list = list(marker = list(color = color))
+              color_list <- list(marker = list(color = color))
               additional_data <- modifyList(color_list, additional_data)
             }
             
@@ -140,10 +140,10 @@ setMethod(add_row_barplot, c(p = "Iheatmap"),
             additional_data <- modifyList(list(orientation = 'h'), list(...))
             
             if (is.null(color) && !isTRUE(showlegend)){
-              color = "gray"
+              color <- "gray"
             }
             if (!is.null(color)){
-              color_list = list(marker = list(color = color))
+              color_list <- list(marker = list(color = color))
               additional_data <- modifyList(color_list, additional_data)
             }
             

@@ -6,7 +6,7 @@ setMethod("make_trace", signature = c(x = "RowPlot"),
             
             xvals <- get_data(x)[axis_order(ya)]
             
-            txt = paste(if (!is.na(x@name)) x@name else NULL,
+            txt <- paste(if (!is.na(x@name)) x@name else NULL,
                         paste("Row:", axis_text(ya, ordered = TRUE)),
                         paste("Value:", xvals), sep = "<br>")
             
@@ -33,7 +33,7 @@ setMethod("make_trace", signature = c(x = "ColumnPlot"),
             
             yvals <- get_data(x)[axis_order(xa)]
             
-            txt = paste(if (!is.na(x@name)) x@name else NULL,
+            txt <- paste(if (!is.na(x@name)) x@name else NULL,
                         paste("Column:", axis_text(xa, ordered = TRUE)),
                         paste("Value:", yvals), sep = "<br>")
             
@@ -111,16 +111,16 @@ setMethod(add_col_plot, c(p = "Iheatmap"),
             
             if (is.null(color) && !isTRUE(showlegend)){
               if (mode == "lines" || mode == "lines+markers"){
-                color_list = list(line = list(color = "black"))
+                color_list <- list(line = list(color = "black"))
               } else{
-                color_list = list(marker = list(color = "black"))
+                color_list <- list(marker = list(color = "black"))
               }
               additional_data <- modifyList(color_list, additional_data)
             } else if (!is.null(color)){
               if (mode == "lines" || mode == "lines+markers"){
-                color_list = list(line = list(color = color))
+                color_list <- list(line = list(color = color))
               } else{
-                color_list = list(marker = list(color = color))
+                color_list <- list(marker = list(color = color))
               }
               additional_data <- modifyList(color_list, additional_data)
             }
@@ -210,16 +210,16 @@ setMethod(add_row_plot, c(p = "Iheatmap"),
             
             if (is.null(color) && !isTRUE(showlegend)){
               if (mode == "lines" || mode == "lines+markers"){
-                color_list = list(line = list(color = "black"))
+                color_list <- list(line = list(color = "black"))
               } else{
-                color_list = list(marker = list(color = "black"))
+                color_list <- list(marker = list(color = "black"))
               }
               additional_data <- modifyList(color_list, additional_data)
             } else if (!is.null(color)){
               if (mode == "lines" || mode == "lines+markers"){
-                color_list = list(line = list(color = color))
+                color_list <- list(line = list(color = color))
               } else{
-                color_list = list(marker = list(color = color))
+                color_list <- list(marker = list(color = color))
               }
               additional_data <- modifyList(color_list, additional_data)
             }

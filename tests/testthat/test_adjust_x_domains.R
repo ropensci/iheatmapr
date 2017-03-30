@@ -1,7 +1,7 @@
 #library(iheatmapr)
 context("adjust_x_domains")
 
-a = matrix(rnorm(200),ncol=10)
+a <- matrix(rnorm(200),ncol=10)
 
 test_that("adding a main heatmap of same size to right gives correct sizing",{
   p <- main_heatmap(a) %>% add_main_heatmap(a, size = 1, buffer = 0.015)

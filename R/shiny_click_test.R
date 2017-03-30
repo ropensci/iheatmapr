@@ -24,7 +24,7 @@ test_shiny_click <- function(ihm){
     
     output$cl <- shiny::renderPrint({
       s <- plotly::event_data("plotly_click", source="iheatmap")
-      if (is.null(s) == T) return("Click to see output")
+      if (is.null(s) == TRUE) return("Click to see output")
       utils::str(s)
     })
     

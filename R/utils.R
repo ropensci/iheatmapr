@@ -34,7 +34,7 @@ is_categorical <- function(vals, var_order){
 setMethod(get_heatmap, c(p = "IheatmapHorizontal"),
           function(p, xname, side = c("right","left","top","bottom"),...){
             side <- match.arg(side)
-            candidates <- which(sapply(plots(p), is, "MainHeatmap"))
+            candidates <- which(vapply(plots(p), is, FALSE, "MainHeatmap"))
             if (length(candidates) == 1) return(plots(p)[[candidates]])
             xcand <- xaxis_name(plots(p)[candidates])
             if (side == "left"){
@@ -52,7 +52,7 @@ setMethod(get_heatmap, c(p = "IheatmapHorizontal"),
 setMethod(get_heatmap, c(p = "IheatmapVertical"),
           function(p, yname, side = c("right","left","top","bottom"),...){
             side <- match.arg(side)
-            candidates <- which(sapply(plots(p), is, "MainHeatmap"))
+            candidates <- which(vapply(plots(p), is, FALSE, "MainHeatmap"))
             if (length(candidates) == 1) return(plots(p)[[candidates]])
             ycand <- yaxis_name(plots(p)[candidates])
             if (side == "bottom"){
@@ -70,13 +70,13 @@ setMethod(get_heatmap, c(p = "IheatmapVertical"),
 
 setMethod(get_row_groups, c(p = "IheatmapHorizontal"),
           function(p,...){
-            candidates <- which(sapply(plots(p), is, "RowAnnotation"))
+            candidates <- which(vapply(plots(p), is, FALSE, "RowAnnotation"))
             if (length(candidates) > 0){
-              ix <- which(sapply(plots(p)[candidates],
+              ix <- which(vapply(plots(p)[candidates],
                                  function(x){
                                    is(colorbars(p)[[x@colorbar]], 
                                       "DiscreteColorbar")
-                                 }))
+                                 }, FALSE))
               candidates <- candidates[ix]
             } 
             return(plots(p)[candidates])
@@ -84,31 +84,31 @@ setMethod(get_row_groups, c(p = "IheatmapHorizontal"),
 
 setMethod(get_row_groups, c(p = "IheatmapVertical"),
           function(p, yname){
-            candidates <- which(sapply(plots(p), is, "RowAnnotation"))
+            candidates <- which(vapply(plots(p), is, FALSE, "RowAnnotation"))
             if (length(candidates) == 0) return(plots(p)[c()])
-            candidates <- candidates[which(sapply(plots(p)[candidates],
+            candidates <- candidates[which(vapply(plots(p)[candidates],
                                                   function(x){
                                                     x@yaxis == yname
-                                                  }))]
+                                                  }, FALSE))]
             if (length(candidates) == 0) return(plots(p)[c()])
-            ix <- which(sapply(plots(p)[candidates],
+            ix <- which(vapply(plots(p)[candidates],
                                function(x){
                                  is(colorbars(p)[[x@colorbar]], 
                                     "DiscreteColorbar")
-                               }))
+                               }, FALSE))
             candidates <- candidates[ix]
             return(plots(p)[candidates])
           })
 
 setMethod(get_col_groups, c(p = "IheatmapVertical"),
           function(p,...){
-            candidates <- which(sapply(plots(p), is, "ColumnAnnotation"))
+            candidates <- which(vapply(plots(p), is, FALSE, "ColumnAnnotation"))
             if (length(candidates) > 0){
-              ix <- which(sapply(plots(p)[candidates],
+              ix <- which(vapply(plots(p)[candidates],
                                  function(x){
                                    is(colorbars(p)[[x@colorbar]], 
                                       "DiscreteColorbar")
-                                 }))
+                                 }, FALSE))
               candidates <- candidates[ix]
             } 
             return(plots(p)[candidates])
@@ -116,18 +116,18 @@ setMethod(get_col_groups, c(p = "IheatmapVertical"),
 
 setMethod(get_col_groups, c(p = "IheatmapHorizontal"),
           function(p, xname){
-            candidates <- which(sapply(plots(p), is, "ColumnAnnotation"))
+            candidates <- which(vapply(plots(p), is, FALSE, "ColumnAnnotation"))
             if (length(candidates) == 0) return(plots(p)[c()])
-            candidates <- candidates[which(sapply(plots(p)[candidates],
+            candidates <- candidates[which(vapply(plots(p)[candidates],
                                                   function(x){
                                                     x@xaxis == xname
-                                                  }))]
+                                                  }, FALSE))]
             if (length(candidates) == 0) return(plots(p)[c()])
-            ix <- which(sapply(plots(p)[candidates],
+            ix <- which(vapply(plots(p)[candidates],
                                function(x){
                                  is(colorbars(p)[[x@colorbar]], 
                                     "DiscreteColorbar")
-                               }))
+                               }, FALSE))
             candidates <- candidates[ix]
             return(plots(p)[candidates])
           })
@@ -175,7 +175,7 @@ pname_check <- function(pname, p){
   stopifnot(is.character(pname))
   if (pname %in% names(plots(p))){
     same_pre <- grep(paste0(pname,"[[:digit:]]*$"),names(plots(p)))
-    numbers <- sapply(names(plots(p))[same_pre],
+    numbers <- vapply(names(plots(p))[same_pre],
                       function(x){
                         m <- regexpr("[[:digit:]]+$", x)
                         if (m == -1){
@@ -183,7 +183,7 @@ pname_check <- function(pname, p){
                         } else{
                           as.integer(substr(x,m,nchar(x)))
                         }
-                      })
+                      }, 1)
     out <- paste0(pname, max(numbers) + 1)
   } else{
     out <- pname
@@ -195,7 +195,7 @@ sname_check <- function(sname, p){
   stopifnot(is.character(sname))
   if (sname %in% names(shapes(p))){
     same_pre <- grep(paste0(sname,"[[:digit:]]*$"),names(shapes(p)))
-    numbers <- sapply(names(shapes(p))[same_pre],
+    numbers <- vapply(names(shapes(p))[same_pre],
                       function(x){
                         m <- regexpr("[[:digit:]]+$", x)
                         if (m == -1){
@@ -203,7 +203,7 @@ sname_check <- function(sname, p){
                         } else{
                           as.integer(substr(x,m,nchar(x)))
                         }
-                      })
+                      }, 1)
     out <- paste0(sname, max(numbers) + 1)
   } else{
     out <- sname
@@ -215,7 +215,7 @@ aname_check <- function(aname, p){
   stopifnot(is.character(aname))
   if (aname %in% names(annotations(p))){
     same_pre <- grep(paste0(aname,"[[:digit:]]*$"),names(annotations(p)))
-    numbers <- sapply(names(annotations(p))[same_pre],
+    numbers <- vapply(names(annotations(p))[same_pre],
                       function(x){
                         m <- regexpr("[[:digit:]]+$", x)
                         if (m == -1){
@@ -223,7 +223,7 @@ aname_check <- function(aname, p){
                         } else{
                           as.integer(substr(x,m,nchar(x)))
                         }
-                      })
+                      }, 1)
     out <- paste0(aname, max(numbers) + 1)
   } else{
     out <- aname
