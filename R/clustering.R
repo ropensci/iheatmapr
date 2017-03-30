@@ -1,7 +1,7 @@
 #' add_row_clustering
 #'
 #' @param p iheatmap object
-#' @param method "hclust" or "kmeans" for heirarchical or k-means clustering, 
+#' @param method "hclust" or "kmeans" for hierarchical or k-means clustering, 
 #' respectively
 #' @param k number of clusters for rows, needed if order is kmeans or optional 
 #' if hclust
@@ -97,7 +97,7 @@ setMethod(add_row_clustering,
 #' add_col_clustering
 #'
 #' @param p iheatmap object
-#' @param method "hclust" or "kmeans" for heirarchical or k-means clustering, 
+#' @param method "hclust" or "kmeans" for hierarchical or k-means clustering, 
 #' respectively
 #' @param k number of clusters for rows, needed if order is kmeans or optional 
 #' if hclust

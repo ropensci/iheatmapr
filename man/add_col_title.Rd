@@ -47,7 +47,8 @@ hm <- iheatmap(mat) \%>\% add_col_title("My x-axis")
 if (interactive()) hm 
 }
 \seealso{
-\code{\link{add_col_labels}}, \code{\link{iheatmap}}, \code{\link{add_row_title}}
+\code{\link{add_col_labels}}, \code{\link{iheatmap}}, 
+\code{\link{add_row_title}}
 }
 \author{
 Alicia Schep

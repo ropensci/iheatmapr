@@ -34,7 +34,7 @@ existing plot}
 \item{x}{x axis labels (by default rownames of data); only used if 
 orientation is horizontal}
 
-\item{colors}{color pallette name or vector of colors}
+\item{colors}{color palette name or vector of colors}
 
 \item{colorbar_position}{colorbar placement}
 

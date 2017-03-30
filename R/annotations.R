@@ -9,7 +9,7 @@
 #' @param side side of plot on which to add row annotation
 #' @param size relative size of each row annotation
 #' @param buffer relative size of buffer between previous subplot and row 
-#' annotion
+#' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new x axis
 #'
@@ -99,7 +99,7 @@ setMethod(add_row_annotation,
 #' @param side side of plot on which to add column annotation
 #' @param size relative size of each row annotation
 #' @param buffer relative size of buffer between previous subplot and column 
-#' annotion
+#' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new y axis
 #'

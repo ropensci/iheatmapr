@@ -14,7 +14,7 @@
 \arguments{
 \item{p}{iheatmap object}
 
-\item{method}{"hclust" or "kmeans" for heirarchical or k-means clustering, 
+\item{method}{"hclust" or "kmeans" for hierarchical or k-means clustering, 
 respectively}
 
 \item{name}{name of colorbar indicating cluster membership}

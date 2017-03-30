@@ -23,7 +23,7 @@ name}
 \item{size}{relative size of each row annotation}
 
 \item{buffer}{relative size of buffer between previous subplot and row 
-annotion}
+annotation}
 
 \item{inner_buffer}{relative size of buffer between each annotation}
 

@@ -34,8 +34,8 @@ size of first heatmap}
 \item{yname}{internal name for yaxis}
 }
 \value{
-\code{\link{Iheatmap-class}} object, which can be printed to generate 
-an interactive graphic
+\code{\link{Iheatmap-class}} object, which can be printed to 
+generate an interactive graphic
 }
 \description{
 Add y axis labels to plot

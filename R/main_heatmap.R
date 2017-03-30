@@ -225,7 +225,7 @@ setMethod(main_heatmap, "matrix",
 #' orientation is horizontal
 #' @param y y axis labels (by default colnames of data); only used if 
 #' orientation is vertical
-#' @param colors color pallette name or vector of colors
+#' @param colors color palette name or vector of colors
 #' @param colorbar_position colorbar placement
 #' @param show_colorbar display the colorbar?
 #' @param zmin minimum for colorscale

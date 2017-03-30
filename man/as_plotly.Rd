@@ -9,12 +9,12 @@
 \S4method{as_plotly}{Iheatmap}(p, source = "Iheatmap")
 }
 \arguments{
-\item{p}{\code{link{Iheatmap-class}} object to convert}
+\item{p}{\code{\link{Iheatmap-class}} object to convert}
 
 \item{source}{source name for plot, for use in shiny}
 }
 \value{
-\code{\link[plotly]{plotly}} interactive graphic
+plotly htmlwidgets object
 }
 \description{
 Function to convert \code{link{Iheatmap-class}} object to plotly widget object

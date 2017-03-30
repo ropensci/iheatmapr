@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interactive Complex Heatmaps • iheatmapr</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -35,7 +35,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/AliciaSchep/iheatmapr">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -56,7 +63,7 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"> </a>Installation</h2>
 <p>iheatmapr is not yet on CRAN – install using devtools:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"AliciaSchep/iheatmapr"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">"AliciaSchep/iheatmapr"</span>)</code></pre></div>
 </div>
 <div id="example-complex-heatmap" class="section level2">
 <h2 class="hasAnchor">
@@ -68,16 +75,16 @@
 <span class="kw">data</span>(measles, <span class="dt">package =</span> <span class="st">"iheatmapr"</span>)
 
 <span class="kw"><a href="reference/main_heatmap.html">main_heatmap</a></span>(measles, <span class="dt">name =</span> <span class="st">"Measles&lt;br&gt;Cases"</span>, <span class="dt">x_categorical =</span> <span class="ot">FALSE</span>,
-             <span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="reference/add_col_groups.html">add_col_groups</a></span>(<span class="kw">ifelse</span>(<span class="dv">1930</span><span class="op">:</span><span class="dv">2001</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">1961</span>,<span class="st">"No"</span>,<span class="st">"Yes"</span>),
+             <span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) %&gt;%
+<span class="st">  </span><span class="kw"><a href="reference/add_col_groups.html">add_col_groups</a></span>(<span class="kw">ifelse</span>(<span class="dv">1930</span>:<span class="dv">2001</span> &lt;<span class="st"> </span><span class="dv">1961</span>,<span class="st">"No"</span>,<span class="st">"Yes"</span>),
                   <span class="dt">side =</span> <span class="st">"bottom"</span>, <span class="dt">name =</span> <span class="st">"Vaccine&lt;br&gt;Introduced?"</span>,
                   <span class="dt">title =</span> <span class="st">"Vaccine?"</span>,
-                  <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">"lightgray"</span>,<span class="st">"blue"</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="reference/add_col_labels.html">add_col_labels</a></span>(<span class="dt">ticktext =</span> <span class="kw">seq</span>(<span class="dv">1930</span>,<span class="dv">2000</span>,<span class="dv">10</span>),<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="reference/add_row_labels.html">add_row_labels</a></span>(<span class="dt">size =</span> <span class="fl">0.3</span>,<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">6</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+                  <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">"lightgray"</span>,<span class="st">"blue"</span>)) %&gt;%
+<span class="st">  </span><span class="kw"><a href="reference/add_col_labels.html">add_col_labels</a></span>(<span class="dt">ticktext =</span> <span class="kw">seq</span>(<span class="dv">1930</span>,<span class="dv">2000</span>,<span class="dv">10</span>),<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) %&gt;%
+<span class="st">  </span><span class="kw"><a href="reference/add_row_labels.html">add_row_labels</a></span>(<span class="dt">size =</span> <span class="fl">0.3</span>,<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">6</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="reference/add_col_summary.html">add_col_summary</a></span>(<span class="dt">layout =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">"Average&lt;br&gt;across&lt;br&gt;states"</span>),
-                  <span class="dt">yname =</span> <span class="st">"summary"</span>)  <span class="op">%&gt;%</span><span class="st">                 </span>
-<span class="st">  </span><span class="kw"><a href="reference/add_col_title.html">add_col_title</a></span>(<span class="st">"Measles Cases from 1930 to 2001"</span>, <span class="dt">side=</span> <span class="st">"top"</span>) <span class="op">%&gt;%</span>
+                  <span class="dt">yname =</span> <span class="st">"summary"</span>)  %&gt;%<span class="st">                 </span>
+<span class="st">  </span><span class="kw"><a href="reference/add_col_title.html">add_col_title</a></span>(<span class="st">"Measles Cases from 1930 to 2001"</span>, <span class="dt">side=</span> <span class="st">"top"</span>) %&gt;%
 <span class="st">  </span><span class="kw"><a href="reference/add_row_summary.html">add_row_summary</a></span>(<span class="dt">groups =</span> <span class="ot">TRUE</span>, 
                   <span class="dt">type =</span> <span class="st">"bar"</span>,
                   <span class="dt">layout =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">"Average&lt;br&gt;per&lt;br&gt;year"</span>,
@@ -97,7 +104,14 @@
   </div>
 
   <div class="col-md-3" id="sidebar">
-    <h2>License</h2>
+    <h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/AliciaSchep/iheatmapr">https://​github.com/​AliciaSchep/​iheatmapr</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/AliciaSchep/iheatmapr/issues">https://​github.com/​AliciaSchep/​iheatmapr/​issues</a>
+</li>
+</ul>
+<h2>License</h2>
 <p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
@@ -105,13 +119,13 @@
 <li>Sarah Kummerfeld <br><small class="roles"> Author </small> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
-<html><body>
+<div>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/AliciaSchep/iheatmapr"><img src="https://travis-ci.org/AliciaSchep/iheatmapr.svg?branch=master" alt="Build Status"></a></li>
 <li><a href="https://codecov.io/gh/AliciaSchep/iheatmapr"><img src="https://codecov.io/gh/AliciaSchep/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI" alt="codecov"></a></li>
 </ul>
-</body></html>
+</div>
 </div>
 </div>
 

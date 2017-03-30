@@ -2,9 +2,9 @@
 #' 
 #' Function to convert \code{link{Iheatmap-class}} object to plotly widget object
 #' 
-#' @param p \code{link{Iheatmap-class}} object to convert
+#' @param p \code{\link{Iheatmap-class}} object to convert
 #' @param source source name for plot, for use in shiny
-#' @return \code{\link[plotly]{plotly}} interactive graphic
+#' @return plotly htmlwidgets object
 #' @seealso \code{\link{iheatmap}}, \code{\link{main_heatmap}}
 #' @export
 #' @rdname as_plotly
