@@ -31,7 +31,8 @@ setGeneric("add_axis", function(p, new_axis, ...) standardGeneric("add_axis"))
 #' @rdname add_component
 #' @param new_colorbar new \code{\link{IheatmapColorbar-class}} object
 #' @export
-setGeneric("add_colorbar", function(p, new_colorbar, ...) standardGeneric("add_colorbar"))
+setGeneric("add_colorbar", function(p, new_colorbar, ...) 
+           standardGeneric("add_colorbar"))
 
 #' @rdname add_component
 #' @param new_plot new \code{\link{IheatmapPlot-class}} object

@@ -385,9 +385,13 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
               if (side == "bottom" && existing_start > starts[main_ix])
                 stop("Mismatch between side and existing yname")
               y_ix <- which(names(y_for_other_x) == yname)
-              new_buffer_size <- if (side == "top") 
-                domain_start(y_for_other_x[y_ix]) - domain_end(y_for_other_x[y_ix - 1]) else
-                  domain_start(y_for_other_x[y_ix + 1]) - domain_end(y_for_other_x[y_ix])
+              new_buffer_size <- if (side == "top"){
+                domain_start(y_for_other_x[y_ix]) - 
+                  domain_end(y_for_other_x[y_ix - 1])
+              }  else{
+                domain_start(y_for_other_x[y_ix + 1]) - 
+                  domain_end(y_for_other_x[y_ix])
+              }
             } else{
               new_size <- main_size * size
               new_buffer_size <- buffer * main_size
@@ -507,8 +511,8 @@ setMethod(add_axis, c(p = "IheatmapHorizontal", new_axis = "IheatmapY"),
                   for (i in seq_along(additional_sizes)){
                     if (names(additional)[i] %ni% c(yname,names(current))){
                       domain_start(axes[[names(additional)[i]]]) <- j
-                      domain_end(axes[[names(additional)[i]]]) <- one_bounded(j +
-                        additional_sizes[i])
+                      domain_end(axes[[names(additional)[i]]]) <- 
+                        one_bounded(j + additional_sizes[i])
                       j <- j + additional_sizes[i] + additional_buffer_sizes[i]
                     } else{
                       j <- domain_end(axes[[names(additional)[i]]]) +
@@ -626,9 +630,13 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
               if (side == "left" && existing_start > starts[main_ix])
                 stop("Mismatch between side and existing x axis with xname")
               x_ix <- which(names(x_for_other_y) == xname)
-              new_buffer_size <- if (side == "top") 
-                domain_start(x_for_other_y[x_ix]) - domain_end(x_for_other_y[x_ix - 1]) else
-                  domain_start(x_for_other_y[x_ix + 1]) - domain_end(x_for_other_y[x_ix])
+              new_buffer_size <- if (side == "top"){
+                 domain_start(x_for_other_y[x_ix]) - 
+                  domain_end(x_for_other_y[x_ix - 1])
+              } else{
+                domain_start(x_for_other_y[x_ix + 1]) - 
+                  domain_end(x_for_other_y[x_ix])
+              }
             } else{
               new_size <- main_size * size
               new_buffer_size <- buffer * main_size
@@ -674,8 +682,9 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
               } else{
                 if (!existing){
                   domain_start(new_axis) <- max(ends) + new_buffer_size
-                  domain_end(new_axis) <- one_bounded(max(ends) + new_buffer_size +
-                                                new_size)
+                  domain_end(new_axis) <- one_bounded(max(ends) + 
+                                                        new_buffer_size +
+                                                        new_size)
                   axes[[xname]] <- new_axis
                 }
               }
@@ -717,8 +726,9 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
                 }
               } else{
                 if (!existing){
-                  domain_start(new_axis) <- zero_bounded(min(starts) - new_buffer_size -
-                    new_size)
+                  domain_start(new_axis) <- zero_bounded(min(starts) - 
+                                                           new_buffer_size -
+                                                           new_size)
                   domain_end(new_axis) <- min(starts) - new_buffer_size
                   axes[[xname]] <- new_axis
                 }
@@ -746,8 +756,8 @@ setMethod(add_axis, c(p = "IheatmapVertical", new_axis = "IheatmapX"),
                   for (i in seq_along(additional_sizes)){
                     if (names(additional)[i] %ni% c(xname,names(current))){
                       domain_start(axes[[names(additional)[i]]]) <- j
-                      domain_end(axes[[names(additional)[i]]]) <- one_bounded(j +
-                        additional_sizes[i])
+                      domain_end(axes[[names(additional)[i]]]) <- 
+                        one_bounded(j + additional_sizes[i])
                       j <- j + additional_sizes[i] + additional_buffer_sizes[i]
                     } else{
                       j <- domain_end(axes[[names(additional)[i]]]) +

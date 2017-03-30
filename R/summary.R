@@ -83,9 +83,9 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
               if (!is(hm,"MainHeatmap"))
                 stop("Plot specified by heatmap_name is not a MainHeatmap!")
               if (yaxis_name(hm) != yname){
-                warning(paste0("yname argument doesn't match y axis of heatmap", 
+                warning("yname argument doesn't match y axis of heatmap", 
                                " specified by heatmap_name argument.\nUsing ",
-                               "yaxis name from heatmap."))
+                               "yaxis name from heatmap.")
                 yname <- yaxis_name
               }
             }
@@ -280,9 +280,9 @@ setMethod(add_col_summary, c(p = "Iheatmap"),
               if (!is(hm,"MainHeatmap"))
                 stop("Plot specified by heatmap_name is not a MainHeatmap!")
               if (xaxis_name(hm) != xname){
-                warning(paste0("xname argument doesn't match x axis of heatmap", 
-                               " specified by heatmap_name argument.\nUsing ",
-                               "xaxis name from heatmap."))
+                warning("xname argument doesn't match x axis of ",
+                               "heatmap specified by heatmap_name argument.",
+                               "\nUsing xaxis name from heatmap.")
                 xname <- xaxis_name
               }
             }

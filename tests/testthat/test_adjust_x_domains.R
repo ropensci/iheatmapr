@@ -19,7 +19,7 @@ test_that("adding a main heatmap of same size to right gives correct sizing",{
 
 })
 
-test_that("adding a main heatmap of different size to right gives correct sizing",{
+test_that("adding a main heatmap of different size to right gives right size",{
   p <- main_heatmap(a) %>% add_main_heatmap(a, size = 0.5, buffer = 0.015)
   x1_start <- domain_start(xaxes(p)[["x"]])
   x1_end <- domain_end(xaxes(p)[["x"]])
@@ -36,7 +36,8 @@ test_that("adding a main heatmap of different size to right gives correct sizing
 
 
 test_that("adding a main heatmap of same size to left gives correct sizing",{
-  p <- main_heatmap(a)  %>% add_main_heatmap(a, size = 1, buffer = 0.015, side = "left")
+  p <- main_heatmap(a)  %>% add_main_heatmap(a, size = 1, buffer = 0.015,
+                                             side = "left")
   x1_start <- domain_start(xaxes(p)[["x"]])
   x1_end <- domain_end(xaxes(p)[["x"]])
   x2_start <- domain_start(xaxes(p)[["x2"]])
@@ -50,8 +51,9 @@ test_that("adding a main heatmap of same size to left gives correct sizing",{
   expect_equal(x1_start - x2_end, 0.015 * x1_size)
 })
 
-test_that("adding a main heatmap of different size to left gives correct sizing",{
-  p <- main_heatmap(a) %>% add_main_heatmap(a, size = 0.2, buffer = 0.035, side = "left")
+test_that("adding a main heatmap of different size to left gives right size",{
+  p <- main_heatmap(a) %>% add_main_heatmap(a, size = 0.2, buffer = 0.035, 
+                                            side = "left")
   x1_start <- domain_start(xaxes(p)[["x"]])
   x1_end <- domain_end(xaxes(p)[["x"]])
   x2_start <- domain_start(xaxes(p)[["x2"]])

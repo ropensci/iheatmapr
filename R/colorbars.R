@@ -215,7 +215,8 @@ continuous_colorbar <- function(name, position, colors, zmid, zmin, zmax){
 
 setMethod(add_colorbar, c(p = "Iheatmap", new_colorbar = "ContinuousColorbar"),
           function(p, new_colorbar){
-            if (new_colorbar@title %in% names(colorbars(p, what = "continuous"))){
+            if (new_colorbar@title %in% names(colorbars(p, 
+                                                        what = "continuous"))){
               colorbars(p)[[new_colorbar@title]]@zmin <- 
                 min(colorbars(p)[[new_colorbar@title]]@zmin,new_colorbar@zmin)
               colorbars(p)[[new_colorbar@title]]@zmax <- 
@@ -232,12 +233,14 @@ setMethod(add_colorbar, c(p = "Iheatmap", new_colorbar = "DiscreteColorbar"),
                                    new_colorbar@ticktext)) == 0){
                 stop(paste("No elements in common between groups with name:",
                            new_colorbar@title))
-              } else if (length(setdiff(colorbars(p)[[new_colorbar@title]]@ticktext, 
+              } else if (length(setdiff(colorbars(p)
+                                        [[new_colorbar@title]]@ticktext, 
                                         new_colorbar@ticktext))>0){
                 warning(paste("Adding elements to group:", new_colorbar@title))
               }
               colorbars(p)[[new_colorbar@title]]@ticktext <- 
-                union(colorbars(p)[[new_colorbar@title]]@ticktext, new_colorbar@ticktext)
+                union(colorbars(p)[[new_colorbar@title]]@ticktext, 
+                      new_colorbar@ticktext)
             } else{
               colorbars(p)[[new_colorbar@title]] <- new_colorbar
             }

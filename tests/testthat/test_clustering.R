@@ -13,7 +13,8 @@ test_that("can add row clustering with dendrogram to single horizontal heatmap",
 })
 
 test_that("can add row clustering with dendrogram single vertical heatmap",{
-  test_plot <- main_heatmap(a, orientation = "vertical") %>% add_row_clustering()
+  test_plot <- main_heatmap(a, orientation = "vertical") %>% 
+    add_row_clustering()
   expect_iheatmap(test_plot, "row_clustering_vertical", "vertical")
 })
 
@@ -24,7 +25,8 @@ test_that("can add col clustering with dendrogram to single horizontal heatmap",
 })
 
 test_that("can add col clustering with dendrogram  to single vertical heatmap",{
-  test_plot <- main_heatmap(a, orientation = "vertical") %>% add_col_clustering()
+  test_plot <- main_heatmap(a, orientation = "vertical") %>% 
+    add_col_clustering()
   expect_iheatmap(test_plot, "col_clustering_hclust_vertical", "vertical")
 })
 
@@ -37,18 +39,18 @@ test_that("can add row clustering with dendrogram and k to single horizontal
             expect_iheatmap(test_plot, "row_clustering_hclust_k_horizontal")
           })
 
-test_that("can add row clustering with dendrogram and k to single vertical heatmap",{
+test_that("can add row clustering with dendrogram and k to single vertheatmap",{
   test_plot <- main_heatmap(a, orientation = "vertical") %>% 
     add_row_clustering(k = 3)
   expect_iheatmap(test_plot, "row_clustering_k_vertical", "vertical")
 })
 
-test_that("can add col clustering with dendrogram and k to single horizontal heatmap",
+test_that("can add col clustering with dendrogram and k to single hor heatmap",
           { test_plot <- main_heatmap(a) %>% add_col_clustering(k = 3)
           expect_iheatmap(test_plot, "col_clustering_hclust_k_horizontal")
           })
 
-test_that("can add col clustering with dendrogram and k to single vertical heatmap",{
+test_that("can add col clustering with dendrogram and k to single verheatmap",{
   test_plot <- main_heatmap(a, orientation = "vertical") %>% 
     add_col_clustering(k = 3)
   expect_iheatmap(test_plot, "col_clustering_hclust_k_vertical", "vertical")

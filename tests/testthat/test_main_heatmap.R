@@ -18,7 +18,7 @@ test_that("main_heatmap returns IHeatmap object",{
   expect_iheatmap(test_plot, "main_heatmap")
 })
 
-test_that("main_heatmap with orientation = 'vertical' returns IHeatmapVertical object",{
+test_that("orientation = 'vertical' returns IHeatmapVertical",{
   test_plot <- main_heatmap(a, orientation = "vertical")
   expect_iheatmap(test_plot, "main_heatmap_vertical","vertical")
 })

@@ -7,7 +7,8 @@ test_that("Can make shared axes on bottom with gap in one column",{
     add_subplot(x = 1:10, y=1:10, side = "bottom", yname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "top") %>% 
     add_subplot(x = 1:10, y=1:10, side = "bottom", xname = "x") %>% 
-    add_subplot(x = 1:10, y=1:10, side = "bottom", xname = "x", yname = "bah") %>% 
+    add_subplot(x = 1:10, y=1:10, side = "bottom", xname = "x", 
+                yname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "bottom")
   expect_iheatmap(test_plot, "shared_axes_gap_bottom_horizontal")
 })
@@ -31,7 +32,8 @@ test_that("Can make shared axes on left with gap in one row",{
     add_subplot(x = 1:10, y=1:10, side = "left", xname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "right") %>% 
     add_subplot(x = 1:10, y=1:10, side = "left", yname = "y") %>% 
-    add_subplot(x = 1:10, y=1:10, side = "left", yname = "y", xname = "bah") %>% 
+    add_subplot(x = 1:10, y=1:10, side = "left", yname = "y", 
+                xname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "left")
   expect_iheatmap(test_plot, "shared_axes_gap_left_vertical", "vertical")
 })
@@ -43,7 +45,8 @@ test_that("Can make shared axes on right with gap in one row",{
     add_subplot(x = 1:10, y=1:10, side = "right", xname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "right") %>% 
     add_subplot(x = 1:10, y=1:10, side = "left", yname = "y") %>% 
-    add_subplot(x = 1:10, y=1:10, side = "right", yname = "y", xname = "bah") %>% 
+    add_subplot(x = 1:10, y=1:10, side = "right", yname = "y", 
+                xname = "bah") %>% 
     add_subplot(x = 1:10, y=1:10, side = "left")
   expect_iheatmap(test_plot, "shared_axes_gap_right_vertical", "vertical")
 })

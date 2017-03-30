@@ -131,13 +131,13 @@ test_that("get errors on invalid tickvals for continuous row labels",{
                  add_row_labels(tickvals = 1:21))
 })
 
-test_that("can add continuous row labels with custom tickvals and ticktext selection",{
+test_that("can add continuous row labels with custom tickvals and ticktext",{
   test_plot <- main_heatmap(a, y_categorical = TRUE) %>% 
     add_row_labels(tickvals = c(1,5), ticktext = c("A","B"))
   expect_iheatmap(test_plot, "row_labels_custom_ticktext_tickvals_horizontal")
 })
 
-test_that("get errors on invalid tickvals and ticktext for continuous row labels",{
+test_that("get errors on bad tickvals and ticktext for continuous row labels",{
   expect_error(main_heatmap(a, y_categorical = TRUE) %>% 
                  add_row_labels(tickvals = c(1,5), ticktext = letters[1:3]))
 })

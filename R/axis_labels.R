@@ -25,8 +25,8 @@ categorical_ticks <- function(ax, tickvals, ticktext){
     } else{
       ticktext <- as.character(ticktext)
       if (length(ticktext) != length(tickvals))
-        stop(paste("Provided ticktext invalid, must be same length as provided", 
-                   "tickvals",sep =" "))
+        stop("Provided ticktext invalid, must be same length as provided ", 
+                   "tickvals")
     }
   }
   return(list(ticktext = ticktext, tickvals = tickvals))
@@ -55,10 +55,9 @@ continuous_ticks <- function(ax, tickvals, ticktext){
                      function(x) which(axis_text(ax) == x), 1L)
         tickvals <- tickvals[ix]
       } else if (length(ticktext) != length(tickvals))
-        stop(paste("Provided ticktext is invalid,",
+        stop("Provided ticktext is invalid,",
                    "must match expected values or be same length as number of", 
-                   "rows",
-                   sep = " "))
+                   "rows")
     }
   } else{
     if (is.null(ticktext)){
@@ -70,8 +69,8 @@ continuous_ticks <- function(ax, tickvals, ticktext){
     } else{
       ticktext <- as.character(ticktext)
       if (length(ticktext) != length(tickvals))
-        stop(paste("Provided ticktext invalid, must be same length as provided", 
-                   "tickvals", sep =" "))
+        stop("Provided ticktext invalid, must be same length as provided", 
+                   "tickvals")
     }
   }
   return(list(ticktext = ticktext, tickvals = tickvals))
@@ -223,8 +222,8 @@ setMethod("make_annotations", signature = c(x = "ColumnLabels"),
 #' size of first heatmap
 #' @param xname internal name for xaxis
 #' @param yname internal name for yaxis
-#' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
-#' an interactive graphic
+#' @return \code{\link{Iheatmap-class}} object, which can be printed to 
+#' generate an interactive graphic
 #' @export
 #' @rdname add_row_labels
 #' @name add_row_labels

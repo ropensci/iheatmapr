@@ -38,5 +38,6 @@ expect_iheatmap <- function(test_plot, ref_name,
     expect_is(test_plot,"IheatmapVertical")
   }
   expect_is(test_plotly,"plotly")
-  expect_ihm_equal_to_reference(test_plotly, paste0("reference/",ref_name,".rds"))
+  expect_ihm_equal_to_reference(test_plotly, paste0("reference/",
+                                                    ref_name,".rds"))
 }

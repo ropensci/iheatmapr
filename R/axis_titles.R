@@ -9,8 +9,8 @@ setMethod("make_annotations", signature = c(x = "ColumnTitle"),
             tickvals <- axis_values(xa)
             
             a <- list(list(text = get_data(x), 
-                           x = min(tickvals) + (max(tickvals) - min(tickvals)) / 
-                             2,
+                           x = min(tickvals) + 
+                             (max(tickvals) - min(tickvals)) / 2,
                            y = ifelse(side == "bottom", 1, -1),
                            textangle = x@textangle,
                            showarrow = FALSE,
@@ -33,8 +33,8 @@ setMethod("make_annotations", signature = c(x = "RowTitle"),
             tickvals <- axis_values(ya)
             
             a <- list(list(text = get_data(x), 
-                           y = min(tickvals) + (max(tickvals) - min(tickvals)) / 
-                             2,
+                           y = min(tickvals) + (max(tickvals) - 
+                                                  min(tickvals)) /  2,
                            x = ifelse(side == "left", 1, -1),
                            textangle = x@textangle,
                            showarrow = FALSE,
@@ -71,7 +71,8 @@ setMethod("make_annotations", signature = c(x = "RowTitle"),
 #' @rdname add_col_title
 #' @name add_col_title
 #' @aliases add_col_title,Iheatmap-method
-#' @seealso \code{\link{add_col_labels}}, \code{\link{iheatmap}}, \code{\link{add_row_title}}
+#' @seealso \code{\link{add_col_labels}}, \code{\link{iheatmap}}, 
+#' \code{\link{add_row_title}}
 #' @examples 
 #' 
 #' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
