@@ -16,6 +16,13 @@ iheatmapr is not yet on CRAN -- install using devtools:
 devtools::install_github("AliciaSchep/iheatmapr")
 ```
 
+iheatmapr has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:
+
+```r
+source("https://bioconductor.org/biocLite.R")
+biocLite("BiocInstaller")
+```
+
 ## Example Complex Heatmap
 
 As an example of a complex heatmap, we can make a version of the famous vaccines plot from the Wall Street Journal that has been recreated in several other heatmap frameworks in R. 
