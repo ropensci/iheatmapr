@@ -2,6 +2,9 @@
 
 language: R
 sudo: false
+os:
+  - linux
+  - osx
 cache: packages
 r:
   - bioc-devel
