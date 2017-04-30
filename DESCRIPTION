@@ -1,16 +1,15 @@
 Package: iheatmapr
 Type: Package
-Title: Interactive Complex Heatmaps
+Title: Interactive, Complex Heatmaps
 Version: 0.2.4
 Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
                   role = c("aut", "cre")),
               person("Sarah","Kummerfeld", email = "kummerfeld.sarah@gene.com",
                   role = c("aut")),
               person("Genentech", role = "cph"))
-Description: iheatmapr is a package for making complex, interactive heatmaps.
-    The package includes a modular system for iteratively building up complex
-    heatmaps, as well as the iheatmap function for making relatively standard
-    heatmaps.
+Description: Make complex, interactive heatmaps. iheatmapr includes a modular 
+    system for iteratively building up complex heatmaps, as well as the iheatmap 
+    function for making relatively standard heatmaps.
 License: MIT + file LICENSE
 Depends:
     plotly (>= 4.1.1),
