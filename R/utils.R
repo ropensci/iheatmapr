@@ -174,7 +174,9 @@ scale_mat <- function(mat,
 pname_check <- function(pname, p){
   stopifnot(is.character(pname))
   if (pname %in% names(plots(p))){
-    same_pre <- grep(paste0(pname,"[[:digit:]]*$"),names(plots(p)))
+    pname_re <- gsub("(\\W)", "\\\\\\1", pname, perl = TRUE)
+    same_pre <- grep(paste0(pname_re,"[[:digit:]]*$"),names(plots(p)),
+                     perl = TRUE)
     numbers <- vapply(names(plots(p))[same_pre],
                       function(x){
                         m <- regexpr("[[:digit:]]+$", x)
