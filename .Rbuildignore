@@ -9,3 +9,4 @@
 ^vaccine\.gif$
 ^_pkgdown.yml$
 ^docs$
+^appveyor\.yml$
