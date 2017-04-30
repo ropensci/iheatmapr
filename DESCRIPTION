@@ -13,7 +13,7 @@ Description: Make complex, interactive heatmaps. iheatmapr includes a modular
 License: MIT + file LICENSE
 Depends:
     plotly (>= 4.1.1),
-    R (>= 2.10)
+    R (>= 3.2.0)
 Imports:
     methods,
     plyr,
