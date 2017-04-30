@@ -12,7 +12,7 @@ New features or changes to existing features should mimic the style used for exi
 
 If adding a new feature, a test should be added for that new feature, as well as an update to the vignette to document the new feature.  The website documentation should also be updated using pkgdown.  
 
-Testing is done using the testthat package. A `expect_iheatmap` function is included in helper_expectation.R in the tests/testthat directory. This function wraps a few expectations.  In particular, the expectation will create a saved version of the data that is used to create the plotly graphic.  The view_reference.Rmd function will create the plots based on all the saved data created by the `expect_iheatmap` function.  Running view_reference.Rmd can be used to visually expect the expected result of each test.
+Testing is done using the testthat package. A `expect_iheatmap` function is included in helper_expectation.R in the tests/testthat directory. This function wraps a few expectations.  In particular, the expectation will create a saved version of the data that is used to create the plotly graphic. After being run once, the test will check that the data is the same as was previously generated. The view_reference.Rmd function will create the plots based on all the saved data created by the `expect_iheatmap` function. Running view_reference.Rmd can be used to visually expect the expected result of each test.
 
 ## Scope
 

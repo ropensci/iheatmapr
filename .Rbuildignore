@@ -1,6 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^CONDUCT\.md$
+^CONTRIBUTING\.md$
 ^\.travis\.yml$
 ^README\.md$
 ^codecov\.yml$
