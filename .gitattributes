@@ -1,6 +1,1 @@
 * text=auto
-data/* binary
-R/* text=lf
-tests/* text=lf
-tests/testthat* text=lf
-tests/testthat/reference/* binary
