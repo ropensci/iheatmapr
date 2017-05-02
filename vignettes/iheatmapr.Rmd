@@ -301,9 +301,11 @@ main_heatmap(Indometh_matrix) %>%
   add_row_clustering(method = "groups", groups = c("A","A","B","B","A","A")) 
 ```
 
-### Add row dendrogram
+### Using your own clustering
 
-If you want to perform the hierarchical clustering yourself, you can use the `add_row_dendro` or `add_col_dendro` functions to add the dendrogram. The clustering result should be provided as an "hclust" object.
+The functions `add_row_clustering` and `add_col_clustering` will perform clustering based on the options given. However, you might in some cases want more control over the clustering or be able to ensure the clustering matches that from some other analysis or visualization. To give you more control over the clustering, there are two lower-level functions that take in a clustering result and simply add them to the plot.  
+
+For hierarchical clustering, you can use the `add_row_dendro` or `add_col_dendro` functions to add the dendrogram. The clustering result should be provided as an "hclust" object.   
 
 ```{r}
 clust_res <- hclust(as.dist(1 - Indometh_patient_cor))
@@ -314,6 +316,17 @@ main_heatmap(Indometh_patient_cor) %>%
 ```
 
 If you want to add a dendrogram but have already ordered your matrix, you can set the "reorder" argument to `FALSE`.
+
+For adding cluster assignments from a method like K-means, the `add_col_clusters` and `add_row_clusters` functions can be used. These functions will take in a vector of cluster assignments and both add an annotation heatmap showing the assignments and also re-order the rows or columns based on the clustering.  
+
+```{r}
+clust_assign <- kmeans(Indometh_matrix, 3)$cluster
+
+main_heatmap(Indometh_patient_cor) %>% 
+  add_row_clusters(clust_assign) %>%
+  add_col_clusters(clust_assign)
+```
+
 
 ## Add annotations
 
