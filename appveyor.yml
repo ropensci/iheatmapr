@@ -14,8 +14,10 @@ install:
 cache:
   - C:\RLibrary
 
-matrix:
+environment:
+  matrix:
   - R_ARCH: x64
+  
 # Adapt as necessary starting from here
 
 build_script:
