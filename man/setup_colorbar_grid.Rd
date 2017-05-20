@@ -27,3 +27,13 @@ setup_colorbar_grid(nrows = 3, y_length = y_spacing * 0.9,
 \description{
 function to set parameters controlling colorbar placement in iHeatmap object
 }
+\examples{
+
+cb_grid <- setup_colorbar_grid(nrows = 2, x_spacing = 0.2)
+mat <- matrix(rnorm(24), nrow = 6)
+hm <- iheatmap(mat, colorbar_grid = cb_grid, cluster_rows = "kmeans",
+         cluster_cols = "kmeans", row_k = 3, col_k = 2)
+
+# Print heatmap if interactive session 
+if (interactive()) hm 
+}

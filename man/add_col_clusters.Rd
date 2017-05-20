@@ -34,6 +34,11 @@ an interactive graphic
 \description{
 Add column groups and order columns based on groups
 }
+\details{
+This function is very similar to \code{\link{add_col_groups}}; the 
+main difference is that with this function column will get reordered based on 
+the groups.
+}
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)

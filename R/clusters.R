@@ -13,6 +13,9 @@
 #' heatmap indicating cluster membership
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
+#' @details This function is very similar to \code{\link{add_row_groups}}; the 
+#' main difference is that with this function rows will get reordered based on 
+#' the groups.
 #' @export
 #' @author Alicia Schep
 #' @rdname add_row_clusters
@@ -76,6 +79,9 @@ setMethod(add_row_clusters,
 #' \code{\link{iheatmap}}
 #' @rdname add_col_clusters
 #' @name add_col_clusters
+#' @details This function is very similar to \code{\link{add_col_groups}}; the 
+#' main difference is that with this function column will get reordered based on 
+#' the groups.
 #' @aliases add_col_clusters,Iheatmap-method
 #' @examples
 #'

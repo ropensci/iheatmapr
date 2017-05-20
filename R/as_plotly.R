@@ -106,6 +106,12 @@ knit_print.Iheatmap <- function(x, options){
 #' @importFrom plotly export
 #' @importFrom htmlwidgets saveWidget
 #' @author Alicia Schep
+#' @examples
+#' mat <- matrix(rnorm(24), nrow = 6)
+#' hm <- iheatmap(mat)
+#' \dontrun{
+#' save_iheatmap(hm)
+#' }
 setMethod(save_iheatmap, c("Iheatmap","character"),
           function(p, filename, ...){
   if (grepl(".html$", filename)){

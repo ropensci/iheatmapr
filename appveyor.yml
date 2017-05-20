@@ -17,6 +17,7 @@ cache:
 environment:
   matrix:
   - R_ARCH: x64
+  - R_ARCH: i386
   
 # Adapt as necessary starting from here
 

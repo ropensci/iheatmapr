@@ -35,6 +35,11 @@ an interactive graphic
 \description{
 Add row groups and order rows based on groups
 }
+\details{
+This function is very similar to \code{\link{add_row_groups}}; the 
+main difference is that with this function rows will get reordered based on 
+the groups.
+}
 \examples{
 
 mat <- matrix(rnorm(20), ncol = 5, nrow = 4)

@@ -20,6 +20,13 @@ saving as html or \code{\link[plotly]{export}} for saving as pdf/png/jpeg}
 save an \code{link{Iheatmap-class}} object, either as standalone HTML or as static 
 pdf/png/jpeg
 }
+\examples{
+mat <- matrix(rnorm(24), nrow = 6)
+hm <- iheatmap(mat)
+\dontrun{
+save_iheatmap(hm)
+}
+}
 \author{
 Alicia Schep
 }

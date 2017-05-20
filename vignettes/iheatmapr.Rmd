@@ -327,6 +327,7 @@ main_heatmap(Indometh_patient_cor) %>%
   add_col_clusters(clust_assign)
 ```
 
+The `add_row_clusters` and `add_col_clusters` methods are very similar to `add_col_groups` and `add_col_groups`; the main difference is that `add_row_clusters` and `dd_col_clusters` will also reorder the rows and columns in addition to adding the annotation heatmap.
 
 ## Add annotations
 
