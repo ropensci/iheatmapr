@@ -1,9 +1,5 @@
 context("clustering")
 
-a <- matrix(rnorm(200),ncol=10)
-col_grp <- c(rep("A",5),rep("B",5))
-row_grp <- c(rep("A",15),rep("B",5))
-
 # Col clustering with default option (hclust) ---------------------------------
 
 test_that("can add row clustering with dendrogram to single horizontal heatmap",
