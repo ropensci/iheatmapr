@@ -70,6 +70,7 @@ setMethod(as_plotly,
                          sizingPolicy = sizingPolicy(browser.fill = TRUE,
                                                      defaultWidth = "100%",
                                                      defaultHeight = 400),
+                         dependencies = plotly:::plotlyMainBundle(),
                          preRenderHook = plotly_build)
           })
 
