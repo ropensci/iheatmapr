@@ -1,7 +1,4 @@
 ---
-title: iheatmapr
-author: Alicia Schep
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{pkgdown}
@@ -610,6 +607,34 @@ To change the sizing within knitr, use the fig.width and fig.height chunk option
 Iheatmap objects can be used in shiny.  The `renderIheatmap` function should be used in the server code, and the `iheatmaprOutput` in the ui code.  
 
 For observing events, the `iheatmapr_event` function should be used.  The function takes as the first argument the Iheatmap object, and as the second argument a type of event -- "click","hover", or "relayout". 
+
+To see the output from `iheatmapr_event`, you can use the `shiny_test` function from iheatmapr.  
+
+```{r, eval = FALSE}
+hm <- main_heatmap(Indometh_patient_cor,name = "Correlation") %>%
+  add_col_clustering() %>%
+  add_row_clustering(k = 3) %>%
+  add_row_title("Patients") %>%
+  add_col_title("Patients") %>%
+  add_row_annotation(data.frame("Max" = patient_max_conc,
+                                "Min" = patient_min_conc,
+                                "Groups" = patient_groups)) %>%
+  add_main_heatmap(Indometh_matrix,
+                   name = "Indometacin<br>Concentration") %>%
+  add_col_labels() %>%
+  add_col_title("Time") %>%
+  add_col_summary()
+
+## NOT RUN (runs shiny app)
+test_iheatmapr_event(hm, "click")
+```
+
+To see the code for the demo shiny app:
+
+```{r}
+test_iheatmapr_event
+```
+
 
 # Session Info
 

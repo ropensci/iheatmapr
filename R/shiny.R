@@ -62,19 +62,19 @@ iheatmapr_event <- function(object,
     curve <- names(plots(object))[raw$curveNumber + 1]
     xname <- xaxis_name(plots(object)[[curve]])
     yname <- yaxis_name(plots(object)[[curve]])
-    if (is(xaxes(plots)[[xname]], "IheatmapMainAxis")){
-      co <- axis_order(xaxes(plots)[[xname]])
+    if (is(xaxes(object)[[xname]], "IheatmapMainAxis")){
+      co <- axis_order(xaxes(object)[[xname]])
       out$col <- co[raw$x]
     } else{
       out$x <- raw$x
     }
-    if (is(yaxes(plots)[[yname]], "IheatmapMainAxis")){
-      ro <- axis_order(yaxes(plots)[[yname]])
+    if (is(yaxes(object)[[yname]], "IheatmapMainAxis")){
+      ro <- axis_order(yaxes(object)[[yname]])
       out$row <- ro[raw$y]
     } else{
       out$y <- raw$y
     }
-    if (is(plots(objects)[[curve]],"MainHeatmap")){
+    if (is(plots(object)[[curve]],"MainHeatmap")){
       out$value <- raw$z
     } 
   } else if (event == "iheatmapr_selected"){

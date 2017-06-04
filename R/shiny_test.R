@@ -1,14 +1,29 @@
 
-test_shiny_event <- function(ihm, event = c("click","hover","selected","relayout")){
+#' test_iheatmapr_event
+#'
+#' @param ihm Iheatmap object
+#' @param event name of event, either "click","hover", or "relayout"
+#'
+#' @return shiny app
+#' @export
+#'
+#' @examples
+#' 
+#' \dontrun{
+#'   mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
+#'   hm <- main_heatmap(mat) 
+#'   test_iheatmapr_event(hm, "click")
+#' }
+test_iheatmapr_event <- function(ihm, event = c("click","hover","relayout")){
   
   if (!requireNamespace("shiny",quietly = TRUE))
     stop("shiny not installed")
   event <- match.arg(event)
   
+  # Define UI
   ui <- shiny::fluidPage(
     
-    # Application title
-    shiny::titlePanel("Heatmap Example"),
+    shiny::titlePanel("iheatmapr event example"),
     
     shiny::fluidRow(
       shiny::column(8, iheatmaprOutput("heat")), 
@@ -16,7 +31,7 @@ test_shiny_event <- function(ihm, event = c("click","hover","selected","relayout
     )
   )
   
-  # Define server logic required to draw a histogram
+  # Define server logic 
   server <- function(input, output) {
     
     output$heat <- renderIheatmap({
