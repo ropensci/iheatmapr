@@ -8,7 +8,7 @@ Please report bugs and contribute feature requests using the the Github Issues p
 
 New features or improvements to the existing codebase or documentation are welcomed. Please use GitHub's pull request feature for proposing and submitting changes.  
 
-New features or changes to existing features should mimic the style used for existing features. For example, if adding a new modular component that can be added onto a complex heatmap, the name of the new function should start with "add_". Additionally, iheatmapr uses the S4 OOP system, so additional functions should generally be writted as S4 methods. 
+New features or changes to existing features should mimic the style used for existing features. For example, if adding a new modular component that can be added onto a complex heatmap, the name of the new function should start with "add_". Additionally, iheatmapr uses the S4 OOP system, so additional functions should generally be written as S4 methods. 
 
 If adding a new feature, a test should be added for that new feature, as well as an update to the vignette to document the new feature.  The website documentation should also be updated using pkgdown.  
 
