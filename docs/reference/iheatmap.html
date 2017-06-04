@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -49,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../articles/iheatmapr.html">Vignette</a>
+  <a href="../articles/full_vignettes/iheatmapr.html">Vignette</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -81,7 +83,7 @@
     <p>iheatmap</p>
     
 
-    <pre><span class='co'># S4 method for matrix</span>
+    <pre class="usage"><span class='co'># S4 method for matrix</span>
 <span class='fu'>iheatmap</span>(<span class='no'>data</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>default_x</span>(<span class='no'>data</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>default_y</span>(<span class='no'>data</span>),
   <span class='kw'>cluster_rows</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"hclust"</span>, <span class='st'>"kmeans"</span>), <span class='kw'>cluster_cols</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>,
   <span class='st'>"hclust"</span>, <span class='st'>"kmeans"</span>), <span class='kw'>row_clusters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_clusters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -95,84 +97,155 @@
   <span class='kw'>col_annotation</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_annotation_colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>col_annotation_colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>row_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>colorbar_grid</span> <span class='kw'>=</span> <span class='fu'><a href='setup_colorbar_grid.html'>setup_colorbar_grid</a></span>(), <span class='kw'>font</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='no'>...</span>)</pre>
+  <span class='kw'>colorbar_grid</span> <span class='kw'>=</span> <span class='fu'><a href='setup_colorbar_grid.html'>setup_colorbar_grid</a></span>(), <span class='kw'>layout</span> <span class='kw'>=</span> <span class='fu'>list</span>(),
+  <span class='kw'>source</span> <span class='kw'>=</span> <span class='st'>"iheatmapr"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd>matrix of values to be plotted as heatmap</dd>
-      <dt>x</dt>
-      <dd>x xaxis labels, by default colnames of data</dd>
-      <dt>y</dt>
-      <dd>y axis labels, by default rownames of data</dd>
-      <dt>cluster_rows</dt>
-      <dd>&quot;none&quot;,&quot;hclust&quot;, or &quot;k-means&quot; for no clustering, 
-hierarchical clustering, and k-means clustering of rows respectively</dd>
-      <dt>cluster_cols</dt>
-      <dd>&quot;none&quot;,&quot;hclust&quot;, or &quot;k-means&quot; for no clustering, 
-hierarchical clustering, and k-means clustering of columnsrespectively</dd>
-      <dt>row_clusters</dt>
-      <dd>vector of pre-determined row cluster assignment</dd>
-      <dt>col_clusters</dt>
-      <dd>vector of pre-determined column cluster assignment</dd>
-      <dt>row_k</dt>
-      <dd>number of clusters for rows, needed if cluster_rows is kmeans or 
-optional if hclust</dd>
-      <dt>col_k</dt>
-      <dd>number of clusters for columns, needed if cluster_rows is kmeans
-or optional if hclust</dd>
-      <dt>row_clust_dist</dt>
-      <dd>distance function to use for row clustering if 
-hierarchical clustering</dd>
-      <dt>col_clust_dist</dt>
-      <dd>distance function to use for column clustering 
-if hierarchical clustering</dd>
-      <dt>name</dt>
-      <dd>Name for colorbar</dd>
-      <dt>scale</dt>
-      <dd>scale matrix by rows, cols or none</dd>
-      <dt>scale_method</dt>
-      <dd>what method to use for scaling, either none, standardize, 
-center, normalize</dd>
-      <dt>colors</dt>
-      <dd>name of RColorBrewer palette or vector of colors for main 
-heatmap</dd>
-      <dt>col_clusters_colors</dt>
-      <dd>colors for col clusters annotation heatmap</dd>
-      <dt>col_clusters_name</dt>
-      <dd>name for col clusters colorbar</dd>
-      <dt>row_clusters_colors</dt>
-      <dd>colors for row clusters annotation heatmap</dd>
-      <dt>row_clusters_name</dt>
-      <dd>name for row clusters colorbar</dd>
-      <dt>show_row_clusters_colorbar</dt>
-      <dd>show the colorbar for row clusters?</dd>
-      <dt>show_col_clusters_colorbar</dt>
-      <dd>show the colorbar for column clusters?</dd>
-      <dt>row_annotation</dt>
-      <dd>row annotation data.frame</dd>
-      <dt>col_annotation</dt>
-      <dd>column annotation data.frame</dd>
-      <dt>row_annotation_colors</dt>
-      <dd>list of colors for row annotations heatmap</dd>
-      <dt>col_annotation_colors</dt>
-      <dd>list of colors for col annotations heatmap</dd>
-      <dt>row_labels</dt>
-      <dd>axis labels for y axis</dd>
-      <dt>col_labels</dt>
-      <dd>axis labels for x axis</dd>
-      <dt>row_title</dt>
-      <dd>x axis title</dd>
-      <dt>col_title</dt>
-      <dd>y axis title</dd>
-      <dt>colorbar_grid</dt>
-      <dd>colorbar grid parameters, should be result from 
-<code><a href='setup_colorbar_grid.html'>setup_colorbar_grid</a></code></dd>
-      <dt>font</dt>
-      <dd>list of font attributes</dd>
-      <dt>...</dt>
-      <dd>additional argument to iheatmap</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>matrix of values to be plotted as heatmap</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>x xaxis labels, by default colnames of data</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>y axis labels, by default rownames of data</p></td>
+    </tr>
+    <tr>
+      <th>cluster_rows</th>
+      <td><p>"none","hclust", or "k-means" for no clustering, 
+hierarchical clustering, and k-means clustering of rows respectively</p></td>
+    </tr>
+    <tr>
+      <th>cluster_cols</th>
+      <td><p>"none","hclust", or "k-means" for no clustering, 
+hierarchical clustering, and k-means clustering of columnsrespectively</p></td>
+    </tr>
+    <tr>
+      <th>row_clusters</th>
+      <td><p>vector of pre-determined row cluster assignment</p></td>
+    </tr>
+    <tr>
+      <th>col_clusters</th>
+      <td><p>vector of pre-determined column cluster assignment</p></td>
+    </tr>
+    <tr>
+      <th>row_k</th>
+      <td><p>number of clusters for rows, needed if cluster_rows is kmeans or 
+optional if hclust</p></td>
+    </tr>
+    <tr>
+      <th>col_k</th>
+      <td><p>number of clusters for columns, needed if cluster_rows is kmeans
+or optional if hclust</p></td>
+    </tr>
+    <tr>
+      <th>row_clust_dist</th>
+      <td><p>distance function to use for row clustering if 
+hierarchical clustering</p></td>
+    </tr>
+    <tr>
+      <th>col_clust_dist</th>
+      <td><p>distance function to use for column clustering 
+if hierarchical clustering</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p>Name for colorbar</p></td>
+    </tr>
+    <tr>
+      <th>scale</th>
+      <td><p>scale matrix by rows, cols or none</p></td>
+    </tr>
+    <tr>
+      <th>scale_method</th>
+      <td><p>what method to use for scaling, either none, standardize, 
+center, normalize</p></td>
+    </tr>
+    <tr>
+      <th>colors</th>
+      <td><p>name of RColorBrewer palette or vector of colors for main 
+heatmap</p></td>
+    </tr>
+    <tr>
+      <th>col_clusters_colors</th>
+      <td><p>colors for col clusters annotation heatmap</p></td>
+    </tr>
+    <tr>
+      <th>col_clusters_name</th>
+      <td><p>name for col clusters colorbar</p></td>
+    </tr>
+    <tr>
+      <th>row_clusters_colors</th>
+      <td><p>colors for row clusters annotation heatmap</p></td>
+    </tr>
+    <tr>
+      <th>row_clusters_name</th>
+      <td><p>name for row clusters colorbar</p></td>
+    </tr>
+    <tr>
+      <th>show_row_clusters_colorbar</th>
+      <td><p>show the colorbar for row clusters?</p></td>
+    </tr>
+    <tr>
+      <th>show_col_clusters_colorbar</th>
+      <td><p>show the colorbar for column clusters?</p></td>
+    </tr>
+    <tr>
+      <th>row_annotation</th>
+      <td><p>row annotation data.frame</p></td>
+    </tr>
+    <tr>
+      <th>col_annotation</th>
+      <td><p>column annotation data.frame</p></td>
+    </tr>
+    <tr>
+      <th>row_annotation_colors</th>
+      <td><p>list of colors for row annotations heatmap</p></td>
+    </tr>
+    <tr>
+      <th>col_annotation_colors</th>
+      <td><p>list of colors for col annotations heatmap</p></td>
+    </tr>
+    <tr>
+      <th>row_labels</th>
+      <td><p>axis labels for y axis</p></td>
+    </tr>
+    <tr>
+      <th>col_labels</th>
+      <td><p>axis labels for x axis</p></td>
+    </tr>
+    <tr>
+      <th>row_title</th>
+      <td><p>x axis title</p></td>
+    </tr>
+    <tr>
+      <th>col_title</th>
+      <td><p>y axis title</p></td>
+    </tr>
+    <tr>
+      <th>colorbar_grid</th>
+      <td><p>colorbar grid parameters, should be result from 
+<code><a href='setup_colorbar_grid.html'>setup_colorbar_grid</a></code></p></td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td><p>list of layout attributes to pass to plotly, 
+eg. list(font = list(size = 15))</p></td>
+    </tr>
+    <tr>
+      <th>source</th>
+      <td><p>source name for use with shiny</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional argument to iheatmap</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -182,7 +255,7 @@ an interactive graphic</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code>iheatmap</code>, <code><a href='add_iheatmap.html'>add_iheatmap</a></code>, 
-<code><a href='as_plotly.html'>as_plotly</a></code></p>
+<code><a href='to_widget.html'>to_widget</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -196,7 +269,7 @@ an interactive graphic</p>
  <span class='kw'>row_annotation</span> <span class='kw'>=</span> <span class='no'>annotation</span>)
 
 <span class='co'># Print heatmap if interactive session </span>
-<span class='kw'>if</span> (<span class='fu'>interactive</span>()) <span class='no'>hm</span></div></pre>
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()) <span class='no'>hm</span></div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

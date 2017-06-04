@@ -30,7 +30,8 @@ new_iheatmap <- function(plot,
                          colorbar_grid = setup_colorbar_grid(),
                          colorbar = NULL,
                          colorbar_name = NULL,
-                         font = list(),
+                         source = source,
+                         layout = list(),
                          ...){
   orientation <- match.arg(orientation)
   if (orientation == "horizontal"){
@@ -42,12 +43,14 @@ new_iheatmap <- function(plot,
         current_xaxis = xname,
         current_yaxis = yname,
         colorbars = new_colorbars(colorbar, colorbar_name),
-        layout = list(hovermode = 'closest',
-                      margin = list(b = 50,
-                                    t = 50,
-                                    l = 50,
-                                    r= 50),
-                      font = font))
+        source = source,
+        layout = modifyList(list(hovermode = 'closest',
+                                 margin = list(b = 50,
+                                               t = 50,
+                                               l = 50,
+                                               r= 50),
+                                 font = list()), 
+                            layout))
   } else{
     new("IheatmapVertical",
         plots = new_plots(plot, pname),
@@ -57,12 +60,14 @@ new_iheatmap <- function(plot,
         current_xaxis = xname,
         current_yaxis = yname,
         colorbars = new_colorbars(colorbar, colorbar_name),
-        layout = list(hovermode = 'closest',
-                      margin = list(b = 50,
-                                    t = 50,
-                                    l = 50,
-                                    r= 50),
-                      font = font))
+        source = source,
+        layout = modifyList(list(hovermode = 'closest',
+                                 margin = list(b = 50,
+                                               t = 50,
+                                               l = 50,
+                                               r= 50),
+                                 font = list()),
+                            layout))
   }
 }
 
@@ -87,14 +92,16 @@ new_iheatmap <- function(plot,
 #' subsequent elements sharing y axis
 #' @param col_order column ordering for this heatmap-- will be used for all 
 #' subsequent elements sharing x axis
-#' @param font list of font attributes to pass to plotly, eg. list(size = 15)
+#' @param layout list of layout attributes to pass to plotly, 
+#' eg. list(font = list(size = 15))
 #' @param xname internal name for xaxis
 #' @param yname internal name for yaxis
 #' @param pname internal plot name
+#' @param source source name for use with shiny
 #' 
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
-#' @seealso \code{\link{add_iheatmap}}, \code{\link{as_plotly}},  
+#' @seealso \code{\link{add_iheatmap}}, \code{\link{to_widget}},  
 #' \code{\link{iheatmap}}, \code{\link{Iheatmap-class}}
 #' @export
 #' @author Alicia Schep
@@ -124,10 +131,11 @@ setMethod(main_heatmap, "matrix",
                    y_categorical = NULL,
                    row_order = seq_len(nrow(data)),
                    col_order = seq_len(ncol(data)),
-                   font = list(),
                    xname = "x",
                    yname = "y",
-                   pname = name){
+                   pname = name,
+                   source = "iheatmapr",
+                   layout = list()){
             
             iheatmap_argument_checks(data, row_order, col_order, x, y)
             orientation <- match.arg(orientation)
@@ -196,20 +204,21 @@ setMethod(main_heatmap, "matrix",
                        zmin = zmin,
                        zmax = zmax)
 
-  p <- new_iheatmap(plot = new_plot,
-                      xaxis = new_x,
-                      yaxis = new_y,
-                      xname = xname,
-                      yname = yname,
-                      pname = pname,
-                      orientation = orientation,
-                      colorbar_grid = colorbar_grid,
-                      colorbar = new_colorbar,
-                      colorbar_name = name,
-                      font = font)
-
-  validObject(p)
-  p
+            p <- new_iheatmap(plot = new_plot,
+                              xaxis = new_x,
+                              yaxis = new_y,
+                              xname = xname,
+                              yname = yname,
+                              pname = pname,
+                              orientation = orientation,
+                              colorbar_grid = colorbar_grid,
+                              colorbar = new_colorbar,
+                              colorbar_name = name,
+                              source = source,
+                              layout = layout)
+            
+            validObject(p)
+            p
   
 })
 

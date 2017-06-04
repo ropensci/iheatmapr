@@ -42,6 +42,8 @@ This is a virtual class with two children classes,
 \item{\code{current_yaxis}}{name of current y axis}
 
 \item{\code{layout}}{list of plotly layout parameters}
+
+\item{\code{source}}{source name, for use with shiny}
 }}
 
 \seealso{

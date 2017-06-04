@@ -1,8 +1,9 @@
 
-test_shiny_click <- function(ihm){
+test_shiny_event <- function(ihm, event = c("click","hover","selected","relayout")){
   
   if (!requireNamespace("shiny",quietly = TRUE))
     stop("shiny not installed")
+  event <- match.arg(event)
   
   ui <- shiny::fluidPage(
     
@@ -10,7 +11,7 @@ test_shiny_click <- function(ihm){
     shiny::titlePanel("Heatmap Example"),
     
     shiny::fluidRow(
-      shiny::column(8, plotly::plotlyOutput("heat")),
+      shiny::column(8, iheatmaprOutput("heat")), 
       shiny::column(4, shiny::verbatimTextOutput("cl"))
     )
   )
@@ -18,13 +19,14 @@ test_shiny_click <- function(ihm){
   # Define server logic required to draw a histogram
   server <- function(input, output) {
     
-    output$heat <- plotly::renderPlotly({
-      as_plotly(ihm, source = "iheatmap")
+    output$heat <- renderIheatmap({
+      ihm
     })
     
     output$cl <- shiny::renderPrint({
-      s <- plotly::event_data("plotly_click", source="iheatmap")
-      if (is.null(s) == TRUE) return("Click to see output")
+      s <- iheatmapr_event(ihm,event)
+      if (is.null(s) == TRUE)
+        return(paste0(event, " to see output"))
       utils::str(s)
     })
     

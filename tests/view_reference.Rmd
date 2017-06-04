@@ -1,23 +1,27 @@
 ---
-title: "Reference plots"
+title: "Reference plots"  
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(htmltools)
-library(plotly)
+library(iheatmapr)
 ```
 
 
-```{r, echo = FALSE}
-out <- list()
-for (i in list.files("testthat/reference/","*.rds", full.names = TRUE)){
-   out <- c(out,strsplit(basename(i),".rds")[[1]])
-   tmp <- readRDS(i)
-   out <- c(out, list(tmp))
+```{r, echo = FALSE,  results='asis'}
+out <- htmltools::tagList()
+ref_files <- list.files("testthat/reference/","*.rds", full.names = TRUE)
+for (i in seq_along(ref_files)){
+   out[[(i*2 - 1)]] <- strsplit(basename(ref_files[i]),".rds")[[1]]
+   tmp <- readRDS(ref_files[i])
+   out[[i*2]] <- tmp
 }
 
-tagList(out)
+out
+```
+ 
+```{r}
+Sys.time()
 ```
 

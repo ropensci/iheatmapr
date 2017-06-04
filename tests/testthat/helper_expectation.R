@@ -30,14 +30,15 @@ expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
 
 expect_iheatmap <- function(test_plot, ref_name, 
                             orientation = c("horizontal","vertical")){
-  test_plotly <- test_plot %>% as_plotly()
+  test_widget <- test_plot %>% to_widget()
   orientation <- match.arg(orientation)
   if (orientation == "horizontal"){
     expect_is(test_plot,"IheatmapHorizontal")
   } else{
     expect_is(test_plot,"IheatmapVertical")
   }
-  expect_is(test_plotly,"plotly")
-  expect_ihm_equal_to_reference(test_plotly, paste0("reference/",
+  expect_is(test_widget,"htmlwidget")
+  expect_is(test_widget,"iheatmapr")
+  expect_ihm_equal_to_reference(test_widget, paste0("reference/",
                                                     ref_name,".rds"))
 }

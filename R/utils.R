@@ -1,3 +1,7 @@
+#' @importFrom magrittr %>%
+#' @export
+magrittr::`%>%`
+
 # makes x based on colnames of mat if available
 # if not available, just uses 1 to number of columns
 default_x <- function(mat){

@@ -55,8 +55,7 @@ test_that("Can make plot with many components",{
   test_plot <- main_heatmap(a) %>% 
     add_row_groups(row_grp) %>%
     add_row_clustering() %>% 
-    add_col_groups(col_grp) %>%
-    add_col_clustering() %>%
+    add_col_clustering(k = 2) %>%
     add_main_heatmap(b) %>%
     add_col_summary(groups = TRUE) %>%
     add_row_labels(side = "right") %>%

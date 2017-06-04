@@ -19,7 +19,8 @@
   col_annotation = NULL, row_annotation_colors = NULL,
   col_annotation_colors = NULL, row_labels = NULL, col_labels = NULL,
   row_title = NULL, col_title = NULL,
-  colorbar_grid = setup_colorbar_grid(), font = list(), ...)
+  colorbar_grid = setup_colorbar_grid(), layout = list(),
+  source = "iheatmapr", ...)
 }
 \arguments{
 \item{data}{matrix of values to be plotted as heatmap}
@@ -91,7 +92,10 @@ heatmap}
 \item{colorbar_grid}{colorbar grid parameters, should be result from 
 \code{\link{setup_colorbar_grid}}}
 
-\item{font}{list of font attributes}
+\item{layout}{list of layout attributes to pass to plotly, 
+eg. list(font = list(size = 15))}
+
+\item{source}{source name for use with shiny}
 
 \item{...}{additional argument to iheatmap}
 }
@@ -117,7 +121,7 @@ if (interactive()) hm
 }
 \seealso{
 \code{\link{iheatmap}}, \code{\link{add_iheatmap}}, 
-\code{\link{as_plotly}}
+\code{\link{to_widget}}
 }
 \author{
 Alicia Schep

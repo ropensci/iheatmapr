@@ -126,8 +126,7 @@ col_annotation_heatmap_layout <- function(title, anchor, layout, show_title){
 #' @param show_colorbar show the colorbar?
 #' @param show_title show title as axis label
 #' @param layout list of x axis layout parameters
-#' @seealso \code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-#' \code{\link{add_col_groups}}
+#' @seealso \code{\link{iheatmap}}, \code{\link{add_col_groups}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
 #' @export
@@ -222,8 +221,7 @@ setMethod(add_row_signal, c(p = "Iheatmap", signal = "ANY"),
 #' @param show_colorbar show the colorbar?
 #' @param show_title show title as axis label
 #' @param layout y axis layout parameters to use
-#' @seealso \code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-#' \code{\link{add_row_groups}}
+#' @seealso \code{\link{iheatmap}}, \code{\link{add_row_groups}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
 #' @rdname add_col_signal

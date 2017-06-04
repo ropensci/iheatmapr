@@ -1,7 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.2.6
+Version: 0.3.0
 Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
                   role = c("aut", "cre")),
               person("Sarah","Kummerfeld", email = "kummerfeld.sarah@gene.com",
@@ -12,7 +12,6 @@ Description: Make complex, interactive heatmaps. iheatmapr includes a modular
     function for making relatively standard heatmaps.
 License: MIT + file LICENSE
 Depends:
-    plotly (>= 4.1.1),
     R (>= 3.2.0)
 Imports:
     methods,
@@ -27,7 +26,8 @@ Imports:
     htmlwidgets,
     jsonlite,
     scales,
-    knitr
+    knitr,
+    tools
 Suggests:
     htmltools,
     datasets,
@@ -36,7 +36,8 @@ Suggests:
     rmarkdown,
     reshape2,
     roxygen2,
-    covr
+    covr,
+    webshot
 biocViews: Visualization
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
@@ -46,7 +47,6 @@ Collate:
     'AllClasses.R'
     'AllGenerics.R'
     'annotations.R'
-    'as_plotly.R'
     'axes.R'
     'axis_labels.R'
     'axis_titles.R'
@@ -63,8 +63,10 @@ Collate:
     'iheatmap.R'
     'iheatmapr.R'
     'layout.R'
-    'shiny_click_test.R'
+    'shiny.R'
+    'shiny_test.R'
     'signal.R'
     'subplot.R'
     'summary.R'
+    'to_widget.R'
     'utils.R'

@@ -63,8 +63,7 @@ hm <- iheatmap(mat) \%>\% add_row_groups(row_groups, name = "My Groups")
 if (interactive()) hm 
 }
 \seealso{
-\code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-\code{\link{add_col_groups}}
+\code{\link{iheatmap}}, \code{\link{add_col_groups}}
 }
 \author{
 Alicia Schep

@@ -19,7 +19,6 @@
 #' rendering them in R. 
 #' 
 #' @import methods S4Vectors 
-#' @importFrom plotly plotly_build
 #' @importFrom utils modifyList
 #' @importFrom magrittr %>%
 #' @importFrom scales zero_range

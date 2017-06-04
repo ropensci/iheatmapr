@@ -12,8 +12,8 @@
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
   orientation = c("horizontal", "vertical"), x_categorical = NULL,
   y_categorical = NULL, row_order = seq_len(nrow(data)),
-  col_order = seq_len(ncol(data)), font = list(), xname = "x",
-  yname = "y", pname = name)
+  col_order = seq_len(ncol(data)), xname = "x", yname = "y",
+  pname = name, source = "iheatmapr", layout = list())
 }
 \arguments{
 \item{data}{matrix}
@@ -49,13 +49,16 @@ subsequent elements sharing y axis}
 \item{col_order}{column ordering for this heatmap-- will be used for all 
 subsequent elements sharing x axis}
 
-\item{font}{list of font attributes to pass to plotly, eg. list(size = 15)}
-
 \item{xname}{internal name for xaxis}
 
 \item{yname}{internal name for yaxis}
 
 \item{pname}{internal plot name}
+
+\item{source}{source name for use with shiny}
+
+\item{layout}{list of layout attributes to pass to plotly, 
+eg. list(font = list(size = 15))}
 }
 \value{
 \code{\link{Iheatmap-class}} object, which can be printed to generate 
@@ -73,7 +76,7 @@ hm <- main_heatmap(mat)
 if (interactive()) hm 
 }
 \seealso{
-\code{\link{add_iheatmap}}, \code{\link{as_plotly}},  
+\code{\link{add_iheatmap}}, \code{\link{to_widget}},  
 \code{\link{iheatmap}}, \code{\link{Iheatmap-class}}
 }
 \author{

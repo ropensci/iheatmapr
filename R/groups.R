@@ -20,8 +20,7 @@
 #' @param yname internal name of yaxis
 #' @param pname internal name of plot
 #' 
-#' @seealso \code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-#' \code{\link{add_col_groups}}
+#' @seealso \code{\link{iheatmap}}, \code{\link{add_col_groups}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
 #' @rdname add_row_groups
@@ -119,8 +118,7 @@ setMethod(add_row_groups,
 #' @param yname internal name of yaxis
 #' @param pname internal name of plot
 #' 
-#' @seealso \code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-#' \code{\link{add_row_groups}}
+#' @seealso \code{\link{iheatmap}}, \code{\link{add_row_groups}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
 #' @export

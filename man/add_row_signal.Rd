@@ -68,8 +68,7 @@ hm <- iheatmap(mat) \%>\% add_row_signal(signal = 1:4, name = "Strength")
 if (interactive()) hm 
 }
 \seealso{
-\code{\link{iheatmap}}, \code{\link{as_plotly}}, 
-\code{\link{add_col_groups}}
+\code{\link{iheatmap}}, \code{\link{add_col_groups}}
 
 \code{\link{add_col_signal}}, \code{\link{iheatmap}}, 
 \code{\link{add_row_annotation}}

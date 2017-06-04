@@ -7,8 +7,8 @@
 \title{add_col_labels}
 \usage{
 \S4method{add_col_labels}{Iheatmap}(p, tickvals = NULL, ticktext = NULL,
-  textangle = -90, font = list(), side = c("bottom", "top"), size = 0.1,
-  buffer = 0.005, xname = current_xaxis(p), yname = NULL)
+  textangle = -90, font = get_layout(p)$font, side = c("bottom", "top"),
+  size = 0.1, buffer = 0.005, xname = current_xaxis(p), yname = NULL)
 }
 \arguments{
 \item{p}{\code{link{Iheatmap-class}} object}

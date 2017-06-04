@@ -5,6 +5,6 @@ templates:
 navbar:
   left:
   - text: Vignette
-    href: articles/iheatmapr.html
+    href: articles/full_vignettes/iheatmapr.html
   - text: Reference
     href: reference/index.html

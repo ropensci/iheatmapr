@@ -591,6 +591,7 @@ setValidity("IheatmapAxes",
 #' @slot current_xaxis name of current x axis 
 #' @slot current_yaxis name of current y axis 
 #' @slot layout list of plotly layout parameters 
+#' @slot source source name, for use with shiny
 #' @details This is a virtual class with two children classes, 
 #'  IheatmapHorizontal and IheatmapVertical. For IheatmapHorizontal additional
 #'  main heatmaps are added horizontally, and for IheatmapVertical additional
@@ -604,15 +605,17 @@ setValidity("IheatmapAxes",
 #' @author Alicia Schep
 setClass("Iheatmap",
          slots = list(plots = "IheatmapPlots",
-                               shapes = "IheatmapShapes",
-                               annotations = "IheatmapAnnotations",
-                               xaxes = "IheatmapAxes",
-                               yaxes = "IheatmapAxes",
-                               colorbars = "IheatmapColorbars",
-                               colorbar_grid = "IheatmapColorbarGrid",
-                               current_xaxis = "character",
-                               current_yaxis = "character",
-                               layout = "list"),
+                      shapes = "IheatmapShapes",
+                      annotations = "IheatmapAnnotations",
+                      xaxes = "IheatmapAxes",
+                      yaxes = "IheatmapAxes",
+                      colorbars = "IheatmapColorbars",
+                      colorbar_grid = "IheatmapColorbarGrid",
+                      current_xaxis = "character",
+                      current_yaxis = "character",
+                      layout = "list",
+                      source = "character"
+         ),
          contains = "VIRTUAL")
 
 setValidity("Iheatmap",

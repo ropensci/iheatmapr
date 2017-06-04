@@ -2,17 +2,9 @@
 title: iheatmapr
 author: Alicia Schep
 date: "`r Sys.Date()`"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 2
-    number_sections: true
-    theme: cerulean
-    toc_float:
-      collapsed: true
-      smooth_scroll: false
+output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{iheatmapr}
+  %\VignetteIndexEntry{pkgdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -32,7 +24,6 @@ For this vignette, we will use the Indometh data included in the datasets packag
 
 ```{r, message = FALSE}
 library(iheatmapr)
-library(plotly)
 library(datasets)
 library(reshape2)
 
@@ -535,16 +526,20 @@ iheatmap(Indometh_patient_cor,
 ```
 
 
-## Plotly modifications
+## Margins and other layout properties
 
-When displaying an Iheatmap object, iheatmapr converts the object into a plotly htmlwidget. If you want to be able to inspect or modify that object, the `as_plotly` function will convert an Iheatmap object to a plotly htmlwidgets object. If you are familiar with the plotly R package, this is the type of object that results from the "plotly_build" command. Note that after such conversion, none of the iheatmap functions can be used anymore. However, the object can be passed to plotly functions, like layout.
+General plotly layout arguments can be passed to the `layout` argument to `main_heatmap` or `iheatmap`. See the [plotly documentation](https://plot.ly/javascript/reference/#layout) for more information about the various options.
 
 ```{r}
-main_heatmap(Indometh_matrix) %>% as_plotly() %>% 
-  layout(margin = list(b = 120))
+main_heatmap(Indometh_matrix, layout = list(margin = list(b = 120)))
 ```
 
-Converting the object to a plotly object also enables use of these heatmaps in shiny, as we can then take advantage of the plotly R packages renderPlotly, plotlyOutput, and event_data functions.
+The alyout can also be adjusted after creation of the plot using the `modify_layout` function. 
+
+```{r}
+main_heatmap(Indometh_matrix) %>% modify_layout(list(margin = list(b = 120)))
+```
+
 
 ## Axis properties
 
@@ -609,6 +604,12 @@ main_heatmap(Indometh_matrix) %>%
 ## Sizing in knitr
 
 To change the sizing within knitr, use the fig.width and fig.height chunk options.
+
+# Shiny 
+
+Iheatmap objects can be used in shiny.  The `renderIheatmap` function should be used in the server code, and the `iheatmaprOutput` in the ui code.  
+
+For observing events, the `iheatmapr_event` function should be used.  The function takes as the first argument the Iheatmap object, and as the second argument a type of event -- "click","hover", or "relayout". 
 
 # Session Info
 

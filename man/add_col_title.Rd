@@ -6,9 +6,9 @@
 \alias{add_col_title,Iheatmap-method}
 \title{add_col_title}
 \usage{
-\S4method{add_col_title}{Iheatmap}(p, title, textangle = 0, font = list(),
-  side = c("bottom", "top"), size = 0.1, buffer = 0.01,
-  xname = current_xaxis(p), yname = NULL)
+\S4method{add_col_title}{Iheatmap}(p, title, textangle = 0,
+  font = get_layout(p)$font, side = c("bottom", "top"), size = 0.1,
+  buffer = 0.01, xname = current_xaxis(p), yname = NULL)
 }
 \arguments{
 \item{p}{iheatmap object}
