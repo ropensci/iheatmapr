@@ -87,7 +87,9 @@
 <span class='fu'>add_col_summary</span>(<span class='no'>p</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>heatmap_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tracename</span> <span class='kw'>=</span> <span class='st'>"Col Summary"</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"top"</span>, <span class='st'>"bottom"</span>), <span class='kw'>layout</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>0.02</span>,
-  <span class='kw'>xname</span> <span class='kw'>=</span> <span class='fu'>current_xaxis</span>(<span class='no'>p</span>), <span class='kw'>yname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"scatter"</span>, <span class='st'>"bar"</span>), <span class='no'>...</span>)</pre>
+  <span class='kw'>xname</span> <span class='kw'>=</span> <span class='fu'>current_xaxis</span>(<span class='no'>p</span>), <span class='kw'>yname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"scatter"</span>, <span class='st'>"bar"</span>),
+  <span class='kw'>summary_function</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"mean"</span>, <span class='st'>"median"</span>, <span class='st'>"sd"</span>, <span class='st'>"var"</span>, <span class='st'>"mad"</span>, <span class='st'>"max"</span>, <span class='st'>"min"</span>),
+  <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -145,6 +147,11 @@ size of first heatmap</p></td>
     <tr>
       <th>type</th>
       <td><p>scatter or bar?</p></td>
+    </tr>
+    <tr>
+      <th>summary_function</th>
+      <td><p>summary function to use, default is mean, options 
+are mean, median, sd, var, mad, max, min</p></td>
     </tr>
     <tr>
       <th>...</th>
