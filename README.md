@@ -67,3 +67,5 @@ See the [vignette](https://aliciaschep.github.io/iheatmapr/articles/full_vignett
 # Acknowledgements
 
 This package includes the open source Plotly.js library, which does much of the work of making these interactive plots possible! In creating this package, I also drew inspiration & some code from the great plotly R package; in particular, the code for the iheatmapr htmlwidget is adapted from an earlier version of the plotly R package. Additionally, numerous people at Genentech helped provide feedback and guidance for this project, including but not limited to Justin Finkle, August Guang, Michael Lawrence, Gabe Becker, Steve Lianoglou, Pete Haverty... thanks to all who helped review code and/or provide feedback!  This package also went through the on-boarding process for rOpensci -- thanks to the reviewers Carl Ganz and Andee Kaplan and editor Maëlle Salmon for all their helpful feedback! 
+
+[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
