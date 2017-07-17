@@ -1,7 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.3.0
+Version: 0.3.1
 Author: Alicia Schep, Sarah Kummerfeld 
 Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
                   role = c("aut", "cre")),
