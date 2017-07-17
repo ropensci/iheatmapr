@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/AliciaSchep/iheatmapr.svg?branch=master)](https://travis-ci.org/AliciaSchep/iheatmapr)
+[![Build Status](https://travis-ci.org/ropensci/iheatmapr.svg?branch=master)](https://travis-ci.org/ropensci/iheatmapr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/AliciaSchep/iheatmapr?branch=master&svg=true)](https://ci.appveyor.com/project/AliciaSchep/iheatmapr)
 [![codecov](https://codecov.io/gh/AliciaSchep/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI)](https://codecov.io/gh/AliciaSchep/iheatmapr)
 ![R version](https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg)
