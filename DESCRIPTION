@@ -66,8 +66,8 @@ Suggests:
 biocViews: Visualization
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
-URL: https://github.com/AliciaSchep/iheatmapr
-BugReports: https://github.com/AliciaSchep/iheatmapr/issues
+URL: https://github.com/ropensci/iheatmapr
+BugReports: https://github.com/ropensci/iheatmapr/issues
 Encoding: UTF-8
 Collate:
     'AllClasses.R'

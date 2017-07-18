@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/AliciaSchep/iheatmapr.svg?branch=master)](https://travis-ci.org/AliciaSchep/iheatmapr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/AliciaSchep/iheatmapr?branch=master&svg=true)](https://ci.appveyor.com/project/AliciaSchep/iheatmapr)
-[![codecov](https://codecov.io/gh/AliciaSchep/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI)](https://codecov.io/gh/AliciaSchep/iheatmapr)
+[![Build Status](https://travis-ci.org/ropensci/iheatmapr.svg?branch=master)](https://travis-ci.org/ropensci/iheatmapr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/iheatmapr?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/iheatmapr)
+[![codecov](https://codecov.io/gh/ropensci/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI)](https://codecov.io/gh/ropensci/iheatmapr)
 ![R version](https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg)
 
 # iheatmapr
@@ -14,7 +14,7 @@ While there are already plenty of awesome R packages for making heatmaps, includ
 iheatmapr is not yet on CRAN -- install using devtools:
 
 ```r
-devtools::install_github("AliciaSchep/iheatmapr")
+devtools::install_github("ropensci/iheatmapr")
 ```
 
 iheatmapr has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:
@@ -28,7 +28,7 @@ biocLite("BiocInstaller")
 
 As an example of a complex heatmap, we can make a version of the famous vaccines plot from the Wall Street Journal that has been recreated in several other heatmap frameworks in R. 
 
-![](https://raw.githubusercontent.com/AliciaSchep/iheatmapr/master/vaccine.gif)
+![](https://raw.githubusercontent.com/ropensci/iheatmapr/master/vaccine.gif)
 
 The code to create this heatmap is:
 
@@ -62,7 +62,7 @@ Hovering over the heatmaps yields a tooltip with the name of the row and column 
 
 # Documentation
 
-See the [vignette](https://aliciaschep.github.io/iheatmapr/articles/full_vignettes/iheatmapr.html) for a more thorough introduction to the package.
+See the [vignette](https://ropensci.github.io/iheatmapr/articles/full_vignettes/iheatmapr.html) for a more thorough introduction to the package.
 
 # Acknowledgements
 
