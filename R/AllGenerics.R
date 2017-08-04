@@ -198,6 +198,7 @@ setGeneric("get_layout", function(x, ...) standardGeneric("get_layout"))
 
 setGeneric("modify_layout", function(x, ...) standardGeneric("modify_layout"))
 
+#' @export
 setGeneric("to_widget", function(p, ...) standardGeneric("to_widget"))
 
 setGeneric("save_iheatmap", 
