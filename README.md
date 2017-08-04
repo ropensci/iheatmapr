@@ -38,7 +38,7 @@ library(iheatmapr)
 data(measles, package = "iheatmapr")
 
 main_heatmap(measles, name = "Measles<br>Cases", x_categorical = FALSE,
-             font = list(size = 8)) %>%
+             layout = list(font = list(size = 8))) %>%
   add_col_groups(ifelse(1930:2001 < 1961,"No","Yes"),
                   side = "bottom", name = "Vaccine<br>Introduced?",
                   title = "Vaccine?",
