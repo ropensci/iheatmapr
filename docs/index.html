@@ -54,7 +54,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
     
-<p><a href="https://travis-ci.org/ropensci/iheatmapr"><img src="https://travis-ci.org/ropensci/iheatmapr.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/ropensci/iheatmapr"><img src="https://ci.appveyor.com/api/projects/status/github/ropensci/iheatmapr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a> <a href="https://codecov.io/gh/ropensci/iheatmapr"><img src="https://codecov.io/gh/ropensci/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI" alt="codecov"></a> <img src="https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg" alt="R version"></p>
+<p><a href="https://travis-ci.org/ropensci/iheatmapr"><img src="https://travis-ci.org/ropensci/iheatmapr.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/ropensci/iheatmapr"><img src="https://ci.appveyor.com/api/projects/status/github/ropensci/iheatmapr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a> <a href="https://codecov.io/gh/ropensci/iheatmapr"><img src="https://codecov.io/gh/ropensci/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI" alt="codecov"></a> <img src="https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg" alt="R version"><a href="https://github.com/ropensci/onboarding/issues/107"><img src="https://badges.ropensci.org/107_status.svg"></a></p>
 <div id="iheatmapr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#iheatmapr" class="anchor"></a>iheatmapr</h1></div>
@@ -64,7 +64,7 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>iheatmapr is not yet on CRAN – install using devtools:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">"ropensci/iheatmapr"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ropensci/iheatmapr"</span>)</code></pre></div>
 <p>iheatmapr has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">"https://bioconductor.org/biocLite.R"</span>)
 <span class="kw">biocLite</span>(<span class="st">"BiocInstaller"</span>)</code></pre></div>
@@ -79,16 +79,16 @@
 <span class="kw">data</span>(measles, <span class="dt">package =</span> <span class="st">"iheatmapr"</span>)
 
 <span class="kw"><a href="reference/main_heatmap.html">main_heatmap</a></span>(measles, <span class="dt">name =</span> <span class="st">"Measles&lt;br&gt;Cases"</span>, <span class="dt">x_categorical =</span> <span class="ot">FALSE</span>,
-             <span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) %&gt;%
-<span class="st">  </span><span class="kw"><a href="reference/add_col_groups.html">add_col_groups</a></span>(<span class="kw">ifelse</span>(<span class="dv">1930</span>:<span class="dv">2001</span> &lt;<span class="st"> </span><span class="dv">1961</span>,<span class="st">"No"</span>,<span class="st">"Yes"</span>),
+             <span class="dt">layout =</span> <span class="kw">list</span>(<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="reference/add_col_groups.html">add_col_groups</a></span>(<span class="kw">ifelse</span>(<span class="dv">1930</span><span class="op">:</span><span class="dv">2001</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">1961</span>,<span class="st">"No"</span>,<span class="st">"Yes"</span>),
                   <span class="dt">side =</span> <span class="st">"bottom"</span>, <span class="dt">name =</span> <span class="st">"Vaccine&lt;br&gt;Introduced?"</span>,
                   <span class="dt">title =</span> <span class="st">"Vaccine?"</span>,
-                  <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">"lightgray"</span>,<span class="st">"blue"</span>)) %&gt;%
-<span class="st">  </span><span class="kw"><a href="reference/add_col_labels.html">add_col_labels</a></span>(<span class="dt">ticktext =</span> <span class="kw">seq</span>(<span class="dv">1930</span>,<span class="dv">2000</span>,<span class="dv">10</span>),<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) %&gt;%
-<span class="st">  </span><span class="kw"><a href="reference/add_row_labels.html">add_row_labels</a></span>(<span class="dt">size =</span> <span class="fl">0.3</span>,<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">6</span>)) %&gt;%<span class="st"> </span>
+                  <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">"lightgray"</span>,<span class="st">"blue"</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="reference/add_col_labels.html">add_col_labels</a></span>(<span class="dt">ticktext =</span> <span class="kw">seq</span>(<span class="dv">1930</span>,<span class="dv">2000</span>,<span class="dv">10</span>),<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">8</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="reference/add_row_labels.html">add_row_labels</a></span>(<span class="dt">size =</span> <span class="fl">0.3</span>,<span class="dt">font =</span> <span class="kw">list</span>(<span class="dt">size =</span> <span class="dv">6</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="reference/add_col_summary.html">add_col_summary</a></span>(<span class="dt">layout =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">"Average&lt;br&gt;across&lt;br&gt;states"</span>),
-                  <span class="dt">yname =</span> <span class="st">"summary"</span>)  %&gt;%<span class="st">                 </span>
-<span class="st">  </span><span class="kw"><a href="reference/add_col_title.html">add_col_title</a></span>(<span class="st">"Measles Cases from 1930 to 2001"</span>, <span class="dt">side=</span> <span class="st">"top"</span>) %&gt;%
+                  <span class="dt">yname =</span> <span class="st">"summary"</span>)  <span class="op">%&gt;%</span><span class="st">                 </span>
+<span class="st">  </span><span class="kw"><a href="reference/add_col_title.html">add_col_title</a></span>(<span class="st">"Measles Cases from 1930 to 2001"</span>, <span class="dt">side=</span> <span class="st">"top"</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw"><a href="reference/add_row_summary.html">add_row_summary</a></span>(<span class="dt">groups =</span> <span class="ot">TRUE</span>, 
                   <span class="dt">type =</span> <span class="st">"bar"</span>,
                   <span class="dt">layout =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">"Average&lt;br&gt;per&lt;br&gt;year"</span>,
@@ -122,7 +122,7 @@
 </li>
 </ul>
 <h2>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE">LICENSE</a></p>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Alicia Schep <br><small class="roles"> Author, maintainer </small> </li>
