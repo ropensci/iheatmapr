@@ -23,7 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -87,7 +88,7 @@
 <span class='fu'>add_iheatmap</span>(<span class='no'>p</span>, <span class='no'>data</span>,
   <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>default_x</span>(<span class='no'>data</span>), <span class='kw'>cluster_cols</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"hclust"</span>, <span class='st'>"kmeans"</span>,
   <span class='st'>"groups"</span>), <span class='kw'>col_clusters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>col_clust_dist</span> <span class='kw'>=</span> <span class='kw'>stats</span><span class='kw'>::</span><span class='no'>dist</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Signal"</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"rows"</span>,
+  <span class='kw'>col_clust_dist</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/dist'>dist</a></span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Signal"</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"rows"</span>,
   <span class='st'>"cols"</span>), <span class='kw'>scale_method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"standardize"</span>, <span class='st'>"center"</span>, <span class='st'>"normalize"</span>),
   <span class='kw'>colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_clusters_colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>col_clusters_name</span> <span class='kw'>=</span> <span class='st'>"Col&lt;br&gt;Clusters"</span>, <span class='kw'>show_col_clusters_colorbar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -99,7 +100,7 @@
 <span class='co'># S4 method for IheatmapVertical,matrix</span>
 <span class='fu'>add_iheatmap</span>(<span class='no'>p</span>, <span class='no'>data</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>default_y</span>(<span class='no'>data</span>),
   <span class='kw'>cluster_rows</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"hclust"</span>, <span class='st'>"kmeans"</span>, <span class='st'>"groups"</span>),
-  <span class='kw'>row_clusters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_clust_dist</span> <span class='kw'>=</span> <span class='kw'>stats</span><span class='kw'>::</span><span class='no'>dist</span>,
+  <span class='kw'>row_clusters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_clust_dist</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/dist'>dist</a></span>,
   <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Signal"</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"rows"</span>, <span class='st'>"cols"</span>),
   <span class='kw'>scale_method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"standardize"</span>, <span class='st'>"center"</span>, <span class='st'>"normalize"</span>), <span class='kw'>colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>row_clusters_colors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_clusters_name</span> <span class='kw'>=</span> <span class='st'>"Col&lt;br&gt;Clusters"</span>,

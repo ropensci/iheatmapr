@@ -11,3 +11,4 @@
 ^docs$
 ^appveyor\.yml$
 ^vignettes/full_vignettes$
+^_pkgdown\.yml$
