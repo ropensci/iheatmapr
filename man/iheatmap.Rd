@@ -104,7 +104,19 @@ eg. list(font = list(size = 15))}
 an interactive graphic
 }
 \description{
-iheatmap
+Make a farily standard interactive heatmap with optional clustering and 
+row and column annotations.  For more flexibility and options, see the
+\code{\link{main_heatmap}} function and other modular functions as described
+ in vignette.
+}
+\details{
+By default, no scaling is done of rows or columns. This can be changed by 
+specifying the 'scale' argument.  There are three options for scaling 
+methods. "standardize" subtracts the mean and divides by standard deviation,
+"center" just subtracts the mean, and "normalize" divides by the sum of the 
+values.  "normalize" should only be used for data that is all positive!  If 
+alternative scaling is desired, the scaling should be done prior to calling 
+the iheatmap function.
 }
 \examples{
 mat <- matrix(rnorm(24), nrow = 6)

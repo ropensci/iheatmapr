@@ -1,5 +1,9 @@
 #' iheatmap
 #' 
+#' Make a farily standard interactive heatmap with optional clustering and 
+#' row and column annotations.  For more flexibility and options, see the
+#' \code{\link{main_heatmap}} function and other modular functions as described
+#'  in vignette.
 #' @param data matrix of values to be plotted as heatmap
 #' @param x x xaxis labels, by default colnames of data
 #' @param y y axis labels, by default rownames of data
@@ -43,6 +47,14 @@
 #' @param col_title y axis title
 #' @param source source name for use with shiny
 #' @param ... additional argument to iheatmap
+#' @details 
+#' By default, no scaling is done of rows or columns. This can be changed by 
+#' specifying the 'scale' argument.  There are three options for scaling 
+#' methods. "standardize" subtracts the mean and divides by standard deviation,
+#' "center" just subtracts the mean, and "normalize" divides by the sum of the 
+#' values.  "normalize" should only be used for data that is all positive!  If 
+#' alternative scaling is desired, the scaling should be done prior to calling 
+#' the iheatmap function.
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
 #' @export
@@ -231,6 +243,14 @@ setMethod("iheatmap", c(data = "matrix"),
 #' size of first heatmap
 #' @param ... additional argument to add_iheatmap
 #' @export
+#' @details 
+#' By default, no scaling is done of rows or columns. This can be changed by 
+#' specifying the 'scale' argument.  There are three options for scaling 
+#' methods. "standardize" subtracts the mean and divides by standard deviation,
+#' "center" just subtracts the mean, and "normalize" divides by the sum of the 
+#' values.  "normalize" should only be used for data that is all positive!  If 
+#' alternative scaling is desired, the scaling should be done prior to calling 
+#' the iheatmap function.
 #' @author Alicia Schep
 #' @rdname add_iheatmap
 #' @name add_iheatmap
