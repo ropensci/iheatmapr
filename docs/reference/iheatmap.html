@@ -81,7 +81,10 @@
     </div>
 
     
-    <p>iheatmap</p>
+    <p>Make a farily standard interactive heatmap with optional clustering and 
+row and column annotations.  For more flexibility and options, see the
+<code><a href='main_heatmap.html'>main_heatmap</a></code> function and other modular functions as described
+ in vignette.</p>
     
 
     <pre class="usage"><span class='co'># S4 method for matrix</span>
@@ -253,6 +256,16 @@ eg. list(font = list(size = 15))</p></td>
     <p><code><a href='Iheatmap-class.html'>Iheatmap-class</a></code> object, which can be printed to generate 
 an interactive graphic</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>By default, no scaling is done of rows or columns. This can be changed by 
+specifying the 'scale' argument.  There are three options for scaling 
+methods. "standardize" subtracts the mean and divides by standard deviation,
+"center" just subtracts the mean, and "normalize" divides by the sum of the 
+values.  "normalize" should only be used for data that is all positive!  If 
+alternative scaling is desired, the scaling should be done prior to calling 
+the iheatmap function.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code>iheatmap</code>, <code><a href='add_iheatmap.html'>add_iheatmap</a></code>, 
@@ -278,6 +291,8 @@ an interactive graphic</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

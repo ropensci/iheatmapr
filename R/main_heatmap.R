@@ -71,6 +71,45 @@ new_iheatmap <- function(plot,
   }
 }
 
+#' Tooltip Options
+#' 
+#' This function setups tooltip options for heatmap components of iheatmapr 
+#' complex heatmaps.
+#' @param row logical, include row name in tooltip?
+#' @param col logical, include column name in tooltip?
+#' @param value logical, includevalue in tooltip?
+#' @param prepend_row text to prepend to row name
+#' @param prepend_col text to prepend to column name
+#' @param prepend_value text to prepend to value 
+#' 
+#' @return a HeatmapTooltipOptions object which stores these options and can be
+#' passed to 'tooltip' argument to main_heatmap and other functions. 
+#' @export
+#' @examples 
+#' 
+#' mat <- matrix(rnorm(20), ncol = 5, nrow = 4)  
+#' hm1 <- main_heatmap(mat, 
+#'    tooltip = setup_tooltip_options(row = FALSE, col = FALSE,
+#'                                    prepend_value = "Value is ")) 
+#' 
+#' # Print heatmap if interactive session 
+#' if (interactive()) hm1 
+setup_tooltip_options <- function(row = TRUE,
+                                col = TRUE,
+                                value = TRUE,
+                                prepend_row = "Row: ",
+                                prepend_col = "Col: ",
+                                prepend_value = "Value: "){
+  
+  new("HeatmapTooltipOptions",
+      row = row,
+      col = col,
+      value = value,
+      prepend_row = prepend_row,
+      prepend_col = prepend_col,
+      prepend_value = prepend_value)
+}
+
 #' main_heatmap
 #' 
 #' Plots initial heatmap, creates Iheatmap object
@@ -98,6 +137,8 @@ new_iheatmap <- function(plot,
 #' @param yname internal name for yaxis
 #' @param pname internal plot name
 #' @param source source name for use with shiny
+#' @param text text of value to display for data
+#' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
 #' 
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
@@ -131,6 +172,8 @@ setMethod(main_heatmap, "matrix",
                    y_categorical = NULL,
                    row_order = seq_len(nrow(data)),
                    col_order = seq_len(ncol(data)),
+                   text = signif(data, digits = 3),
+                   tooltip = setup_tooltip_options(),
                    xname = "x",
                    yname = "y",
                    pname = name,
@@ -149,7 +192,9 @@ setMethod(main_heatmap, "matrix",
                             yaxis = "y",
                             colorbar = name,
                             show_colorbar = TRUE,
-                            data = data)
+                            data = data,
+                            text = text,
+                            tooltip = tooltip)
             
             if (x_categorical){
               xrange <- c(0.5,length(col_order)+0.5)
@@ -253,6 +298,8 @@ setMethod(main_heatmap, "matrix",
 #' @param xname internal name for x axis
 #' @param yname internal name for y axis
 #' @param pname internal name for plot
+#' @param text text of value to display for data
+#' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
 #' 
 #' @seealso \code{\link{iheatmap}}, \code{\link{main_heatmap}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
@@ -287,6 +334,8 @@ setMethod("add_main_heatmap", c(p = "IheatmapHorizontal", data = "matrix"),
                    side = c("right","left"),
                    size = 1,
                    buffer = 0.04,
+                   text = signif(data, digits = 3),
+                   tooltip = setup_tooltip_options(),
                    xname = NULL,
                    pname = name){
             
@@ -330,7 +379,9 @@ setMethod("add_main_heatmap", c(p = "IheatmapHorizontal", data = "matrix"),
                             yaxis = "y",
                             colorbar = name,
                             show_colorbar = TRUE,
-                            data = data)
+                            data = data,
+                            text = text,
+                            tooltip = tooltip)
             
             new_colorbar <- continuous_colorbar(name, colorbar_position, 
                                                 colors, zmid, zmin, zmax)
@@ -365,6 +416,8 @@ setMethod("add_main_heatmap", c(p = "IheatmapVertical", data = "matrix"),
                    side = c("bottom","top"),
                    size = 1,
                    buffer = 0.04,
+                   text = signif(data, digits = 3),
+                   tooltip = setup_tooltip_options(),
                    yname = NULL,
                    pname = name){
             
@@ -408,7 +461,9 @@ setMethod("add_main_heatmap", c(p = "IheatmapVertical", data = "matrix"),
                             yaxis = yname,
                             colorbar = name,
                             show_colorbar = TRUE,
-                            data = data)
+                            data = data,
+                            text = text,
+                            tooltip = tooltip)
             
             new_colorbar <- continuous_colorbar(name, colorbar_position, 
                                                 colors, zmid, zmin, zmax)
@@ -431,8 +486,8 @@ setMethod("make_trace", signature = c(x = "MainHeatmap"),
             xa <- xaxes[[xaxis_name(x)]]
             ya <- yaxes[[yaxis_name(x)]]
             
-            txt <- make_text_matrix(get_data(x), axis_text(xa), axis_text(ya), 
-                                    axis_order(ya), axis_order(xa))
+            txt <- make_text_matrix(x@text, axis_text(xa), axis_text(ya), 
+                                    axis_order(ya), axis_order(xa), x@tooltip)
             colorscale <- colorscale(cb, get_data(x))
             
             out <- list(z = get_data(x)[axis_order(ya), 
@@ -455,15 +510,37 @@ setMethod("make_trace", signature = c(x = "MainHeatmap"),
           })
 
 
-
-make_text_matrix <- function(mat, x, y, row_order, col_order){
+make_text_matrix <- function(mat, x, y, row_order, col_order, tooltip){
   
-  txt <- outer(paste("Row:", y[row_order]), paste("Column:", x[col_order]),
+  if (tooltip@row & tooltip@col){
+    txt <- outer(paste0(tooltip@prepend_row, y[row_order]),
+                 paste0(tooltip@prepend_col, x[col_order]),
                FUN = paste, sep = "<br>")
+  } else if (tooltip@row){
+    txt <- outer(paste0(tooltip@prepend_row, y[row_order]),
+                 rep("", length(col_order)),
+                 FUN = paste0)
+  } else if (tooltip@col){
+    txt <- outer(rep("", length(row_order)),
+                 paste0(tooltip@prepend_col, x[col_order]),
+                 FUN = paste0)
+  } else if (tooltip@value){
+    txt <- matrix(paste0(tooltip@prepend_value, mat[row_order, col_order]),
+                  nrow = length(row_order), ncol = length(col_order))
+    return(txt)
+  } else{
+    txt <- outer(rep("", length(row_order)),
+                 rep("", length(col_order)),
+                 FUN = paste0)
+    return(txt)
+  }
   
-  txt <- matrix(paste(txt, paste("Value:", mat[row_order, col_order]), 
+  if (tooltip@value){
+    txt <- matrix(paste(txt, paste0(tooltip@prepend_value, mat[row_order, col_order]), 
                       sep = "<br>"),
                 nrow = length(row_order), ncol = length(col_order))
+  }
+  
   
   return(txt)
 }

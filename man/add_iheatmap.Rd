@@ -111,6 +111,15 @@ an interactive graphic
 \description{
 add_iheatmap
 }
+\details{
+By default, no scaling is done of rows or columns. This can be changed by 
+specifying the 'scale' argument.  There are three options for scaling 
+methods. "standardize" subtracts the mean and divides by standard deviation,
+"center" just subtracts the mean, and "normalize" divides by the sum of the 
+values.  "normalize" should only be used for data that is all positive!  If 
+alternative scaling is desired, the scaling should be done prior to calling 
+the iheatmap function.
+}
 \examples{
 
 mat <- matrix(rnorm(24), nrow = 6)

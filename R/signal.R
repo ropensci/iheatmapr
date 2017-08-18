@@ -6,8 +6,8 @@ setMethod("make_trace", signature = c(x = "RowAnnotation"),
             ya <- yaxes[[yaxis_name(x)]]
             
             mat <- matrix(get_data(x), ncol=1)
-            txt <- make_text_matrix(mat, get_title(x), axis_text(ya), 
-                                    axis_order(ya), 1)
+            txt <- make_text_matrix(matrix(x@text,ncol=1), get_title(x), axis_text(ya), 
+                                    axis_order(ya), 1, x@tooltip)
             
             colorscale <- colorscale(cb, mat)
             
@@ -44,11 +44,12 @@ setMethod("make_trace", signature = c(x = "ColumnAnnotation"),
             ya <- yaxes[[yaxis_name(x)]]
             
             mat <- matrix(get_data(x), nrow=1)
-            txt <- make_text_matrix(mat, 
+            txt <- make_text_matrix(matrix(x@text, nrow = 1), 
                                     axis_text(xa), 
                                     get_title(x), 
                                     1, 
-                                    axis_order(xa))
+                                    axis_order(xa),
+                                    x@tooltip)
             
             colorscale <- colorscale(cb, mat)
             
@@ -123,6 +124,8 @@ col_annotation_heatmap_layout <- function(title, anchor, layout, show_title){
 #' @param size relative size of dendrogram (relative to the main heatmap)
 #' @param buffer amount of space to leave empty before this plot, relative to 
 #' size of first heatmap
+#' @param text text of value to display for data
+#' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
 #' @param show_colorbar show the colorbar?
 #' @param show_title show title as axis label
 #' @param layout list of x axis layout parameters
@@ -159,6 +162,8 @@ setMethod(add_row_signal, c(p = "Iheatmap", signal = "ANY"),
                    side = c("right","left"),
                    size = 0.05,
                    buffer = 0.015,
+                   text = signif(signal, digits = 3),
+                   tooltip = setup_tooltip_options(),
                    show_colorbar = TRUE,
                    show_title = TRUE,
                    layout = list()){
@@ -176,7 +181,9 @@ setMethod(add_row_signal, c(p = "Iheatmap", signal = "ANY"),
                             colorbar = name,
                             show_colorbar = TRUE,
                             data = signal,
-                            title = title)
+                            title = title,
+                            text = text,
+                            tooltip = tooltip)
 
             new_colorbar <- continuous_colorbar(name,
                                                 colorbar_position,
@@ -218,6 +225,8 @@ setMethod(add_row_signal, c(p = "Iheatmap", signal = "ANY"),
 #' @param size relative size of dendrogram (relative to the main heatmap)
 #' @param buffer amount of space to leave empty before this plot, relative to size 
 #' of first heatmap
+#' @param text text of value to display for data
+#' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
 #' @param show_colorbar show the colorbar?
 #' @param show_title show title as axis label
 #' @param layout y axis layout parameters to use
@@ -254,6 +263,8 @@ setMethod(add_col_signal, c(p = "Iheatmap", signal = "ANY"),
                    side = c("top","bottom"),
                    size = 0.05,
                    buffer = 0.015,
+                   text = signif(signal, digits = 3),
+                   tooltip = setup_tooltip_options(),
                    show_colorbar = TRUE,
                    show_title = TRUE,
                    layout = list()){
@@ -271,7 +282,9 @@ setMethod(add_col_signal, c(p = "Iheatmap", signal = "ANY"),
                             colorbar = name,
                             show_colorbar = TRUE,
                             data = signal,
-                            title = title)
+                            title = title,
+                            text = text,
+                            tooltip = tooltip)
 
             new_colorbar <- continuous_colorbar(name,
                                                 colorbar_position,

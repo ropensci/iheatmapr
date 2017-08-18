@@ -17,6 +17,18 @@ setClass("IheatmapPanel",
 setClass("IheatmapPanels",
          contains = "VIRTUAL")
 
+## Tooltip options classs
+setClass("HeatmapTooltipOptions",
+         slots = c(
+           row = "logical",
+           col = "logical",
+           value = "logical",
+           prepend_row = "character",
+           prepend_col = "character",
+           prepend_value = "character"
+         ))
+
+
 ## IheatmapPlot Class and children ---------------------------------------------
 
 #' IheatmapPlot
@@ -55,6 +67,8 @@ setClass("IheatmapPlot",
 #' @author Alicia Schep
 setClass("MainHeatmap",
          slots = list(data = "matrix",
+                      text = "matrix",
+                      tooltip = "HeatmapTooltipOptions",
                       colorbar = "character",
                       show_colorbar = "logical"),
          contains = "IheatmapPlot")
@@ -74,6 +88,8 @@ setClass("MainHeatmap",
 #' @author Alicia Schep
 setClass("RowAnnotation",
          slots = list(data = "vector",
+                      text = "vector",
+                      tooltip = "HeatmapTooltipOptions",
                       title = "character",
                       colorbar = "character",
                       show_colorbar = "logical"),
@@ -94,6 +110,8 @@ setClass("RowAnnotation",
 #' @author Alicia Schep
 setClass("ColumnAnnotation",
          slots = list(data = "vector",
+                      text = "vector",
+                      tooltip = "HeatmapTooltipOptions",
                       title = "character",
                       colorbar = "character",
                       show_colorbar = "logical"),
@@ -636,3 +654,4 @@ setClass("IheatmapHorizontal",
 
 setClass("IheatmapVertical",
          contains = "Iheatmap")
+

@@ -10,8 +10,8 @@
   title = "Groups", colors = pick_discrete_colors(groups, p),
   colorbar_position = get_colorbar_position(p), show_colorbar = TRUE,
   show_title = TRUE, side = c("top", "bottom"), layout = list(),
-  size = 0.05, buffer = 0.015, xname = current_xaxis(p), yname = NULL,
-  pname = name)
+  size = 0.05, buffer = 0.015, tooltip = setup_tooltip_options(),
+  xname = current_xaxis(p), yname = NULL, pname = name)
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}
@@ -38,6 +38,8 @@
 
 \item{buffer}{amount of space to leave empty before this plot, relative to 
 size of first heatmap}
+
+\item{tooltip}{tooltip options, see \code{\link{setup_tooltip_options}}}
 
 \item{xname}{internal name of xaxis}
 

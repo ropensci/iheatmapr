@@ -12,7 +12,8 @@
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
   orientation = c("horizontal", "vertical"), x_categorical = NULL,
   y_categorical = NULL, row_order = seq_len(nrow(data)),
-  col_order = seq_len(ncol(data)), xname = "x", yname = "y",
+  col_order = seq_len(ncol(data)), text = signif(data, digits = 3),
+  tooltip = setup_tooltip_options(), xname = "x", yname = "y",
   pname = name, source = "iheatmapr", layout = list())
 }
 \arguments{
@@ -48,6 +49,10 @@ subsequent elements sharing y axis}
 
 \item{col_order}{column ordering for this heatmap-- will be used for all 
 subsequent elements sharing x axis}
+
+\item{text}{text of value to display for data}
+
+\item{tooltip}{tooltip options, see \code{\link{setup_tooltip_options}}}
 
 \item{xname}{internal name for xaxis}
 

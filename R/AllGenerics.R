@@ -55,7 +55,9 @@ setGeneric("add_annotation",
 ### Adding New Sub-plots ------------------------------------------------------
 ### Documented in method defintions
 
+
 setGeneric("iheatmap", function(data, ...) standardGeneric("iheatmap"))
+
 
 setGeneric("add_iheatmap", 
            function(p, data, ...) standardGeneric("add_iheatmap"))

@@ -12,6 +12,7 @@
   colors = pick_continuous_colors(zmid, zmin, zmax, p = p),
   zmin = min(signal, na.rm = TRUE), zmax = max(signal, na.rm = TRUE),
   zmid = 0, side = c("top", "bottom"), size = 0.05, buffer = 0.015,
+  text = signif(signal, digits = 3), tooltip = setup_tooltip_options(),
   show_colorbar = TRUE, show_title = TRUE, layout = list())
 }
 \arguments{
@@ -45,6 +46,10 @@
 
 \item{buffer}{amount of space to leave empty before this plot, relative to size 
 of first heatmap}
+
+\item{text}{text of value to display for data}
+
+\item{tooltip}{tooltip options, see \code{\link{setup_tooltip_options}}}
 
 \item{show_colorbar}{show the colorbar?}
 

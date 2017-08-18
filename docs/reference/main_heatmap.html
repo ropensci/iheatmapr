@@ -91,7 +91,8 @@
   <span class='kw'>zmin</span> <span class='kw'>=</span> <span class='fu'>min</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>zmax</span> <span class='kw'>=</span> <span class='fu'>max</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
   <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>), <span class='kw'>x_categorical</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>y_categorical</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_order</span> <span class='kw'>=</span> <span class='fu'>seq_len</span>(<span class='fu'>nrow</span>(<span class='no'>data</span>)),
-  <span class='kw'>col_order</span> <span class='kw'>=</span> <span class='fu'>seq_len</span>(<span class='fu'>ncol</span>(<span class='no'>data</span>)), <span class='kw'>xname</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>yname</span> <span class='kw'>=</span> <span class='st'>"y"</span>,
+  <span class='kw'>col_order</span> <span class='kw'>=</span> <span class='fu'>seq_len</span>(<span class='fu'>ncol</span>(<span class='no'>data</span>)), <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>signif</span>(<span class='no'>data</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>),
+  <span class='kw'>tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='setup_tooltip_options.html'>setup_tooltip_options</a></span>(), <span class='kw'>xname</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>yname</span> <span class='kw'>=</span> <span class='st'>"y"</span>,
   <span class='kw'>pname</span> <span class='kw'>=</span> <span class='no'>name</span>, <span class='kw'>source</span> <span class='kw'>=</span> <span class='st'>"iheatmapr"</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='fu'>list</span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -159,6 +160,14 @@ subsequent elements sharing y axis</p></td>
       <th>col_order</th>
       <td><p>column ordering for this heatmap-- will be used for all 
 subsequent elements sharing x axis</p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>text of value to display for data</p></td>
+    </tr>
+    <tr>
+      <th>tooltip</th>
+      <td><p>tooltip options, see <code><a href='setup_tooltip_options.html'>setup_tooltip_options</a></code></p></td>
     </tr>
     <tr>
       <th>xname</th>
