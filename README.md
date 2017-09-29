@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/ropensci/iheatmapr/branch/master/graph/badge.svg?token=CTupoUlXNI)](https://codecov.io/gh/ropensci/iheatmapr)
 ![R version](https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg)
 [![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.841331.svg)](https://doi.org/10.5281/zenodo.841331)
+[![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
 
 # iheatmapr
 

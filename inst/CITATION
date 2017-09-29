@@ -1,0 +1,11 @@
+citHeader("To cite the iheatmapr package in publications please use:")
+
+citEntry(entry = "Article",
+  author = "Alicia N Schep and Sarah K Kummerfeld",
+  title = "iheatmapr: Interactive complex heatmaps in R",
+  year = "2017",
+  journal = "Journal of Open Source Software",
+  url = "http://dx.doi.org/10.21105/joss.00359",
+  doi = "10.21105/joss.00359",
+  textVersion = "Alicia N Schep and Sarah K Kummerfeld (2017). iheatmapr: Interactive complex heatmaps in R, Journal of Open Source Software"
+)
