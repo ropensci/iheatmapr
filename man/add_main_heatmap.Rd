@@ -15,7 +15,7 @@
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
   zmid = 0, col_order = NULL, x_categorical = NULL, side = c("right",
   "left"), size = 1, buffer = 0.04, text = signif(data, digits = 3),
-  tooltip = setup_tooltip_options(), xname = NULL, pname = name)
+  tooltip = setup_tooltip_options(), xname = NULL, pname = name, ...)
 
 \S4method{add_main_heatmap}{IheatmapVertical,matrix}(p, data, name = "Signal",
   y = default_y(data), colors = pick_continuous_colors(zmid, zmin, zmax, p),
@@ -23,7 +23,7 @@
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
   zmid = 0, row_order = NULL, y_categorical = NULL, side = c("bottom",
   "top"), size = 1, buffer = 0.04, text = signif(data, digits = 3),
-  tooltip = setup_tooltip_options(), yname = NULL, pname = name)
+  tooltip = setup_tooltip_options(), yname = NULL, pname = name, ...)
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}
@@ -67,6 +67,8 @@ size of first heatmap}
 \item{xname}{internal name for x axis}
 
 \item{pname}{internal name for plot}
+
+\item{...}{additional arguments (ignored)}
 
 \item{y}{y axis labels (by default colnames of data); only used if 
 orientation is vertical}

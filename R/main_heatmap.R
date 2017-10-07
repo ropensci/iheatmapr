@@ -300,6 +300,7 @@ setMethod(main_heatmap, "matrix",
 #' @param pname internal name for plot
 #' @param text text of value to display for data
 #' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
+#' @param ... additional arguments (ignored)
 #' 
 #' @seealso \code{\link{iheatmap}}, \code{\link{main_heatmap}}
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
@@ -337,9 +338,11 @@ setMethod("add_main_heatmap", c(p = "IheatmapHorizontal", data = "matrix"),
                    text = signif(data, digits = 3),
                    tooltip = setup_tooltip_options(),
                    xname = NULL,
-                   pname = name){
+                   pname = name,
+                   ...){
             
             side <- match.arg(side)
+            additional_ags <- list(...)
             
             if (is.null(col_order)) col_order <- seq_len(ncol(data))
             if (is.null(x_categorical)) 
@@ -419,7 +422,8 @@ setMethod("add_main_heatmap", c(p = "IheatmapVertical", data = "matrix"),
                    text = signif(data, digits = 3),
                    tooltip = setup_tooltip_options(),
                    yname = NULL,
-                   pname = name){
+                   pname = name,
+                   ...){
             
             side <- match.arg(side)
             
