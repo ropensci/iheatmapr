@@ -138,7 +138,8 @@ setMethod(get_col_groups, c(p = "IheatmapHorizontal"),
 
 scale_mat <- function(mat, 
                       scale = c("rows","cols"), 
-                      scale_method = c("standardize","center","normalize")){
+                      scale_method = c("standardize","center","normalize"),
+                      digits = 3){
   scale <- match.arg(scale)
   scale_method <- match.arg(scale_method)
   if (scale_method == "standardize"){
@@ -146,10 +147,12 @@ scale_mat <- function(mat,
       centered <- x - mean(x, na.rm = TRUE)
       dev <- stats::sd(centered, na.rm = TRUE)
       if (dev == 0){
-        return(centered)
+        mat <- centered
       } else{
-        return(centered / dev)
+        mat <- centered / dev
       }
+      mat <- signif(mat, digits = digits)
+      return(mat)
     }
   } else if (scale_method == "center"){
     scale_func <- function(x){
@@ -172,6 +175,7 @@ scale_mat <- function(mat,
   } else if (scale == "cols"){
     mat <- apply(mat, 2, scale_func)
   }
+  mat <- signif(mat, digits = digits)
   return(mat)
 }
 
