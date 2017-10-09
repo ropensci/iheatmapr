@@ -7,7 +7,7 @@ vignette: >
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(figure.width = 3, figure.height = 2)
+knitr::opts_chunk$set(fig.width = 4.5, fig.height = 3.5)
 ```
 
 
@@ -48,7 +48,7 @@ We will start off by showing an example of the type of complex heatmap we can cr
 * titles and labels for heatmaps
 
 
-```{r, figure.width = 6, figure.height = 4}
+```{r, fig.width = 7, fig.height = 4}
 main_heatmap(Indometh_patient_cor,name = "Correlation") %>%
   add_col_clustering() %>%
   add_row_clustering(k = 3) %>%
@@ -164,7 +164,7 @@ When we initialize a heatmap using `main_heatmap` we can specify the row and/ or
 
 The iheatmapr package includes two functions, `iheatmap` and `add_iheatmap`, that wrap together several of the modular building blocks that are often used in conjunction to make common types of heatmaps. Rather than calling many of the modular functions individually, additional arguments can be passed to `iheatmap` or `add_iheatmap`. Not all modular subcomponents can be specified this way, but such components can still be added directly through their function calls (e.g. `add_col_summary`). The following code generates the same plot as our first example heatmap above:
 
-```{r, figure.width = 6, figure.height = 4}
+```{r, fig.width = 7, fig.height = 4}
 iheatmap(Indometh_patient_cor, 
          cluster_cols = "hclust", 
          cluster_rows = "hclust",
@@ -322,7 +322,7 @@ The `add_row_clusters` and `add_col_clusters` methods are very similar to `add_c
 ## Add annotations
 
 The functions `add_row_annotation` and `add_col_annotation` add one or more annotation heatmaps. Annotations should be provided as a data.frame or something that can be coerced into a data.frame.  
-```{r}
+```{r, fig.width = 6}
 
 main_heatmap(Indometh_patient_cor) %>% 
   add_row_annotation(data.frame("Max" = patient_max_conc,
@@ -333,7 +333,7 @@ main_heatmap(Indometh_patient_cor) %>%
 
 By default, colors will be chosen for each annotation. To assign colors yourself, provide a list of colors, with the names of the list matching the column names of the annotation. Colors can either be the name of an RColorBrewer palette or a vector of colors.  
 
-```{r}
+```{r, fig.width = 6}
 
 main_heatmap(Indometh_patient_cor) %>% 
   add_row_annotation(data.frame("Max" = patient_max_conc,
@@ -347,7 +347,7 @@ main_heatmap(Indometh_patient_cor) %>%
 
 For more control over annotation heatmaps, use the functions `add_col_signal` and `add_row_signal` for adding a single continuous annotation or `add_col_groups` and `add_row_groups` for adding a single discrete annotation.
 
-```{r}
+```{r, fig.width = 6}
 main_heatmap(Indometh_patient_cor) %>% 
   add_row_signal(patient_max_conc, "Max<br>Concentration", title = "Max", colors = "Reds") %>%
   add_row_signal(patient_min_conc, "Min<br>Concentration", title = "Min", colors = "Reds") %>%
@@ -432,7 +432,7 @@ iheatmapr tries to choose colors automatically in a sensible way. If a heatmap w
 
 For example, if we simply repeat the same exact main heatmap with the same "name" argument and the same column names for the annotation matrices, the colorbars are not duplicated.  
 
-```{r}
+```{r, fig.width = 6}
 main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
   add_row_annotation(data.frame("Max" = patient_max_conc,
                                 "Min" = patient_min_conc,
@@ -454,7 +454,7 @@ main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
 
 When additional heatmaps or annotations with colorscales are added to an iheatmap object, the colorbars will be added according a grid pattern.  The layout and spacing of that grid can be specified using the "colorbar_grid" parameter to iheatmap or simple_heatmap. By default, the grid has three rows. To change the layout of the grid to only have 2 rows and adjust the spacing and sizing of the colorbars, we can use the function setup_colorbar_grid to create a ColorbarGridParameters object that can be passed to the colorbar_grid argument to simple_heatmap.
 
-```{r, figure.width = 6, figure.height = 4}
+```{r, fig.width = 7, fig.height = 4}
 grid_params <- setup_colorbar_grid(nrows = 2, 
                                    y_length = 0.3, 
                                    x_spacing = 0.2,
@@ -519,7 +519,7 @@ main_heatmap(Indometh_matrix, x_categorical = FALSE) %>%
 
 By default, additional heatmaps are added horizontally to left or right of existing heatmap(s). It is also possible to build up complex heatmaps vertically rather than horizontally by setting `orientation = vertical` to the initial call to `iheatmap` or `main_heatmap`.
 
-```{r, figure.width = 4, figure.height = 6}
+```{r, fig.width = 4, fig.height = 7}
 iheatmap(Indometh_patient_cor, 
          cluster_cols = "hclust", 
          cluster_rows = "hclust",

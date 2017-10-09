@@ -25,7 +25,7 @@ setup_colorbar_grid(nrows = 3, y_length = y_spacing * 0.9,
 \code{\link{IheatmapColorbarGrid-class}} object
 }
 \description{
-function to set parameters controlling colorbar placement in Ih2eatmap object
+function to set parameters controlling colorbar placement in Iheatmap object
 }
 \examples{
 

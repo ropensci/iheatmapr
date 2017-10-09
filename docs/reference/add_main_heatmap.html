@@ -92,7 +92,7 @@
   <span class='kw'>zmin</span> <span class='kw'>=</span> <span class='fu'>min</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>zmax</span> <span class='kw'>=</span> <span class='fu'>max</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
   <span class='kw'>zmid</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>col_order</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>x_categorical</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"right"</span>,
   <span class='st'>"left"</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>0.04</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>signif</span>(<span class='no'>data</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>),
-  <span class='kw'>tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='setup_tooltip_options.html'>setup_tooltip_options</a></span>(), <span class='kw'>xname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pname</span> <span class='kw'>=</span> <span class='no'>name</span>)
+  <span class='kw'>tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='setup_tooltip_options.html'>setup_tooltip_options</a></span>(), <span class='kw'>xname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pname</span> <span class='kw'>=</span> <span class='no'>name</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for IheatmapVertical,matrix</span>
 <span class='fu'>add_main_heatmap</span>(<span class='no'>p</span>, <span class='no'>data</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Signal"</span>,
@@ -101,7 +101,7 @@
   <span class='kw'>zmin</span> <span class='kw'>=</span> <span class='fu'>min</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>zmax</span> <span class='kw'>=</span> <span class='fu'>max</span>(<span class='no'>data</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
   <span class='kw'>zmid</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>row_order</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y_categorical</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bottom"</span>,
   <span class='st'>"top"</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>0.04</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>signif</span>(<span class='no'>data</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>),
-  <span class='kw'>tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='setup_tooltip_options.html'>setup_tooltip_options</a></span>(), <span class='kw'>yname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pname</span> <span class='kw'>=</span> <span class='no'>name</span>)</pre>
+  <span class='kw'>tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='setup_tooltip_options.html'>setup_tooltip_options</a></span>(), <span class='kw'>yname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pname</span> <span class='kw'>=</span> <span class='no'>name</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -185,6 +185,10 @@ size of first heatmap</p></td>
     <tr>
       <th>pname</th>
       <td><p>internal name for plot</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional arguments (ignored)</p></td>
     </tr>
     <tr>
       <th>y</th>
