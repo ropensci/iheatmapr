@@ -5,7 +5,10 @@
 
 ## R CMD check results
 
-0 errors, 0 warnings, 0 notes
+0 errors, 0 warnings, 1 notes
+
+Note about authors with non-standard roles, 'rev'.  These authors were reviewers 
+for the rOpensci review process.   
 
 ## Release summary
 
