@@ -13,7 +13,7 @@ While there are already plenty of awesome R packages for making heatmaps, includ
 
 ## Installation
 
-iheatmapr is not yet on CRAN -- install using devtools:
+To install the github version of iheatmapr:
 
 ```r
 devtools::install_github("ropensci/iheatmapr")
