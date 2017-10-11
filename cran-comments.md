@@ -5,10 +5,11 @@
 
 ## R CMD check results
 
-0 errors, 0 warnings, 1 notes
+0 errors, 0 warnings, 2 notes
 
-Note about authors with non-standard roles, 'rev'.  These authors were reviewers 
-for the rOpensci review process.   
+There is a note about authors with non-standard roles, 'rev'.  
+These authors were reviewers for the rOpensci review process 
+(see https://github.com/ropensci/onboarding/issues/107).   
 
 ## Release summary
 

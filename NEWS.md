@@ -1,3 +1,7 @@
+# iheatmapr 0.4.1
+
+* Bug fix -- actually show titles for add_row_groups, add_col_groups, etc.
+
 # iheatmapr 0.4.0
 
 * Added option to customize text in tooltips for heatmaps. By default, only show
