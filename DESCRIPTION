@@ -35,9 +35,9 @@ Authors@R: c(person("Alicia", "Schep", email = "aschep@gmail.com",
                   comment = "plotly.js library"), 
               person("Plotly", role = "cph",
                   comment = "plotly.js library"))
-Description: Make complex, interactive heatmaps. iheatmapr includes a modular 
-    system for iteratively building up complex heatmaps, as well as the iheatmap 
-    function for making relatively standard heatmaps.
+Description: Make complex, interactive heatmaps. 'iheatmapr' includes a modular 
+    system for iteratively building up complex heatmaps, as well as the 
+    iheatmap() function for making relatively standard heatmaps.
 License: MIT + file LICENSE
 Depends:
     R (>= 3.2.0)

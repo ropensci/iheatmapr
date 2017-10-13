@@ -7,19 +7,19 @@
 
 # iheatmapr
 
-iheatmapr is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features. iheatmapr uses the [plotly](https://plot.ly) library for interactivity. 
+`iheatmapr` is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features. `iheatmapr` uses the [plotly](https://plot.ly) library for interactivity. 
 
-While there are already plenty of awesome R packages for making heatmaps, including several great packages for making relatively simple interactive heatmaps ([heatmaply](https://github.com/talgalili/heatmaply) and [d3heatmap](https://github.com/rstudio/d3heatmap)) or complex static heatmaps ([ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap)), iheatmapr seeks to make it easy to make complex interactive heatmaps. 
+While there are already plenty of awesome R packages for making heatmaps, including several great packages for making relatively simple interactive heatmaps ([heatmaply](https://github.com/talgalili/heatmaply) and [d3heatmap](https://github.com/rstudio/d3heatmap)) or complex static heatmaps ([ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap)), `iheatmapr` seeks to make it easy to make complex interactive heatmaps. 
 
 ## Installation
 
-To install the github version of iheatmapr:
+To install the github version of `iheatmapr`:
 
 ```r
 devtools::install_github("ropensci/iheatmapr")
 ```
 
-iheatmapr has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:
+`iheatmapr` has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:
 
 ```r
 source("https://bioconductor.org/biocLite.R")
@@ -56,7 +56,7 @@ main_heatmap(measles, name = "Measles<br>Cases", x_categorical = FALSE,
               
 ```
 
-Modular components of the plot are added in an iterative fashion to the top, right, left, or bottom of the heatmap. iheatmapr also contains a function (`iheatmap`) to make a fairly standard heatmap with optional dendrograms and row or column annotation heatmaps (See vignette).  
+Modular components of the plot are added in an iterative fashion to the top, right, left, or bottom of the heatmap. `iheatmapr` also contains a function (`iheatmap`) to make a fairly standard heatmap with optional dendrograms and row or column annotation heatmaps (See vignette).  
 
 All the plots aligned with the main heatmap horizontally share the same y axis and thus zooming in the y direction within the heatmap will also zoom in to those subplots. The plots aligned vertically share an x axis with that heatmap and zooming horizontally within those plots will be linked.  
 
@@ -68,6 +68,6 @@ See the [vignette](https://ropensci.github.io/iheatmapr/articles/full_vignettes/
 
 # Acknowledgements
 
-This package includes the open source Plotly.js library, which does much of the work of making these interactive plots possible! In creating this package, I also drew inspiration & some code from the great plotly R package; in particular, the code for the iheatmapr htmlwidget is adapted from an earlier version of the plotly R package. Additionally, numerous people at Genentech helped provide feedback and guidance for this project, including but not limited to Justin Finkle, August Guang, Michael Lawrence, Gabe Becker, Steve Lianoglou, Pete Haverty... thanks to all who helped review code and/or provide feedback!  This package also went through the on-boarding process for rOpensci -- thanks to the reviewers Carl Ganz and Andee Kaplan and editor Maëlle Salmon for all their helpful feedback! 
+This package includes the open source Plotly.js library, which does much of the work of making these interactive plots possible! In creating this package, I also drew inspiration & some code from the great plotly R package; in particular, the code for the `iheatmapr` htmlwidget is adapted from an earlier version of the plotly R package. Additionally, numerous people at Genentech helped provide feedback and guidance for this project, including but not limited to Justin Finkle, August Guang, Michael Lawrence, Gabe Becker, Steve Lianoglou, Pete Haverty... thanks to all who helped review code and/or provide feedback!  This package also went through the on-boarding process for rOpensci -- thanks to the reviewers Carl Ganz and Andee Kaplan and editor Maëlle Salmon for all their helpful feedback! 
 
 [![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

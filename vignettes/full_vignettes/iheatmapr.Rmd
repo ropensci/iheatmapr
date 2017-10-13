@@ -13,9 +13,9 @@ knitr::opts_chunk$set(fig.width = 4.5, fig.height = 3.5)
 
 # Introduction
 
-iheatmapr is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features.  
+`iheatmapr` is an R package for building complex, interactive heatmaps using modular building blocks. "Complex" heatmaps are heatmaps in which subplots along the rows or columns of the main heatmap add more information about each row or column. For example, a one column additional heatmap may indicate what group a particular row or column belongs to. Complex heatmaps may also include multiple side by side heatmaps which show different types of data for the same conditions. Interactivity can improve complex heatmaps by providing tooltips with information about each cell and enabling zooming into interesting features.  
 
-While there are already plenty of awesome R packages for making heatmaps, including several great packages for making relatively simple interactive heatmaps ([heatmaply](https://github.com/talgalili/heatmaply) and [d3heatmap](https://github.com/rstudio/d3heatmap)) or complex static heatmaps ([ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap)), iheatmapr seeks to make it easy to make complex interactive heatmaps.
+While there are already plenty of awesome R packages for making heatmaps, including several great packages for making relatively simple interactive heatmaps ([heatmaply](https://github.com/talgalili/heatmaply) and [d3heatmap](https://github.com/rstudio/d3heatmap)) or complex static heatmaps ([ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap)), `iheatmapr` seeks to make it easy to make complex interactive heatmaps.
 
 For this vignette, we will use the Indometh data included in the datasets package. This data set contains data on the pharmacokinetics of Indometacin, specifically the observed plasma concentration of indometacin at various time points after intravenous injection for 6 different patients. We will first cast the data into a matrix of concentrations by patients (rows) and time (columns).  We will also compute correlation matrices for the patients, and the maximum and minimum concentration of Indometacin per patient. Finally, we will assign patients into some groups -- in this dataset no extra patient information is provided and so we'll just make arbitrary groups that are intended to show how one might use actual groupings like gender or ethnicity. 
 
@@ -36,7 +36,7 @@ patient_groups <- c("A","A","B","A","B","A") # Arbitrary groups
 
 ## Example Complex Heatmap
 
-We will start off by showing an example of the type of complex heatmap we can create using the iheatmapr package. In our example complex heatmap, we will plot:
+We will start off by showing an example of the type of complex heatmap we can create using the `iheatmapr` package. In our example complex heatmap, we will plot:
 
 * a heatmap of the correlation matrix 
 * dendrogram for column clustering
@@ -71,7 +71,7 @@ Hovering over the heatmaps yields a tooltip with the name of the row and column 
 
 ## Modular system for building up complex heatmaps
 
-In our example complex heatmap above, the various components are added iteratively. There are two main types of plots in iheatmapr-- "main heatmaps" and subplots. Subplots can be added to the left, right, top, or bottom of a main heatmap. We will go over the basics of adding together different components of a plot in this section, and the [Modular buidling blocks](#modular-building-blocks) section of the vignette will go into detail into each of the modular components available.   
+In our example complex heatmap above, the various components are added iteratively. There are two main types of plots in `iheatmapr`-- "main heatmaps" and subplots. Subplots can be added to the left, right, top, or bottom of a main heatmap. We will go over the basics of adding together different components of a plot in this section, and the [Modular buidling blocks](#modular-building-blocks) section of the vignette will go into detail into each of the modular components available.   
 
 ### Starting with basic heatmap
 
@@ -162,7 +162,7 @@ When we initialize a heatmap using `main_heatmap` we can specify the row and/ or
 
 ## The iheatmap and add_iheatmap functions
 
-The iheatmapr package includes two functions, `iheatmap` and `add_iheatmap`, that wrap together several of the modular building blocks that are often used in conjunction to make common types of heatmaps. Rather than calling many of the modular functions individually, additional arguments can be passed to `iheatmap` or `add_iheatmap`. Not all modular subcomponents can be specified this way, but such components can still be added directly through their function calls (e.g. `add_col_summary`). The following code generates the same plot as our first example heatmap above:
+The `iheatmapr` package includes two functions, `iheatmap` and `add_iheatmap`, that wrap together several of the modular building blocks that are often used in conjunction to make common types of heatmaps. Rather than calling many of the modular functions individually, additional arguments can be passed to `iheatmap` or `add_iheatmap`. Not all modular subcomponents can be specified this way, but such components can still be added directly through their function calls (e.g. `add_col_summary`). The following code generates the same plot as our first example heatmap above:
 
 ```{r, fig.width = 7, fig.height = 4}
 iheatmap(Indometh_patient_cor, 
@@ -202,7 +202,7 @@ myplot %>% save_iheatmap("myplot.pdf") # Save static plot (pdf, png, or jpeg)
 
 # Modular building blocks
 
-In this section of the vignette, we will explore each of the modular components included in the iheatmapr package.  
+In this section of the vignette, we will explore each of the modular components included in the `iheatmapr` package.  
 
 ## Main heatmap
 
@@ -424,11 +424,11 @@ main_heatmap(Indometh_matrix) %>%
 
 # Customization options
 
-The next section of this vignette will cover some customization options available in iheatmapr.
+The next section of this vignette will cover some customization options available in `iheatmapr`.
 
 ## Color selection
 
-iheatmapr tries to choose colors automatically in a sensible way. If a heatmap with the same "name" argument as another heatmap is added, the two heatmaps will share the same colorbar and scale. Functions to make and add heatmaps and subplots have a "colors" argument that can be used to specify colors manually. These arguments take in RColorBrewer palette names or vectors of colors. 
+`iheatmapr` tries to choose colors automatically in a sensible way. If a heatmap with the same "name" argument as another heatmap is added, the two heatmaps will share the same colorbar and scale. Functions to make and add heatmaps and subplots have a "colors" argument that can be used to specify colors manually. These arguments take in RColorBrewer palette names or vectors of colors. 
 
 For example, if we simply repeat the same exact main heatmap with the same "name" argument and the same column names for the annotation matrices, the colorbars are not duplicated.  
 
@@ -483,7 +483,7 @@ iheatmap(Indometh_patient_cor,
 
 ## Continuous Axes
 
-In all the plots above, the axes of the main heatmaps have been treated as categorical, with the columns of equal widths and rows of equal widths. In some cases, it may make sense to treat one or both axes as continuous. There are several ways to indicate to iheatmapr that the axes should be continuous. The first is to use the `x_categorical` and `y_categorical` arguments, setting them to false.  
+In all the plots above, the axes of the main heatmaps have been treated as categorical, with the columns of equal widths and rows of equal widths. In some cases, it may make sense to treat one or both axes as continuous. There are several ways to indicate to `iheatmapr` that the axes should be continuous. The first is to use the `x_categorical` and `y_categorical` arguments, setting them to false.  
 
 ```{r}
 main_heatmap(Indometh_matrix, x_categorical = FALSE)
@@ -618,7 +618,7 @@ Iheatmap objects can be used in shiny.  The `renderIheatmap` function should be 
 
 For observing events, the `iheatmapr_event` function should be used.  The function takes as the first argument the Iheatmap object, and as the second argument a type of event -- "click","hover", or "relayout". 
 
-To see the output from `iheatmapr_event`, you can use the `shiny_test` function from iheatmapr.  
+To see the output from `iheatmapr_event`, you can use the `shiny_test` function from `iheatmapr`.  
 
 ```{r, eval = FALSE}
 hm <- main_heatmap(Indometh_patient_cor,name = "Correlation") %>%
