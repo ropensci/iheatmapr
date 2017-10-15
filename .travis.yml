@@ -8,5 +8,11 @@ os:
 cache: packages
 r:
   - bioc-release
+r_github_packages:
+- hadley/pkgdown
+r_packages:
+- packagedocs
 after_success:
   - Rscript -e 'covr::codecov()'
+  - if [[ "$TRAVIS_OS_NAME" = 'linux' ]]; then R CMD INSTALL *tar.gz; fi
+  - if [[ "$TRAVIS_OS_NAME" = 'linux' ]]; then Rscript -e "packagedocs::deploy_travis(repo = 'ropensci/iheatmapr', build_fn = function(output_dir, ...){pkgdown::build_site(path = output_dir, examples = FALSE)})"; fi
