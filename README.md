@@ -4,6 +4,7 @@
 ![R version](https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg)
 [![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
 [![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
+![CRAN](https://www.r-pkg.org/badges/version/iheatmapr)
 
 # iheatmapr
 
@@ -12,6 +13,12 @@
 While there are already plenty of awesome R packages for making heatmaps, including several great packages for making relatively simple interactive heatmaps ([heatmaply](https://github.com/talgalili/heatmaply) and [d3heatmap](https://github.com/rstudio/d3heatmap)) or complex static heatmaps ([ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap)), `iheatmapr` seeks to make it easy to make complex interactive heatmaps. 
 
 ## Installation
+
+To install the CRAN version of `iheatmapr`:
+
+```r
+install.packages("iheatmapr")
+```
 
 To install the github version of `iheatmapr`:
 
