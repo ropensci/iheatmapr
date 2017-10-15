@@ -4,7 +4,7 @@
 ![R version](https://img.shields.io/badge/R%20%3E%3D-3.2.0-blue.svg)
 [![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
 [![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
-![CRAN](https://www.r-pkg.org/badges/version/iheatmapr)
+[![CRAN](https://www.r-pkg.org/badges/version/iheatmapr)](https://cran.r-project.org/package=iheatmapr)
 
 # iheatmapr
 
