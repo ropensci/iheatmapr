@@ -2,7 +2,6 @@
 # modified from testhat expect_equal_to_reference
 expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
   
-  lab_act <- testthat:::make_label(object, NULL)
   lab_exp <- paste0("reference from `", file, "`")
     
   if (!file.exists(file)) {
@@ -18,7 +17,7 @@ expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
     comp <- testthat::compare(objectsub, referencesub, ...)
     expect(
       comp$equal,
-      sprintf("%s not equal to %s.\n%s", lab_act, lab_exp, comp$message),
+      sprintf("Not equal to %s.\n%s", lab_exp, comp$message),
       info = info
     )
   }
