@@ -1,3 +1,7 @@
+# iheatmapr 0.4.2
+
+* Update tests for compatibility with new version of testthat
+
 # iheatmapr 0.4.1
 
 * Bug fix -- actually show titles for add_row_groups, add_col_groups, etc.
