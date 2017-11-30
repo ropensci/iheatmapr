@@ -13,3 +13,4 @@
 ^vignettes/full_vignettes$
 ^_pkgdown\.yml$
 ^cran-comments\.md$
+^codemeta\.json$
