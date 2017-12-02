@@ -492,8 +492,6 @@ setValidity("IheatmapAxis",
                 return("domain_start for axis can't be negative")
               if (domain_end(object) > 1.01)
                 return("domain_end for axis can't be greater than one")
-              if (domain_end(object) < domain_start(object))
-                return("domain_end must be greater than domain_start")
               return(TRUE)
             })
 
@@ -530,8 +528,7 @@ setClass("IheatmapY",
 setClass("IheatmapMainAxis",
          slots = list(categorical = "logical",
                       order = "integer",
-                      text = "vector"),
-         contains = "IheatmapAxis")
+                      text = "vector"))
 
 #' IheatmapMainX
 #' 
