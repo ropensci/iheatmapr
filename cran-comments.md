@@ -1,7 +1,8 @@
 ## Release Overview
 
-Minor update to testing to accomodate changes in testthat package. Tests should
-now run with both development and previous release versions of testthat.
+Minor update to fix issues with package on R-devel. Issues were related to 
+updates to S4Vectors Bioconductor package. Tests now pass on R-devel (checked
+on rhub and rocker).
 
 ## R CMD check results
 
@@ -11,6 +12,8 @@ There is a note about authors with non-standard roles, 'rev'.
 These authors were reviewers for the rOpensci review process 
 (see https://github.com/ropensci/onboarding/issues/107).   
 
+There is also a note about "Unknown, possibly mis-spelled, fields" in 
+DESCRIPTION. These are metadata for an ROpensci code metadata project.
 
 ## Reverse dependencies
 
