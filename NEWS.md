@@ -1,3 +1,7 @@
+# iheatmapr 0.4.3
+
+* Minor bug fix for issue on R-devel.
+
 # iheatmapr 0.4.2
 
 * Update tests for compatibility with new version of testthat
