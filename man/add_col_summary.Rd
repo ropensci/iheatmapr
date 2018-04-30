@@ -10,8 +10,8 @@
   colors = NULL, tracename = "Col Summary", showlegend = FALSE,
   side = c("top", "bottom"), layout = list(), size = 0.3, buffer = 0.02,
   xname = current_xaxis(p), yname = NULL, type = c("scatter", "bar"),
-  summary_function = c("mean", "median", "sd", "var", "mad", "max", "min"),
-  ...)
+  summary_function = c("mean", "median", "sd", "var", "mad", "max", "min",
+  "sum"), ...)
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}
@@ -43,7 +43,7 @@ size of first heatmap}
 \item{type}{scatter or bar?}
 
 \item{summary_function}{summary function to use, default is mean, options 
-are mean, median, sd, var, mad, max, min}
+are mean, median, sd, var, mad, max, min, and sum}
 
 \item{...}{additional arguments to \code{\link{add_col_plot}} or 
 \code{\link{add_col_barplot}}}

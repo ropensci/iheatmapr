@@ -381,7 +381,7 @@ main_heatmap(Indometh_matrix) %>%
   add_col_summary(groups = TRUE) 
 ```
 
-By default, summarization is done using `mean`. However, the `summary_function` argument can be set to 'median', 'sd', 'var', 'mad', 'max', or 'min' in order to perform any of those alternate summarizations. We can also use the `layout` argument to pass a title to the new axis.    
+By default, summarization is done using `mean`. However, the `summary_function` argument can be set to 'median', 'sd', 'var', 'mad', 'max', 'min', or 'sum' in order to perform any of those alternate summarizations (Note: 'sum' only introduced in v0.4.4). We can also use the `layout` argument to pass a title to the new axis.    
 
 ```{r}
 main_heatmap(Indometh_matrix) %>% 

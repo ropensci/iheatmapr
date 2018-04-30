@@ -18,7 +18,7 @@
 #' @param yname internal name of yaxis
 #' @param type scatter or bar?
 #' @param summary_function summary function to use, default is mean, options 
-#' are mean, median, sd, var, mad, max, min
+#' are mean, median, sd, var, mad, max, min, and sum
 #' @param ... additional arguments to \code{\link{add_row_plot}} or 
 #' \code{\link{add_row_barplot}}
 #' 
@@ -69,7 +69,7 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
                    xname = NULL,
                    yname = current_yaxis(p),
                    type = c("scatter","bar"),
-                   summary_function = c("mean","median","sd","var","mad","max","min"),
+                   summary_function = c("mean","median","sd","var","mad","max","min","sum"),
                    ...){
             
             side <- match.arg(side)
@@ -219,7 +219,7 @@ setMethod(add_row_summary, c(p = "Iheatmap"),
 #' @param yname internal name of yaxis
 #' @param type scatter or bar?
 #' @param summary_function summary function to use, default is mean, options 
-#' are mean, median, sd, var, mad, max, min
+#' are mean, median, sd, var, mad, max, min, and sum
 #' @param ... additional arguments to \code{\link{add_col_plot}} or 
 #' \code{\link{add_col_barplot}}
 #' 
@@ -270,7 +270,7 @@ setMethod(add_col_summary, c(p = "Iheatmap"),
                    xname = current_xaxis(p),
                    yname = NULL,
                    type = c("scatter","bar"),
-                   summary_function = c("mean","median","sd","var","mad","max","min"),
+                   summary_function = c("mean","median","sd","var","mad","max","min","sum"),
                    ...){
             
             side <- match.arg(side)
