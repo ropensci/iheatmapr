@@ -113,7 +113,7 @@ knit_print.Iheatmap <- function(x, options){
 #' mat <- matrix(rnorm(24), nrow = 6)
 #' hm <- iheatmap(mat)
 #' \dontrun{
-#' save_iheatmap(hm)
+#' save_iheatmap(hm, "example_iheatmap.png")
 #' }
 setMethod(save_iheatmap, c("Iheatmap","character"),
           function(p, filename, ...){

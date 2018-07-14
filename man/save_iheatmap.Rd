@@ -24,7 +24,7 @@ pdf/png/jpeg
 mat <- matrix(rnorm(24), nrow = 6)
 hm <- iheatmap(mat)
 \dontrun{
-save_iheatmap(hm)
+save_iheatmap(hm, "example_iheatmap.png")
 }
 }
 \author{
