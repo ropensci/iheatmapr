@@ -77,7 +77,7 @@ iheatmapr_event <- function(object,
     if (is(plots(object)[[curve]],"MainHeatmap")){
       out$value <- raw$z
     } 
-  } else if (event == "iheatmapr_selected"){
+  } else if (event == "iheatmapr_relayout"){
     out <- jsonlite::fromJSON(val)
     #out <- list(raw = raw)
   } 
