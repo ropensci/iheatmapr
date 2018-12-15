@@ -1,7 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.4.6
+Version: 0.4.7
 Authors@R: c(person("Alicia", "Schep",
                   email = "aschep@gmail.com",
                   role = c("aut", "cre"),
@@ -70,7 +70,6 @@ Suggests:
     roxygen2,
     covr,
     webshot
-biocViews: Visualization
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 URL: https://github.com/ropensci/iheatmapr
