@@ -6,21 +6,22 @@
 \alias{iheatmap,matrix-method}
 \title{iheatmap}
 \usage{
-\S4method{iheatmap}{matrix}(data, x = default_x(data), y = default_y(data),
-  cluster_rows = c("none", "hclust", "kmeans"), cluster_cols = c("none",
-  "hclust", "kmeans"), row_clusters = NULL, col_clusters = NULL,
-  row_k = NULL, col_k = NULL, row_clust_dist = stats::dist,
-  col_clust_dist = stats::dist, name = "Signal", scale = c("none", "rows",
-  "cols"), scale_method = c("standardize", "center", "normalize"),
+\S4method{iheatmap}{matrix}(data, x = default_x(data),
+  y = default_y(data), cluster_rows = c("none", "hclust", "kmeans"),
+  cluster_cols = c("none", "hclust", "kmeans"), row_clusters = NULL,
+  col_clusters = NULL, row_k = NULL, col_k = NULL,
+  row_clust_dist = stats::dist, col_clust_dist = stats::dist,
+  name = "Signal", scale = c("none", "rows", "cols"),
+  scale_method = c("standardize", "center", "normalize"),
   colors = NULL, col_clusters_colors = NULL,
   col_clusters_name = "Col<br>Clusters", row_clusters_colors = NULL,
-  row_clusters_name = "Row<br>Clusters", show_row_clusters_colorbar = TRUE,
-  show_col_clusters_colorbar = TRUE, row_annotation = NULL,
-  col_annotation = NULL, row_annotation_colors = NULL,
-  col_annotation_colors = NULL, row_labels = NULL, col_labels = NULL,
-  row_title = NULL, col_title = NULL,
-  colorbar_grid = setup_colorbar_grid(), layout = list(),
-  source = "iheatmapr", ...)
+  row_clusters_name = "Row<br>Clusters",
+  show_row_clusters_colorbar = TRUE, show_col_clusters_colorbar = TRUE,
+  row_annotation = NULL, col_annotation = NULL,
+  row_annotation_colors = NULL, col_annotation_colors = NULL,
+  row_labels = NULL, col_labels = NULL, row_title = NULL,
+  col_title = NULL, colorbar_grid = setup_colorbar_grid(),
+  layout = list(), source = "iheatmapr", ...)
 }
 \arguments{
 \item{data}{matrix of values to be plotted as heatmap}

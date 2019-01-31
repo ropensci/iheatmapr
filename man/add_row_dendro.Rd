@@ -7,8 +7,8 @@
 \title{add_row_dendro}
 \usage{
 \S4method{add_row_dendro}{Iheatmap,hclust}(p, dendro, reorder = TRUE,
-  side = c("left", "right"), size = 0.15, buffer = 0.005, xname = NULL,
-  yname = current_yaxis(p), sname = "row_dendro")
+  side = c("left", "right"), size = 0.15, buffer = 0.005,
+  xname = NULL, yname = current_yaxis(p), sname = "row_dendro")
 }
 \arguments{
 \item{p}{iheatmap object}

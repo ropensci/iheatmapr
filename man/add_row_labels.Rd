@@ -6,9 +6,10 @@
 \alias{add_row_labels,Iheatmap-method}
 \title{add_row_labels}
 \usage{
-\S4method{add_row_labels}{Iheatmap}(p, tickvals = NULL, ticktext = NULL,
-  textangle = 0, font = get_layout(p)$font, side = c("left", "right"),
-  size = 0.1, buffer = 0.005, xname = NULL, yname = current_yaxis(p))
+\S4method{add_row_labels}{Iheatmap}(p, tickvals = NULL,
+  ticktext = NULL, textangle = 0, font = get_layout(p)$font,
+  side = c("left", "right"), size = 0.1, buffer = 0.005,
+  xname = NULL, yname = current_yaxis(p))
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}

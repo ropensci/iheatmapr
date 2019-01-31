@@ -6,10 +6,11 @@
 \alias{add_subplot,Iheatmap-method}
 \title{add_subplot}
 \usage{
-\S4method{add_subplot}{Iheatmap}(p, ..., side = c("top", "bottom", "right",
-  "left"), layout = list(), size = 1, buffer = 0.1, xname = if (side
-  \%in\% c("top", "bottom")) current_xaxis(p) else NULL, yname = if (side
-  \%in\% c("left", "right")) current_yaxis(p) else NULL, pname = "subplot")
+\S4method{add_subplot}{Iheatmap}(p, ..., side = c("top", "bottom",
+  "right", "left"), layout = list(), size = 1, buffer = 0.1,
+  xname = if (side \%in\% c("top", "bottom")) current_xaxis(p) else NULL,
+  yname = if (side \%in\% c("left", "right")) current_yaxis(p) else NULL,
+  pname = "subplot")
 }
 \arguments{
 \item{p}{iheatmap object}

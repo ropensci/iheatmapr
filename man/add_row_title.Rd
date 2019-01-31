@@ -7,8 +7,9 @@
 \title{add_row_title}
 \usage{
 \S4method{add_row_title}{Iheatmap}(p, title, textangle = ifelse(side ==
-  "left", -90, 90), font = get_layout(p)$font, side = c("left", "right"),
-  size = 0.1, buffer = 0.01, xname = NULL, yname = current_yaxis(p))
+  "left", -90, 90), font = get_layout(p)$font, side = c("left",
+  "right"), size = 0.1, buffer = 0.01, xname = NULL,
+  yname = current_yaxis(p))
 }
 \arguments{
 \item{p}{iheatmap object}

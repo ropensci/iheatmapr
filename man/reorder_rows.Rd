@@ -5,7 +5,6 @@
 \alias{reorder_rows}
 \alias{reorder_rows,IheatmapHorizontal,integer-method}
 \alias{reorder_rows,IheatmapVertical,integer-method}
-\alias{reorder_rows,IheatmapVertical,integer-method}
 \title{reorder_rows}
 \usage{
 \S4method{reorder_rows}{IheatmapHorizontal,integer}(p, row_order)

@@ -5,7 +5,6 @@
 \alias{add_main_heatmap}
 \alias{add_main_heatmap,IheatmapHorizontal,matrix-method}
 \alias{add_main_heatmap,IheatmapVertical,matrix-method}
-\alias{add_main_heatmap,IheatmapVertical,matrix-method}
 \title{add_main_heatmap}
 \usage{
 \S4method{add_main_heatmap}{IheatmapHorizontal,matrix}(p, data,
@@ -13,17 +12,20 @@
   colors = pick_continuous_colors(zmid, zmin, zmax, p),
   colorbar_position = get_colorbar_position(p), show_colorbar = TRUE,
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
-  zmid = 0, col_order = NULL, x_categorical = NULL, side = c("right",
-  "left"), size = 1, buffer = 0.04, text = signif(data, digits = 3),
-  tooltip = setup_tooltip_options(), xname = NULL, pname = name, ...)
+  zmid = 0, col_order = NULL, x_categorical = NULL,
+  side = c("right", "left"), size = 1, buffer = 0.04,
+  text = signif(data, digits = 3), tooltip = setup_tooltip_options(),
+  xname = NULL, pname = name, ...)
 
-\S4method{add_main_heatmap}{IheatmapVertical,matrix}(p, data, name = "Signal",
-  y = default_y(data), colors = pick_continuous_colors(zmid, zmin, zmax, p),
+\S4method{add_main_heatmap}{IheatmapVertical,matrix}(p, data,
+  name = "Signal", y = default_y(data),
+  colors = pick_continuous_colors(zmid, zmin, zmax, p),
   colorbar_position = get_colorbar_position(p), show_colorbar = TRUE,
   zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
-  zmid = 0, row_order = NULL, y_categorical = NULL, side = c("bottom",
-  "top"), size = 1, buffer = 0.04, text = signif(data, digits = 3),
-  tooltip = setup_tooltip_options(), yname = NULL, pname = name, ...)
+  zmid = 0, row_order = NULL, y_categorical = NULL,
+  side = c("bottom", "top"), size = 1, buffer = 0.04,
+  text = signif(data, digits = 3), tooltip = setup_tooltip_options(),
+  yname = NULL, pname = name, ...)
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}

@@ -8,9 +8,9 @@
 \usage{
 \S4method{add_row_barplot}{Iheatmap}(p, x, ..., color = NULL,
   tracename = NA_character_, showlegend = !is.na(tracename),
-  side = c("right", "left"), layout = list(), size = 0.2, buffer = 0.02,
-  xname = NULL, yname = current_yaxis(p), pname = if (!is.na(tracename))
-  tracename else "row_barplot")
+  side = c("right", "left"), layout = list(), size = 0.2,
+  buffer = 0.02, xname = NULL, yname = current_yaxis(p), pname = if
+  (!is.na(tracename)) tracename else "row_barplot")
 }
 \arguments{
 \item{p}{iheatmap object}

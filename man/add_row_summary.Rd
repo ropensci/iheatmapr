@@ -6,12 +6,13 @@
 \alias{add_row_summary,Iheatmap-method}
 \title{add_row_summary}
 \usage{
-\S4method{add_row_summary}{Iheatmap}(p, groups = NULL, heatmap_name = NULL,
-  colors = NULL, tracename = "Row Summary", showlegend = FALSE,
-  side = c("right", "left"), layout = list(), size = 0.3, buffer = 0.02,
-  xname = NULL, yname = current_yaxis(p), type = c("scatter", "bar"),
-  summary_function = c("mean", "median", "sd", "var", "mad", "max", "min",
-  "sum"), ...)
+\S4method{add_row_summary}{Iheatmap}(p, groups = NULL,
+  heatmap_name = NULL, colors = NULL, tracename = "Row Summary",
+  showlegend = FALSE, side = c("right", "left"), layout = list(),
+  size = 0.3, buffer = 0.02, xname = NULL,
+  yname = current_yaxis(p), type = c("scatter", "bar"),
+  summary_function = c("mean", "median", "sd", "var", "mad", "max",
+  "min", "sum"), ...)
 }
 \arguments{
 \item{p}{\code{\link{Iheatmap-class}} object}

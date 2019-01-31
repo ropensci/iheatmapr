@@ -6,9 +6,9 @@
 \alias{add_row_clusters,Iheatmap-method}
 \title{add_row_clusters}
 \usage{
-\S4method{add_row_clusters}{Iheatmap}(p, clusters, name = "Row<br>Clusters",
-  reorder = TRUE, side = c("left", "right"), yname = current_yaxis(p),
-  ...)
+\S4method{add_row_clusters}{Iheatmap}(p, clusters,
+  name = "Row<br>Clusters", reorder = TRUE, side = c("left",
+  "right"), yname = current_yaxis(p), ...)
 }
 \arguments{
 \item{p}{iheatmap object}

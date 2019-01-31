@@ -15,17 +15,13 @@
 \alias{shapes}
 \alias{annotations}
 \alias{colorbars}
-\alias{colorbars,Iheatmap-method}
 \alias{colorbars,IheatmapColorbars-method}
 \alias{colorbars,IheatmapPlots-method}
-\alias{yaxes,Iheatmap-method}
-\alias{xaxes,Iheatmap-method}
-\alias{plots,Iheatmap-method}
 \alias{shapes,Iheatmap-method}
-\alias{annotations,Iheatmap-method}
 \title{Access subcomponents of Iheatmap object}
 \usage{
-\S4method{colorbars}{Iheatmap}(x, what = c("all", "continuous", "discrete"))
+\S4method{colorbars}{Iheatmap}(x, what = c("all", "continuous",
+  "discrete"))
 
 \S4method{yaxes}{Iheatmap}(p, xaxis = NULL)
 

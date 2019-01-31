@@ -5,27 +5,27 @@
 \alias{add_iheatmap}
 \alias{add_iheatmap,IheatmapHorizontal,matrix-method}
 \alias{add_iheatmap,IheatmapVertical,matrix-method}
-\alias{add_iheatmap,IheatmapVertical,matrix-method}
 \title{add_iheatmap}
 \usage{
 \S4method{add_iheatmap}{IheatmapHorizontal,matrix}(p, data,
   x = default_x(data), cluster_cols = c("none", "hclust", "kmeans",
   "groups"), col_clusters = NULL, col_k = NULL,
-  col_clust_dist = stats::dist, name = "Signal", scale = c("none", "rows",
-  "cols"), scale_method = c("standardize", "center", "normalize"),
-  colors = NULL, col_clusters_colors = NULL,
-  col_clusters_name = "Col<br>Clusters", show_col_clusters_colorbar = TRUE,
-  row_annotation = NULL, col_annotation = NULL,
-  row_annotation_colors = NULL, col_annotation_colors = NULL,
-  row_labels = NULL, col_labels = NULL, row_title = NULL,
-  col_title = NULL, buffer = 0.2, ...)
+  col_clust_dist = stats::dist, name = "Signal", scale = c("none",
+  "rows", "cols"), scale_method = c("standardize", "center",
+  "normalize"), colors = NULL, col_clusters_colors = NULL,
+  col_clusters_name = "Col<br>Clusters",
+  show_col_clusters_colorbar = TRUE, row_annotation = NULL,
+  col_annotation = NULL, row_annotation_colors = NULL,
+  col_annotation_colors = NULL, row_labels = NULL, col_labels = NULL,
+  row_title = NULL, col_title = NULL, buffer = 0.2, ...)
 
-\S4method{add_iheatmap}{IheatmapVertical,matrix}(p, data, y = default_y(data),
-  cluster_rows = c("none", "hclust", "kmeans", "groups"),
-  row_clusters = NULL, row_k = NULL, row_clust_dist = stats::dist,
-  name = "Signal", scale = c("none", "rows", "cols"),
-  scale_method = c("standardize", "center", "normalize"), colors = NULL,
-  row_clusters_colors = NULL, row_clusters_name = "Col<br>Clusters",
+\S4method{add_iheatmap}{IheatmapVertical,matrix}(p, data,
+  y = default_y(data), cluster_rows = c("none", "hclust", "kmeans",
+  "groups"), row_clusters = NULL, row_k = NULL,
+  row_clust_dist = stats::dist, name = "Signal", scale = c("none",
+  "rows", "cols"), scale_method = c("standardize", "center",
+  "normalize"), colors = NULL, row_clusters_colors = NULL,
+  row_clusters_name = "Col<br>Clusters",
   show_row_clusters_colorbar = TRUE, row_annotation = NULL,
   col_annotation = NULL, row_annotation_colors = NULL,
   col_annotation_colors = NULL, row_labels = NULL, col_labels = NULL,

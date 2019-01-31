@@ -6,15 +6,17 @@
 \alias{main_heatmap,matrix-method}
 \title{main_heatmap}
 \usage{
-\S4method{main_heatmap}{matrix}(data, name = "Signal", x = default_x(data),
-  y = default_y(data), colors = pick_continuous_colors(zmid, zmin, zmax),
-  colorbar_grid = setup_colorbar_grid(), colorbar_position = 1, zmid = 0,
-  zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm = TRUE),
-  orientation = c("horizontal", "vertical"), x_categorical = NULL,
-  y_categorical = NULL, row_order = seq_len(nrow(data)),
-  col_order = seq_len(ncol(data)), text = signif(data, digits = 3),
-  tooltip = setup_tooltip_options(), xname = "x", yname = "y",
-  pname = name, source = "iheatmapr", layout = list())
+\S4method{main_heatmap}{matrix}(data, name = "Signal",
+  x = default_x(data), y = default_y(data),
+  colors = pick_continuous_colors(zmid, zmin, zmax),
+  colorbar_grid = setup_colorbar_grid(), colorbar_position = 1,
+  zmid = 0, zmin = min(data, na.rm = TRUE), zmax = max(data, na.rm =
+  TRUE), orientation = c("horizontal", "vertical"),
+  x_categorical = NULL, y_categorical = NULL,
+  row_order = seq_len(nrow(data)), col_order = seq_len(ncol(data)),
+  text = signif(data, digits = 3), tooltip = setup_tooltip_options(),
+  xname = "x", yname = "y", pname = name, source = "iheatmapr",
+  layout = list())
 }
 \arguments{
 \item{data}{matrix}

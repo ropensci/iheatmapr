@@ -5,7 +5,8 @@
 \title{Tooltip Options}
 \usage{
 setup_tooltip_options(row = TRUE, col = TRUE, value = TRUE,
-  prepend_row = "Row: ", prepend_col = "Col: ", prepend_value = "Value: ")
+  prepend_row = "Row: ", prepend_col = "Col: ",
+  prepend_value = "Value: ")
 }
 \arguments{
 \item{row}{logical, include row name in tooltip?}

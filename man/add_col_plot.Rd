@@ -9,8 +9,9 @@
 \S4method{add_col_plot}{Iheatmap}(p, y, ..., mode = c("lines+markers",
   "lines", "markers"), color = NULL, tracename = NA_character_,
   showlegend = !is.na(tracename), side = c("top", "bottom"),
-  layout = list(), size = 0.2, buffer = 0.02, xname = current_xaxis(p),
-  yname = NULL, pname = if (!is.na(tracename)) tracename else "col_plot")
+  layout = list(), size = 0.2, buffer = 0.02,
+  xname = current_xaxis(p), yname = NULL, pname = if
+  (!is.na(tracename)) tracename else "col_plot")
 }
 \arguments{
 \item{p}{iheatmap object}

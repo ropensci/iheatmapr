@@ -118,6 +118,7 @@ setMethod("make_colorbar",
                         ypad = 5,
                         thickness = 20,
                         tickvals = tickvals_helper(cb@zmin, cb@zmid, cb@zmax))
+            out
           })
 
 setMethod("make_colorbar",
@@ -136,10 +137,11 @@ setMethod("make_colorbar",
                         title = cb@title,
                         ypad = 5,
                         thickness = 20,
-                        ticktext = cb@ticktext,
-                        tickvals = seq(1 + w * 0.5, 
+                        ticktext = if (n == 1) as.list(cb@ticktext) else cb@ticktext,
+                        tickvals = if (n == 1) as.list(1) else seq(1 + w * 0.5, 
                                        n - w * 0.5,
                                        length.out = n))
+            out
           })
 
 
