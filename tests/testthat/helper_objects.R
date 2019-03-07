@@ -1,3 +1,4 @@
+suppressWarnings(RNGversion("3.5.0"))
 set.seed(1)
 
 a <- round(rbind(cbind(matrix(rnorm(48,-0.75,),ncol=4),

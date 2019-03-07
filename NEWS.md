@@ -1,3 +1,11 @@
+# iheatmapr 0.4.8
+
+* Fix issue where add_col_groups uses continuous scale if all groups are equal
+* Fix for iheatmapr_event not working on relayout 
+* Fix issue where show_colorbar was always set to be TRUE (ignored arg)
+* Fix example for save_iheatmap
+* Update to fix error in tests due to change in R-devel random sample
+
 # iheatmapr 0.4.3
 
 * Minor bug fix for issue on R-devel.
