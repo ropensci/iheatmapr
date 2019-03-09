@@ -6,14 +6,5 @@ os:
 cache: packages
 r:
 - bioc-release
-r_github_packages:
-- hadley/pkgdown
-r_packages:
-- packagedocs
 after_success:
 - Rscript -e 'covr::codecov()'
-- if [[ "$TRAVIS_OS_NAME" = 'linux' ]]; then R CMD INSTALL *tar.gz; fi
-- if [[ "$TRAVIS_OS_NAME" = 'linux' ]]; then Rscript -e "packagedocs::deploy_travis(repo = 'ropensci/iheatmapr', build_fn = function(output_dir, ...){pkgdown::build_site(path = output_dir, examples = FALSE)})"; fi
-env:
-  global:
-    secure: Y0BWHakOQ9MVdiwQvVUW9eYUtjeUIjfFqH9B/6IfZzwY6mtxtBy8z+CUWegMwDtSiKVLT8MLIIsnXI+fNs7FsbHt7ehh1FpA/ILaE+lAf7I0ex2F+1NIYEVQKiy+Ukag799GBcldHd71Wb2lHb3jT3MFwpOk74S2/6HokOVFzX7tozojB65EVex+YKbtXm6/9Ung0Yr37o6hbxU6TDEKi775opkFmhjRbt7Xoa5nrlC8uKwMZOcHdK2G8gkx9RbC3qzfC+pkCpvK3MPqKpJLVrkbqnskrhu8Flt+b6v6MgvPRxJKlBuzAWbf8+Y5hEIAzzafLONKYJxSLrse1oWoovpfbpHjUQC8JpDwdz5Uu9EID+9fP5wJYCeBKk5xzk6GZoJ2IPGsoiaecICzKjWtxE7OPTuAScEc9PZpRRjk9CSBT1XwHNnnumuOuOGdEsoFdnJok71C4/yngdwlWt20QFZa41TeZyyf2FSEQJWcqS7pj5kA+Kpq49+ICezpCElEJU2hwX7mRqZHte2kUSsEaik1g83VZOBP4Ad5A0yFX8RSqQQZY4XML9cI1hwasTofXjVUSTZuh/7ndVBK3ud+bPp43IZDq1LKScvm4a87ZoIuq4upHBCTZp+RXC5Ht8I5zBaghL1cpTsVk7SpSG5EbDY5coW47b4f/fil/nvAJlQ=
