@@ -645,6 +645,30 @@ To see the code for the demo shiny app:
 test_iheatmapr_event
 ```
 
+## Deploying on shinyapps.io
+
+Users have identified a few issues when deploying on shinyapps.io. The first is that this package has some BioC dependencies, so it is necessary to specify the BioC repos in options. This can be done via `setRepositories()`. Verifying what repositories are set can be done via `getOption("repos")`.  
+
+Another issue that has arisen is the use case of adding a download button, e.g.
+
+```{r, eval=FALSE}
+# Not evaluated -- example output code
+output$download_test<-downloadHandler(
+            filename ="test_heatmap.png",
+            content = function(file){
+                    save_iheatmap(heatmap_reactive(),file,vwidth=2000,vheight=1000)
+            },
+            contentType = "image/png"
+)
+```
+
+In this case, the app needs to include the 'webshot' package and have phantomjs installed. With shinyapps.io that can be accomplished via 
+
+```{r, eval=FALSE}
+# Not evaluated here -- example of what to include in app for shinyapps.io
+library(webshot)
+install_phantomjs()
+```
 
 # Session Info
 

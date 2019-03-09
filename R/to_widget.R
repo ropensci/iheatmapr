@@ -109,6 +109,11 @@ knit_print.Iheatmap <- function(x, options){
 #' @aliases save_iheatmap,Iheatmap,character-method
 #' @importFrom htmlwidgets saveWidget
 #' @author Alicia Schep
+#' @md
+#' @details Note that this function requires the webshot package. If deploying
+#' a shiny app that calls this function in shinyapps.io, loading the webshot 
+#' library and calling `webshot::install_phantomjs()` is needed for the the save
+#' functionality to work. 
 #' @examples
 #' mat <- matrix(rnorm(24), nrow = 6)
 #' hm <- iheatmap(mat)
