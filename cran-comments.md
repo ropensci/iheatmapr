@@ -1,8 +1,7 @@
 ## Release Overview
 
-Minor update to fix issues with package on R-devel. Issues were related to 
-updates to S4Vectors Bioconductor package. Tests now pass on R-devel (checked
-on rhub and rocker).
+Minor update to fix issues with package on R-devel. Issues were related to the change in the RNG algorithm. Tests now pass on R-devel (checked
+on rhub). Also incoporates a few minor bug fixes that address issues brought up by users of the package.
 
 ## R CMD check results
 
