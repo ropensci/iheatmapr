@@ -137,6 +137,7 @@ setup_tooltip_options <- function(row = TRUE,
 #' @param yname internal name for yaxis
 #' @param pname internal plot name
 #' @param source source name for use with shiny
+#' @param show_colorbar logical to indicate whether to show colorbar
 #' @param text text of value to display for data
 #' @param tooltip tooltip options, see \code{\link{setup_tooltip_options}}
 #' 
@@ -178,6 +179,7 @@ setMethod(main_heatmap, "matrix",
                    yname = "y",
                    pname = name,
                    source = "iheatmapr",
+                   show_colorbar = TRUE,
                    layout = list()){
             
             iheatmap_argument_checks(data, row_order, col_order, x, y)
@@ -191,7 +193,7 @@ setMethod(main_heatmap, "matrix",
                             xaxis = "x",
                             yaxis = "y",
                             colorbar = name,
-                            show_colorbar = TRUE,
+                            show_colorbar = show_colorbar,
                             data = data,
                             text = text,
                             tooltip = tooltip)
