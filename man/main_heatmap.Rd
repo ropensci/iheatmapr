@@ -16,7 +16,7 @@
   row_order = seq_len(nrow(data)), col_order = seq_len(ncol(data)),
   text = signif(data, digits = 3), tooltip = setup_tooltip_options(),
   xname = "x", yname = "y", pname = name, source = "iheatmapr",
-  layout = list())
+  show_colorbar = TRUE, layout = list())
 }
 \arguments{
 \item{data}{matrix}
@@ -63,6 +63,8 @@ subsequent elements sharing x axis}
 \item{pname}{internal plot name}
 
 \item{source}{source name for use with shiny}
+
+\item{show_colorbar}{logical to indicate whether to show colorbar}
 
 \item{layout}{list of layout attributes to pass to plotly, 
 eg. list(font = list(size = 15))}
