@@ -17,4 +17,4 @@ While there are already plenty of awesome R packages for making heatmaps, includ
 
 # Usage documentation
 
-For an overview of how to use `iheatmapr`, please see the [documentation website](https://ropensci.github.io/iheatmapr/index.html).
+For an overview of how to use `iheatmapr`, please see the [documentation website](https://docs.ropensci.org/iheatmapr).
