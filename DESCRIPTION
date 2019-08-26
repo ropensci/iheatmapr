@@ -74,7 +74,7 @@ Suggests:
     webshot
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-URL: https://github.com/ropensci/iheatmapr
+URL: https://docs.ropensci.org/iheatmapr (website) https://github.com/ropensci/iheatmapr
 BugReports: https://github.com/ropensci/iheatmapr/issues
 Encoding: UTF-8
 Collate:
