@@ -40,7 +40,8 @@ setMethod(add_row_annotation,
                    size = 0.05,
                    buffer = 0.015,
                    inner_buffer = buffer / 2,
-                   layout = list()){
+                   layout = list(),
+                   show_colorbar = TRUE){
             
             side <- match.arg(side)
             # Convert to data.frame
@@ -80,7 +81,8 @@ setMethod(add_row_annotation,
                                     buffer = if (i == 1) 
                                       buffer else inner_buffer,
                                     layout = layout,
-                                    show_title = TRUE)
+                                    show_title = TRUE,
+                                    show_colorbar = show_colorbar)
               } else{
                 stop("Input should be character, factor, logical, or numeric")
               }
@@ -130,7 +132,8 @@ setMethod(add_col_annotation,
                    size = 0.05,
                    buffer = 0.015,
                    inner_buffer = buffer / 2,
-                   layout = list()){
+                   layout = list(),
+                   show_colorbar = TRUE){
             
             side <- match.arg(side)
             # Convert to data.frame
@@ -171,7 +174,8 @@ setMethod(add_col_annotation,
                                     buffer = if (i == 1)
                                       buffer else inner_buffer,
                                     layout = layout,
-                                    show_title = TRUE)
+                                    show_title = TRUE,
+                                    show_colorbar = show_colorbar)
               } else{
                 stop("Input should be character, factor, logical, or numeric")
               }
