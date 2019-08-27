@@ -1,3 +1,5 @@
+#' @name to_plotly
+#' @export
 to_plotly_list <- function(p){
   traces <- unname(lapply(p@plots,
                           make_trace,
@@ -39,6 +41,29 @@ to_plotly_list <- function(p){
            null = "null", na = "null", ...)
   }
   out
+}
+
+#' Convert Iheatmap to plotly spec
+#' 
+#' Function  to convert \code{link{Iheatmap-class}} object to a plotly spec 
+#' either as a list or json
+#' 
+#' @param p \code{\link{Iheatmap-class}} object to convert
+#' 
+#' @return Returns a JSON for a plotly spec for to_plotly_spec and
+#' as a list of same plotly object for to_plotly_list.
+#' 
+#' @name to_plotly
+#' @export
+#' @examples
+#' 
+#' mat <- matrix(rnorm(24), nrow = 6)
+#' hm_json <- iheatmap(mat) %>% to_plotly_json()
+#' hm_list <- iheatmap(mat) %>% to_plotly_list()
+to_plotly_json <- function(p){
+  as_list <- to_plotly_list(p)
+  as_json <- attr(as_list, "TOJSON_FUNC")(as_list)
+  as_json
 }
 
 #' to_widget
