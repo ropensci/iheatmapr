@@ -12,6 +12,7 @@
 #' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new x axis
+#' @param show_colorbar logical indicator to show or hide colorbar
 #'
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
@@ -104,6 +105,7 @@ setMethod(add_row_annotation,
 #' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new y axis
+#' @param show_colorbar logical indicator to show or hide colorbar
 #'
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic

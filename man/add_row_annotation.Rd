@@ -8,7 +8,7 @@
 \usage{
 \S4method{add_row_annotation}{Iheatmap}(p, annotation, colors = NULL,
   side = c("right", "left"), size = 0.05, buffer = 0.015,
-  inner_buffer = buffer/2, layout = list())
+  inner_buffer = buffer/2, layout = list(), show_colorbar = TRUE)
 }
 \arguments{
 \item{p}{\code{link{Iheatmap-class}} object}
@@ -28,6 +28,8 @@ annotation}
 \item{inner_buffer}{relative size of buffer between each annotation}
 
 \item{layout}{layout properties for new x axis}
+
+\item{show_colorbar}{logical indicator to show or hide colorbar}
 }
 \value{
 \code{\link{Iheatmap-class}} object, which can be printed to generate 
