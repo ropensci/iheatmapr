@@ -68,8 +68,8 @@ setMethod(add_row_annotation,
                   tmp_colors <- colors[[colnames(x)[i]]]
                 } else{
                   tmp_colors <- pick_continuous_colors(zmid = 0, 
-                                                       zmin = min(x[,i]),
-                                                       zmax = max(x[,i]), p)
+                                                       zmin = min(x[,i], na.rm = TRUE),
+                                                       zmax = max(x[,i], na.rm = TRUE), p)
                 }
                 p <- add_row_signal(p, 
                                     x[,i],
@@ -159,8 +159,8 @@ setMethod(add_col_annotation,
                   tmp_colors <- colors[[colnames(x)[i]]]
                 } else{
                   tmp_colors <- pick_continuous_colors(zmid = 0, 
-                                                       zmin = min(x[,i]),
-                                                       zmax = max(x[,i]), p)
+                                                       zmin = min(x[,i], na.rm = TRUE),
+                                                       zmax = max(x[,i], na.rm = TRUE), p)
                 }
                 p <- add_col_signal(p, 
                                     x[,i],
