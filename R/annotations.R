@@ -12,6 +12,7 @@
 #' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new x axis
+#' @param show_colorbar logical indicator to show or hide colorbar
 #'
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
@@ -40,7 +41,8 @@ setMethod(add_row_annotation,
                    size = 0.05,
                    buffer = 0.015,
                    inner_buffer = buffer / 2,
-                   layout = list()){
+                   layout = list(),
+                   show_colorbar = TRUE){
             
             side <- match.arg(side)
             # Convert to data.frame
@@ -57,6 +59,7 @@ setMethod(add_row_annotation,
                                     name = colnames(x)[i],
                                     title = colnames(x)[i],
                                     colors = tmp_colors,
+                                    show_colorbar = show_colorbar,
                                     side = side,
                                     size = size,
                                     buffer = if (i == 1) 
@@ -80,7 +83,8 @@ setMethod(add_row_annotation,
                                     buffer = if (i == 1) 
                                       buffer else inner_buffer,
                                     layout = layout,
-                                    show_title = TRUE)
+                                    show_title = TRUE,
+                                    show_colorbar = show_colorbar)
               } else{
                 stop("Input should be character, factor, logical, or numeric")
               }
@@ -102,6 +106,7 @@ setMethod(add_row_annotation,
 #' annotation
 #' @param inner_buffer relative size of buffer between each annotation
 #' @param layout layout properties for new y axis
+#' @param show_colorbar logical indicator to show or hide colorbar
 #'
 #' @return \code{\link{Iheatmap-class}} object, which can be printed to generate 
 #' an interactive graphic
@@ -130,7 +135,8 @@ setMethod(add_col_annotation,
                    size = 0.05,
                    buffer = 0.015,
                    inner_buffer = buffer / 2,
-                   layout = list()){
+                   layout = list(),
+                   show_colorbar = TRUE){
             
             side <- match.arg(side)
             # Convert to data.frame
@@ -148,6 +154,7 @@ setMethod(add_col_annotation,
                                     name = colnames(x)[i],
                                     title = colnames(x)[i],
                                     colors = tmp_colors,
+                                    show_colorbar = show_colorbar,
                                     side = side,
                                     size = size,
                                     buffer = if (i == 1)
@@ -171,7 +178,8 @@ setMethod(add_col_annotation,
                                     buffer = if (i == 1)
                                       buffer else inner_buffer,
                                     layout = layout,
-                                    show_title = TRUE)
+                                    show_title = TRUE,
+                                    show_colorbar = show_colorbar)
               } else{
                 stop("Input should be character, factor, logical, or numeric")
               }
