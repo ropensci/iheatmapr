@@ -38,6 +38,11 @@ expect_iheatmap <- function(test_plot, ref_name,
   }
   expect_is(test_widget,"htmlwidget")
   expect_is(test_widget,"iheatmapr")
-  expect_ihm_equal_to_reference(test_widget, paste0("reference/",
+  if (packageVersion("scales") > "1.0.0") {
+    expect_ihm_equal_to_reference(test_widget, paste0("reference/",
+                                                      ref_name,"_v2.rds"))
+  } else {
+    expect_ihm_equal_to_reference(test_widget, paste0("reference/",
                                                     ref_name,".rds"))
+  }
 }

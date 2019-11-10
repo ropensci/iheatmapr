@@ -16,9 +16,9 @@ SEQ_PALETTES <- c("RdPu","BuGn","YlOrRd","PuBu","Reds","Greens","Blues",
 
 DEFAULT_COLORS <- "Dark2"
 DEFAULT_CONTINUOUS_PALETTE <- "BuPu"
-DEFAULT_DIVERGING_PALETTE <- c(scales::muted("blue"),
+DEFAULT_DIVERGING_PALETTE <- c("#3A3A98FF",
                               "white",
-                              scales::muted("red"))
+                              "#832424FF")
 
 #' @importFrom RColorBrewer brewer.pal brewer.pal.info
 discrete_colors <- function(x = 2, palette = DEFAULT_COLORS){
