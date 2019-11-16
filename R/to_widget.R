@@ -17,9 +17,10 @@ to_plotly_list <- function(p){
                                       xaxes = xaxes(p),
                                       yaxes = yaxes(p))),
                         recursive = FALSE)
-  layout_setting <- c(get_layout(p@xaxes),
-                      get_layout(p@yaxes),
-                      p@layout)
+  layout_setting <- modifyList(
+    c(get_layout(p@xaxes),get_layout(p@yaxes)),
+     p@layout
+  )
   if (length(shapes) && !is.null(unlist(shapes))){
     layout_setting$shapes <- shapes
   }
