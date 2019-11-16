@@ -5,20 +5,19 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "iheatmapr",
-  "description":
-    "Make complex, interactive heatmaps. 'iheatmapr' includes a modular \n    system for iteratively building up complex heatmaps, as well as the \n    iheatmap() function for making relatively standard heatmaps.",
+  "description": "Make complex, interactive heatmaps. 'iheatmapr' includes a modular \n    system for iteratively building up complex heatmaps, as well as the \n    iheatmap() function for making relatively standard heatmaps.",
   "name": "iheatmapr: Interactive, Complex Heatmaps",
-  "codeRepository": "https://github.com/ropensci/iheatmapr.git",
+  "codeRepository": "https://github.com/ropensci/iheatmapr",
   "issueTracker": "https://github.com/ropensci/iheatmapr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.2",
+  "version": "0.4.12",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.2",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.2 (2017-09-28)",
+  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
   "author": [
     {
       "@type": "Person",
@@ -90,6 +89,11 @@
       "@type": "Person",
       "givenName": "Alex",
       "familyName": "Vados"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Frederick",
+      "familyName": "Boehm"
     }
   ],
   "copyrightHolder": [
@@ -102,13 +106,15 @@
       "name": "Plotly"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Alicia",
-    "familyName": "Schep",
-    "email": "aschep@gmail.com",
-    "@id": "orcid.org/0000-0002-3915-0618"
-  },
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Alicia",
+      "familyName": "Schep",
+      "email": "aschep@gmail.com",
+      "@id": "orcid.org/0000-0002-3915-0618"
+    }
+  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -117,9 +123,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=htmltools"
     },
     {
       "@type": "SoftwareApplication",
@@ -133,9 +140,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=shiny"
     },
     {
       "@type": "SoftwareApplication",
@@ -144,9 +152,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     },
     {
       "@type": "SoftwareApplication",
@@ -155,9 +164,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
     {
       "@type": "SoftwareApplication",
@@ -166,9 +176,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=reshape2"
     },
     {
       "@type": "SoftwareApplication",
@@ -177,9 +188,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=roxygen2"
     },
     {
       "@type": "SoftwareApplication",
@@ -188,9 +200,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     },
     {
       "@type": "SoftwareApplication",
@@ -199,12 +212,19 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=webshot"
     }
   ],
   "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.2.0"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "methods",
@@ -217,9 +237,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=plyr"
     },
     {
       "@type": "SoftwareApplication",
@@ -233,9 +254,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
     {
       "@type": "SoftwareApplication",
@@ -246,7 +268,8 @@
         "@type": "Organization",
         "name": "BioConductor",
         "url": "https://www.bioconductor.org"
-      }
+      },
+      "sameAs": "https://bioconductor.org/packages/release/bioc/html/S4Vectors.html"
     },
     {
       "@type": "SoftwareApplication",
@@ -260,9 +283,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggdendro"
     },
     {
       "@type": "SoftwareApplication",
@@ -271,9 +295,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fastcluster"
     },
     {
       "@type": "SoftwareApplication",
@@ -282,9 +307,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RColorBrewer"
     },
     {
       "@type": "SoftwareApplication",
@@ -293,9 +319,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=htmlwidgets"
     },
     {
       "@type": "SoftwareApplication",
@@ -304,9 +331,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
     {
       "@type": "SoftwareApplication",
@@ -315,9 +343,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=scales"
     },
     {
       "@type": "SoftwareApplication",
@@ -326,37 +355,24 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": "3.2.0"
     }
   ],
   "applicationCategory": "Visualization",
   "isPartOf": "https://ropensci.org",
-  "keywords": [
-    "heatmap",
-    "plotly",
-    "r",
-    "interactive-visualizations",
-    "data-visualization",
-    "htmlwidgets"
-  ],
+  "keywords": ["heatmap", "plotly", "r", "interactive-visualizations", "data-visualization", "htmlwidgets", "rstats", "r-package", "peer-reviewed"],
   "contIntegration": "https://travis-ci.org/ropensci/iheatmapr",
-  "releaseNotes":
-    "https://github.com/ropensci/iheatmapr.git/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/iheatmapr.git/blob/master/README.md",
-  "fileSize": "2413.949KB",
+  "releaseNotes": "https://github.com/ropensci/iheatmapr/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/iheatmapr/blob/master/README.md",
+  "fileSize": "35269.802KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -387,5 +403,18 @@
         }
       }
     }
-  ]
+  ],
+  "relatedLink": ["https://docs.ropensci.org/iheatmapr", "https://CRAN.R-project.org/package=iheatmapr"],
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "funder": {},
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/onboarding/issues/107",
+    "provider": "http://ropensci.org"
+  }
 }
