@@ -1,3 +1,16 @@
+remove_colors <- function(x) {
+  # Colors are problematic because a slight change in color will lead to test 
+  # failing -- this helper function removes them.
+  x$colorscale <- x$colorscale[[1]]
+
+  x
+}
+
+replace_colorscales <- function(x) {
+  x$data <- lapply(x$data, remove_colors)
+  x
+}
+
 
 # modified from testhat expect_equal_to_reference
 expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
@@ -11,8 +24,8 @@ expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
   } else {
     reference <- readRDS(file)
     
-    objectsub <- object$x[c("data","layout")]
-    referencesub <- reference$x[c("data","layout")]
+    objectsub <- replace_colorscales(object$x[c("data","layout")])
+    referencesub <- replace_colorscales(reference$x[c("data","layout")])
     
     comp <- testthat::compare(objectsub, referencesub, ...)
     expect(
@@ -38,11 +51,6 @@ expect_iheatmap <- function(test_plot, ref_name,
   }
   expect_is(test_widget,"htmlwidget")
   expect_is(test_widget,"iheatmapr")
-  if (packageVersion("scales") > "1.0.0") {
-    expect_ihm_equal_to_reference(test_widget, paste0("reference/",
-                                                      ref_name,"_v2.rds"))
-  } else {
-    expect_ihm_equal_to_reference(test_widget, paste0("reference/",
+  expect_ihm_equal_to_reference(test_widget, paste0("reference/",
                                                     ref_name,".rds"))
-  }
 }
