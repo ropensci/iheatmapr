@@ -1,13 +1,15 @@
-remove_colors <- function(x) {
+remove_text <- function(x) {
   # Colors are problematic because a slight change in color will lead to test 
   # failing -- this helper function removes them.
   x$colorscale <- x$colorscale[[1]]
+  # Text is problematic because it is sensitive to precision because has numbers in it
+  x$text <- length(x$text)
 
   x
 }
 
-replace_colorscales <- function(x) {
-  x$data <- lapply(x$data, remove_colors)
+replace_text <- function(x) {
+  x$data <- lapply(x$data, remove_text)
   x
 }
 
@@ -24,10 +26,10 @@ expect_ihm_equal_to_reference <- function(object, file, ..., info = NULL) {
   } else {
     reference <- readRDS(file)
     
-    objectsub <- replace_colorscales(object$x[c("data","layout")])
-    referencesub <- replace_colorscales(reference$x[c("data","layout")])
+    objectsub <- replace_text(object$x[c("data","layout")])
+    referencesub <- replace_text(reference$x[c("data","layout")])
     
-    comp <- testthat::compare(objectsub, referencesub, ...)
+    comp <- testthat::compare(objectsub, referencesub, tolerance = 0.1, ...)
     expect(
       comp$equal,
       sprintf("Not equal to %s.\n%s", lab_exp, comp$message),
