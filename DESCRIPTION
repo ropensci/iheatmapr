@@ -1,7 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.4.12
+Version: 0.4.13
 Authors@R: c(person("Alicia", "Schep",
                   email = "aschep@gmail.com",
                   role = c("aut", "cre"),
