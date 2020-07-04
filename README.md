@@ -25,14 +25,7 @@ To install the github version of `iheatmapr`:
 
 ```r
 devtools::install_github("ropensci/iheatmapr")
-```
-
-`iheatmapr` has a Bioconductor dependency, so if you have never installed a package from Bioconductor before you will need to install BiocInstaller first:
-
-```r
-source("https://bioconductor.org/biocLite.R")
-biocLite("BiocInstaller")
-```
+```xxxs
 
 ## Example Complex Heatmap
 
