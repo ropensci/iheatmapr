@@ -79,7 +79,6 @@ setup_colorbar_grid <- function(nrows = 3,
 }
 
 #' @importFrom scales zero_range
-#' @importFrom plyr round_any
 tickvals_helper <- function(zmin, zmid, zmax) {
   
   rng <- c(zmin, zmax)
@@ -92,12 +91,12 @@ tickvals_helper <- function(zmin, zmid, zmax) {
   }
   
   if (zmid > zmin && zmid < zmax){
-    out <- c(round_any(zmin,precision,ceiling), 
-             round_any(zmid,precision), 
-             round_any(zmax,precision,floor))
+    out <- c(round_multiple(zmin,precision,ceiling), 
+             round_multiple(zmid,precision), 
+             round_multiple(zmax,precision,floor))
   } else{
-    out <- c(round_any(zmin,precision,ceiling), 
-             round_any(zmax,precision,floor))
+    out <- c(round_multiple(zmin,precision,ceiling), 
+             round_multiple(zmax,precision,floor))
   }
 
   out
