@@ -3,7 +3,6 @@
 \docType{package}
 \name{iheatmapr}
 \alias{iheatmapr}
-\alias{iheatmapr-package}
 \title{iheatmapr}
 \description{
 Interactive complex heatmaps in R
@@ -11,13 +10,13 @@ Interactive complex heatmaps in R
 \details{
 iheatmapr is a package for building complex, interactive heatmaps in R that 
 can be explored in interactive R sessions or incorporated into rmarkdown 
-documents, shiny applications, or standalone html files.
+documents, shiny applications, or standalone html files. 
 
 The package includes a modular system for building up complex heatmaps, where
 subplots get iteratively added to the top/left/right/bottom of the main 
 heatmap(s). The \code{\link{iheatmap}} function provides a wrapper around
 many of the common modular subcomponents to build fairly standard, moderately
-complex heatmap.
+complex heatmap.  
 
 See the vignette for detailed instructions for how to use the package.
 

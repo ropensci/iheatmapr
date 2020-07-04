@@ -194,6 +194,12 @@ setReplaceMethod("domain_start", c(x = "IheatmapAxes"),
                    x})
 
 
+setMethod('sort', c(x = "IheatmapAxes"),
+          function(x, decreasing = FALSE){
+            ix <- order(domain_start(x), decreasing = decreasing)
+            x[ix]
+          })
+
 setMethod(domain_end, c(x = "IheatmapAxis"),
           function(x){x@domain_end})
 
@@ -255,21 +261,12 @@ setMethod(yaxis_name, c(x = "Iheatmap"),
 
 setMethod('buffers', c(x = "IheatmapAxes"),
           function(x){
-            stopifnot(isSorted(x))
+            stopifnot(identical(x, sort(x)))
             if (length(x) > 1) domain_start(x)[2:length(x)] -
               domain_end(x)[1:(length(x) - 1)] else c()
           })
 
-setMethod('sort', c(x = "IheatmapAxes"),
-          function(x, decreasing = FALSE){
-            ix <- order(domain_start(x), decreasing = decreasing)
-            x[ix]
-          })
 
-setMethod('isSorted', c(x = "IheatmapAxes"),
-          function(x){
-            identical(x, sort(x))
-          })
 
 setReplaceMethod("axis_order", c("IheatmapMainAxis"),
                  function(x, value){

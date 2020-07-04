@@ -4,9 +4,14 @@
 \alias{setup_colorbar_grid}
 \title{setup_colorbar_grid}
 \usage{
-setup_colorbar_grid(nrows = 3, y_length = y_spacing * 0.9,
-  x_spacing = 0.16, y_spacing = y_start/nrows, x_start = 1.05,
-  y_start = 0.9)
+setup_colorbar_grid(
+  nrows = 3,
+  y_length = y_spacing * 0.9,
+  x_spacing = 0.16,
+  y_spacing = y_start/nrows,
+  x_start = 1.05,
+  y_start = 0.9
+)
 }
 \arguments{
 \item{nrows}{number of rows in colorbar grid}

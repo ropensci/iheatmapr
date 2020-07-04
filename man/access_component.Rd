@@ -20,8 +20,7 @@
 \alias{shapes,Iheatmap-method}
 \title{Access subcomponents of Iheatmap object}
 \usage{
-\S4method{colorbars}{Iheatmap}(x, what = c("all", "continuous",
-  "discrete"))
+\S4method{colorbars}{Iheatmap}(x, what = c("all", "continuous", "discrete"))
 
 \S4method{yaxes}{Iheatmap}(p, xaxis = NULL)
 

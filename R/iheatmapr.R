@@ -18,7 +18,7 @@
 #' interactive figures and htmlwidgets (http://www.htmlwidgets.org/) for 
 #' rendering them in R. 
 #' 
-#' @import methods S4Vectors 
+#' @import methods
 #' @importFrom utils modifyList
 #' @importFrom magrittr %>%
 #' @importFrom scales zero_range

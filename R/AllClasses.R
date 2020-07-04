@@ -1,3 +1,11 @@
+## IheatmapList
+## VIRTUAL class with a list representation
+
+setClass("IheatmapList", 
+         slots = list(listData = "list", elementType = "character"),  
+         contains = "VIRTUAL")
+
+
 ## IheatmapPanel Class --------------------------------------------------------
 ## VIRTUAL class that will be basis of IheatmapPlot, IheatmapShape, and
 ## IheatmapAnnotation
@@ -186,7 +194,7 @@ setClass("GenericPlot",
 #' @author Alicia Schep
 setClass("IheatmapPlots",
          prototype = list(elementType = "IheatmapPlot"),
-         contains = c("SimpleList","IheatmapPanels"))
+         contains = c("IheatmapList","IheatmapPanels"))
 
 ## IheatmapShape Class and descendants-----------------------------------------
 
@@ -216,7 +224,7 @@ setClass("IheatmapShape",
 #' @author Alicia Schep
 setClass("IheatmapShapes",
          prototype = list(elementType = "IheatmapShape"),
-         contains = c("SimpleList","IheatmapPanels"))
+         contains = c("IheatmapList","IheatmapPanels"))
 
 setOldClass("hclust")
 
@@ -270,7 +278,7 @@ setClass("IheatmapAnnotation",
 #' @keywords internal
 setClass("IheatmapAnnotations",
          prototype = list(elementType = "IheatmapAnnotation") ,
-         contains = c("SimpleList","IheatmapPanels"))
+         contains = c("IheatmapList","IheatmapPanels"))
 
 #' RowTitle
 #' 
@@ -427,7 +435,7 @@ setClass("DiscreteColorbar",
 #' @author Alicia Schep
 setClass("IheatmapColorbars",
          prototype = list(elementType = "IheatmapColorbar"),
-         contains = "SimpleList")
+         contains = "IheatmapList")
 
 #' IheatmapColorbarGrid
 #' 
@@ -579,7 +587,7 @@ setClass("IheatmapMainY",
 setClass("IheatmapAxes",
          slots = c(axis = "character"),
          prototype = c(elementType = "IheatmapAxis"),
-         contains = "SimpleList")
+         contains = "IheatmapList")
 
 
 setValidity("IheatmapAxes",
