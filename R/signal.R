@@ -19,11 +19,11 @@ setMethod("make_trace", signature = c(x = "RowAnnotation"),
             
             z <- mat[axis_order(ya), 1, drop = FALSE]
             
-            out <- list(z = z,
-                        y = axis_values(ya),
-                        x = c(1),
+            out <- list(z = I(z),
+                        y = I(axis_values(ya)),
+                        x = I(c(1)),
                         type= "heatmap",
-                        text = txt,
+                        text = I(txt),
                         colorscale = colorscale,
                         xaxis = id(xa),
                         yaxis = id(ya),
@@ -62,11 +62,11 @@ setMethod("make_trace", signature = c(x = "ColumnAnnotation"),
             
             z <- mat[1, axis_order(xa), drop = FALSE]
             
-            out <- list(z = z,
-                        x = axis_values(xa),
-                        y = c(1),
+            out <- list(z = I(z),
+                        x = I(axis_values(xa)),
+                        y = I(c(1)),
                         type= "heatmap",
-                        text = txt,
+                        text = I(txt),
                         colorscale = colorscale,
                         xaxis = id(xa),
                         yaxis = id(ya),

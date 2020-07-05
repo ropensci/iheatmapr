@@ -496,13 +496,13 @@ setMethod("make_trace", signature = c(x = "MainHeatmap"),
                                     axis_order(ya), axis_order(xa), x@tooltip)
             colorscale <- colorscale(cb, get_data(x))
             
-            out <- list(z = get_data(x)[axis_order(ya), 
+            out <- list(z = I(get_data(x)[axis_order(ya), 
                                         axis_order(xa), 
-                                        drop = FALSE],
-                        x = axis_values(xa),
-                        y = axis_values(ya),
+                                        drop = FALSE]),
+                        x = I(axis_values(xa)),
+                        y = I(axis_values(ya)),
                         type="heatmap",
-                        text = txt,
+                        text = I(txt),
                         colorscale = colorscale,
                         xaxis = id(xa),
                         yaxis = id(ya),

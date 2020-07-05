@@ -51,3 +51,13 @@ test_that("main_heatmap gives error if x not equal to number of columns",{
 test_that("main_heatmap gives error if mat is not matrix",{
   expect_error(main_heatmap(1:20))
 })
+
+test_that("can make a main heatmap with one column",{
+  test_plot <- main_heatmap(a[,1,drop=FALSE])
+  expect_iheatmap(test_plot, "single_col_main_heatmap_horizontal")
+})
+
+test_that("can make a main heatmap with one row",{
+  test_plot <- main_heatmap(a[1,,drop=FALSE])
+  expect_iheatmap(test_plot, "single_row_main_heatmap_horizontal")
+})
