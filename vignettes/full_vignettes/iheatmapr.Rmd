@@ -647,9 +647,7 @@ test_iheatmapr_event
 
 ## Deploying on shinyapps.io
 
-Users have identified a few issues when deploying on shinyapps.io. The first is that this package has some BioC dependencies, so it is necessary to specify the BioC repos in options. This can be done via `setRepositories()`. Verifying what repositories are set can be done via `getOption("repos")`.  
-
-Another issue that has arisen is the use case of adding a download button, e.g.
+An issue that has arisen in deploying to shinyapps.io is the use case of adding a download button, e.g.
 
 ```{r, eval=FALSE}
 # Not evaluated -- example output code
@@ -669,6 +667,8 @@ In this case, the app needs to include the 'webshot' package and have phantomjs 
 library(webshot)
 install_phantomjs()
 ```
+
+With earlier versions of iheatmapr, there was also a BioC dependency, so it was necessary to specify the BioC repos in options. This can be done via `setRepositories()`. Verifying what repositories are set can be done via `getOption("repos")`. This should no longer be needed with versions 1.0 and up of this package.
 
 # Session Info
 

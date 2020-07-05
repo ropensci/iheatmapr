@@ -1,7 +1,7 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.4.13
+Version: 0.5.0
 Authors@R: c(person("Alicia", "Schep",
                   email = "aschep@gmail.com",
                   role = c("aut", "cre"),
@@ -49,10 +49,8 @@ Depends:
     R (>= 3.2.0)
 Imports:
     methods,
-    plyr,
     utils,
     magrittr,
-    S4Vectors,
     stats,
     ggdendro,
     fastcluster,
@@ -72,7 +70,7 @@ Suggests:
     roxygen2,
     covr,
     webshot
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 URL: https://docs.ropensci.org/iheatmapr (website) https://github.com/ropensci/iheatmapr
 BugReports: https://github.com/ropensci/iheatmapr/issues
@@ -97,6 +95,7 @@ Collate:
     'iheatmap.R'
     'iheatmapr.R'
     'layout.R'
+    'list_utils.R'
     'shiny.R'
     'shiny_test.R'
     'signal.R'

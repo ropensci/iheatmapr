@@ -4,8 +4,11 @@
 \alias{iheatmapr_event}
 \title{Access iheatmapr user input event data in shiny}
 \usage{
-iheatmapr_event(object, event = c("hover", "click", "relayout"),
-  session = shiny::getDefaultReactiveDomain())
+iheatmapr_event(
+  object,
+  event = c("hover", "click", "relayout"),
+  session = shiny::getDefaultReactiveDomain()
+)
 }
 \arguments{
 \item{object}{\code{\link{Iheatmap-class}} object}

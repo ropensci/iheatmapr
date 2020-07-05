@@ -1,3 +1,8 @@
+# iheatmapr 0.5.0 (CRAN Release)
+
+* Remove dependencies on S4Vectors (problematic because it is a Bioconductor package) and plyr 
+* Bug fix for single row or column inputs for main heatmap
+ 
 # iheatmapr 0.4.12 (CRAN Release)
 
 * Adjust tests to be compatible with newer version of scales package.

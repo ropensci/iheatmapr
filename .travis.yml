@@ -4,7 +4,5 @@ os:
 - linux
 - osx
 cache: packages
-r:
-- bioc-release
 after_success:
 - Rscript -e 'covr::codecov()'
