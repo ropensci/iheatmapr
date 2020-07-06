@@ -10,14 +10,13 @@
   "codeRepository": "https://github.com/ropensci/iheatmapr",
   "issueTracker": "https://github.com/ropensci/iheatmapr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.12",
+  "version": "0.5.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
   "author": [
     {
       "@type": "Person",
@@ -232,18 +231,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "plyr",
-      "name": "plyr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=plyr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
@@ -258,18 +245,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "S4Vectors",
-      "name": "S4Vectors",
-      "provider": {
-        "@id": "https://www.bioconductor.org",
-        "@type": "Organization",
-        "name": "BioConductor",
-        "url": "https://www.bioconductor.org"
-      },
-      "sameAs": "https://bioconductor.org/packages/release/bioc/html/S4Vectors.html"
     },
     {
       "@type": "SoftwareApplication",
@@ -369,10 +344,10 @@
   "applicationCategory": "Visualization",
   "isPartOf": "https://ropensci.org",
   "keywords": ["heatmap", "plotly", "r", "interactive-visualizations", "data-visualization", "htmlwidgets", "rstats", "r-package", "peer-reviewed"],
-  "contIntegration": "https://travis-ci.org/ropensci/iheatmapr",
+  "contIntegration": ["https://travis-ci.org/ropensci/iheatmapr", "https://ci.appveyor.com/project/ropensci/iheatmapr", "https://codecov.io/gh/ropensci/iheatmapr"],
   "releaseNotes": "https://github.com/ropensci/iheatmapr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/iheatmapr/blob/master/README.md",
-  "fileSize": "35269.802KB",
+  "fileSize": "10933.631KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -404,7 +379,10 @@
       }
     }
   ],
-  "relatedLink": ["https://docs.ropensci.org/iheatmapr", "https://CRAN.R-project.org/package=iheatmapr"],
+  "relatedLink": [
+    "https://docs.ropensci.org/iheatmapr",
+    "https://CRAN.R-project.org/package=iheatmapr"
+  ],
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -414,7 +392,7 @@
   "funder": {},
   "review": {
     "@type": "Review",
-    "url": "https://github.com/ropensci/onboarding/issues/107",
-    "provider": "http://ropensci.org"
+    "url": "https://github.com/ropensci/software-review/issues/107",
+    "provider": "https://ropensci.org"
   }
 }
