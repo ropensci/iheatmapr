@@ -25,7 +25,7 @@ To install the github version of `iheatmapr`:
 
 ```r
 devtools::install_github("ropensci/iheatmapr")
-```xxxs
+```
 
 ## Example Complex Heatmap
 
