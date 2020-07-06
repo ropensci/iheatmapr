@@ -18,7 +18,7 @@ setup_tooltip_options(
 
 \item{col}{logical, include column name in tooltip?}
 
-\item{value}{logical, includevalue in tooltip?}
+\item{value}{logical, include value in tooltip?}
 
 \item{prepend_row}{text to prepend to row name}
 

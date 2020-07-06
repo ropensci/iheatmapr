@@ -39,8 +39,8 @@ patient_groups <- c("A","A","B","A","B","A") # Arbitrary groups
 We will start off by showing an example of the type of complex heatmap we can create using the `iheatmapr` package. In our example complex heatmap, we will plot:
 
 * a heatmap of the correlation matrix 
-* dendrogram for column clustering
-* adendrogram for row clustering as well as annotation heatmap showing 3 clusters
+* a dendrogram for column clustering
+* a dendrogram for row clustering as well as annotation heatmap showing 3 clusters
 * annotation heatmaps showing the max and min Indometacin concentrations per patient
 * annotation heatmap showing whether patients fall in group "A" or "B"
 * a heatmap showing the actual Indometacin timecourse data for each patient
@@ -541,7 +541,7 @@ General plotly layout arguments can be passed to the `layout` argument to `main_
 main_heatmap(Indometh_matrix, layout = list(margin = list(b = 120)))
 ```
 
-The alyout can also be adjusted after creation of the plot using the `modify_layout` function. 
+The layout can also be adjusted after creation of the plot using the `modify_layout` function. 
 
 ```{r}
 main_heatmap(Indometh_matrix) %>% modify_layout(list(margin = list(b = 120)))

@@ -77,7 +77,7 @@ new_iheatmap <- function(plot,
 #' complex heatmaps.
 #' @param row logical, include row name in tooltip?
 #' @param col logical, include column name in tooltip?
-#' @param value logical, includevalue in tooltip?
+#' @param value logical, include value in tooltip?
 #' @param prepend_row text to prepend to row name
 #' @param prepend_col text to prepend to column name
 #' @param prepend_value text to prepend to value 
