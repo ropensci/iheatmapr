@@ -1,8 +1,6 @@
 ## Release Overview
 
-# Minor update to make tests compatible with the development version of the 'scales' package, which changes slightly the color outputs from some functions used by this package. Also incoporates a few bug fixes and minor features that address issues brought up by users of the package.
-
-Also addresses the issue with noLD, making the tests robust to less precision. Tested using the "debian-gcc-devel-nold" platform on rhub.
+# Update to remove dependency on S4Vectors package, which is a Bioconductor package. The dependency was causing issues based on which versions were used. Also removed an another dependency that was used just for a utility function, and incoporates a bug fix.
 
 Tested on Windows, Mac, and Linux via Travis, Appveyor, and/or Rhub.
 
