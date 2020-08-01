@@ -239,18 +239,15 @@ setMethod(add_colorbar, c(p = "Iheatmap", new_colorbar = "ContinuousColorbar"),
 setMethod(add_colorbar, c(p = "Iheatmap", new_colorbar = "DiscreteColorbar"),
           function(p, new_colorbar){
             if (new_colorbar@title %in% names(colorbars(p, what = "discrete"))){
-              if (length(intersect(colorbars(p)[[new_colorbar@title]]@ticktext, 
-                                   new_colorbar@ticktext)) == 0){
-                stop(paste("No elements in common between groups with name:",
-                           new_colorbar@title))
-              } else if (length(setdiff(colorbars(p)
+              if (length(setdiff(colorbars(p)
                                         [[new_colorbar@title]]@ticktext, 
                                         new_colorbar@ticktext))>0){
-                warning(paste("Adding elements to group:", new_colorbar@title))
+                message(paste("Combining different groups in colorbar:", new_colorbar@title))
               }
               colorbars(p)[[new_colorbar@title]]@ticktext <- 
                 union(colorbars(p)[[new_colorbar@title]]@ticktext, 
                       new_colorbar@ticktext)
+              colorbars(p)[[new_colorbar@title]]@tickvals <- seq_along(colorbars(p)[[new_colorbar@title]]@ticktext)
             } else{
               colorbars(p)[[new_colorbar@title]] <- new_colorbar
             }

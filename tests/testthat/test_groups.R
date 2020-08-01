@@ -23,3 +23,12 @@ test_that("can add a column groups to single vertical heatmap",{
 })
 
 
+test_that("can add groups with different elements",{
+  test_plot <- main_heatmap(a) %>% 
+    add_col_groups(col_grp,"Test") %>%
+    add_main_heatmap(a) %>%
+    add_col_groups(rep("C",10),"Test")
+  expect_iheatmap(test_plot, "col_groups_distinct")
+})
+
+
