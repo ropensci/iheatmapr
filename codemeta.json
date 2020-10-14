@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/iheatmapr",
   "issueTracker": "https://github.com/ropensci/iheatmapr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -347,7 +347,7 @@
   "contIntegration": ["https://travis-ci.org/ropensci/iheatmapr", "https://ci.appveyor.com/project/ropensci/iheatmapr", "https://codecov.io/gh/ropensci/iheatmapr"],
   "releaseNotes": "https://github.com/ropensci/iheatmapr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/iheatmapr/blob/master/README.md",
-  "fileSize": "10933.631KB",
+  "fileSize": "10994.704KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
