@@ -28,7 +28,7 @@
 \item{x}{x axis values}
 
 \item{...}{additional arguments to add to plotly scatter trace, see
-\url{https://plot.ly/javascript/reference/#scatter}}
+\url{https://plotly.com/javascript/reference/#scatter}}
 
 \item{mode}{mode of plot -- one of "lines+markers","lines", or "markers"}
 

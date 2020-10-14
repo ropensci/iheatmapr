@@ -28,7 +28,7 @@
 \item{textangle}{angle for ticktext}
 
 \item{font}{list of plotly font attributes, see 
-\url{https://plot.ly/javascript/reference/#layout-font}}
+\url{https://plotly.com/javascript/reference/#layout-font}}
 
 \item{side}{side of plot on which to add subplot}
 

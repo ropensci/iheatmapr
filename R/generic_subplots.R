@@ -58,7 +58,7 @@ setMethod("make_trace", signature = c(x = "ColumnPlot"),
 #' @param p iheatmap object
 #' @param y y axis values
 #' @param ... additional arguments to add to plotly scatter trace, see
-#' \url{https://plot.ly/javascript/reference/#scatter}
+#' \url{https://plotly.com/javascript/reference/#scatter}
 #' @param mode mode of plot -- one of "lines+markers","lines", or "markers"
 #' @param color color of bars
 #' @param tracename name of trace (for legend and hover)
@@ -157,7 +157,7 @@ setMethod(add_col_plot, c(p = "Iheatmap"),
 #' @param p iheatmap object
 #' @param x x axis values
 #' @param ... additional arguments to add to plotly scatter trace, see
-#' \url{https://plot.ly/javascript/reference/#scatter}
+#' \url{https://plotly.com/javascript/reference/#scatter}
 #' @param mode mode of plot -- one of "lines+markers","lines", or "markers"
 #' @param color color of bars
 #' @param tracename name of trace (for legend and hover)

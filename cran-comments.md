@@ -1,6 +1,6 @@
 ## Release Overview
 
-Update to remove dependency on S4Vectors package, which is a Bioconductor package. The dependency was causing issues based on which versions were used. Also removed another dependency that was used just for a utility function, and incoporated a bug fix.
+Bug fixes based on github issues.
 
 Tested on Windows, Mac, and Linux via Travis, Appveyor, and/or Rhub.
 

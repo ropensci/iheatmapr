@@ -1,3 +1,8 @@
+# iheatmapr 0.5.1 (CRAN Release)
+
+* Bug fix for column annotation labels
+* Bug fix for issues with merging colorbars
+
 # iheatmapr 0.5.0 (CRAN Release)
 
 * Remove dependencies on S4Vectors (problematic because it is a Bioconductor package) and plyr 
