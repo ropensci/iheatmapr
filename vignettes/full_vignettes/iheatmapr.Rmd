@@ -535,7 +535,7 @@ iheatmap(Indometh_patient_cor,
 
 ## Margins and other layout properties
 
-General plotly layout arguments can be passed to the `layout` argument to `main_heatmap` or `iheatmap`. See the [plotly documentation](https://plot.ly/javascript/reference/#layout) for more information about the various options.
+General plotly layout arguments can be passed to the `layout` argument to `main_heatmap` or `iheatmap`. See the [plotly documentation](https://plotly.com/javascript/reference/#layout) for more information about the various options.
 
 ```{r}
 main_heatmap(Indometh_matrix, layout = list(margin = list(b = 120)))
@@ -550,7 +550,7 @@ main_heatmap(Indometh_matrix) %>% modify_layout(list(margin = list(b = 120)))
 
 ## Axis properties
 
-Most functions for adding a subplot include a "layout" argument for providing layout parameters for the additional axis that is created.  This layout parameter accepts a list of layout parameters that plotly uses for altering the layout of an axis.  See the [plotly documentation](https://plot.ly/javascript/reference/#layout-xaxis) for more information about the various options.
+Most functions for adding a subplot include a "layout" argument for providing layout parameters for the additional axis that is created.  This layout parameter accepts a list of layout parameters that plotly uses for altering the layout of an axis.  See the [plotly documentation](https://plotly.com/javascript/reference/#layout-xaxis) for more information about the various options.
 
 As an example, here is a plot with default axis options:
 
