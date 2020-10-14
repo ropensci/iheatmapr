@@ -21,7 +21,7 @@
 \item{p}{iheatmap object}
 
 \item{...}{arguments to pass to plotly trace, see plotly.js documentation at
-\url{https://plot.ly/javascript/reference/}}
+\url{https://plotly.com/javascript/reference/}}
 
 \item{side}{which side of the current plot to add this heatmap? "right", 
 "left","top", or "bottom"}

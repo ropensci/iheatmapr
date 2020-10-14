@@ -17,7 +17,7 @@ setMethod("make_trace", signature = c(x = "GenericPlot"),
 #' Adds an arbitrary subplot to iheatmap
 #' @param p iheatmap object
 #' @param ... arguments to pass to plotly trace, see plotly.js documentation at
-#' \url{https://plot.ly/javascript/reference/}
+#' \url{https://plotly.com/javascript/reference/}
 #' @param side which side of the current plot to add this heatmap? "right", 
 #' "left","top", or "bottom"
 #' @param layout axis layout parameters (list)

@@ -20,7 +20,7 @@ complex heatmap.
 
 See the vignette for detailed instructions for how to use the package.
 
-iheatmapr uses the plotly javascript library (\url{https://plot.ly/}) for making the 
+iheatmapr uses the plotly javascript library (\url{https://plotly.com/}) for making the 
 interactive figures and htmlwidgets (http://www.htmlwidgets.org/) for 
 rendering them in R.
 }

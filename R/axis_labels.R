@@ -215,7 +215,7 @@ setMethod("make_annotations", signature = c(x = "ColumnLabels"),
 #' @param ticktext text for axis tick labels
 #' @param textangle angle for ticktext
 #' @param font list of plotly font attributes, see 
-#' \url{https://plot.ly/javascript/reference/#layout-font}
+#' \url{https://plotly.com/javascript/reference/#layout-font}
 #' @param side side of plot on which to add subplot 
 #' @param size relative size of subplot relative to main heatmap
 #' @param buffer amount of space to leave empty before this plot, relative to 
@@ -293,7 +293,7 @@ setMethod(add_row_labels, c(p = "Iheatmap"),
 #' @param ticktext text for axis tick labels
 #' @param textangle angle for ticktext
 #' @param font list of plotly font attributes, see 
-#' \url{https://plot.ly/javascript/reference/#layout-font}
+#' \url{https://plotly.com/javascript/reference/#layout-font}
 #' @param side side of plot on which to add subplot 
 #' @param size relative size of subplot relative to main heatmap
 #' @param buffer amount of space to leave empty before this plot, relative to 

@@ -56,7 +56,7 @@ setMethod("make_annotations", signature = c(x = "RowTitle"),
 #' @param title title of axis
 #' @param textangle angle of text
 #' @param font list of plotly font attributes, see 
-#' \url{https://plot.ly/javascript/reference/#layout-font}
+#' \url{https://plotly.com/javascript/reference/#layout-font}
 #' @param side side of plot on which to add subplot 
 #' @param size relative size of subplot relative to main heatmap
 #' @param buffer amount of space to leave empty before this plot, relative to 
@@ -129,7 +129,7 @@ setMethod(add_col_title, c(p = "Iheatmap"),
 #' @param title title of axis
 #' @param textangle angle of text
 #' @param font list of plotly font attributes, see 
-#' \url{https://plot.ly/javascript/reference/#layout-font}
+#' \url{https://plotly.com/javascript/reference/#layout-font}
 #' @param side side of plot on which to add subplot 
 #' @param size relative size of subplot relative to main heatmap
 #' @param buffer amount of space to leave empty before this plot, relative to 

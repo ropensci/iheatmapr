@@ -4,7 +4,7 @@
 #' @param p iheatmap object
 #' @param y y axis values
 #' @param ... additional arguments to add to plotly scatter trace, see
-#' \url{https://plot.ly/javascript/reference/#scatter}
+#' \url{https://plotly.com/javascript/reference/#scatter}
 #' @param color color of bars
 #' @param tracename name of trace (for legend and hover)
 #' @param showlegend show in legend?
@@ -91,7 +91,7 @@ setMethod(add_col_barplot, c(p = "Iheatmap"),
 #' @param p iheatmap object
 #' @param x x axis values
 #' @param ... additional arguments to add to plotly scatter trace, see
-#' \url{https://plot.ly/javascript/reference/#scatter}
+#' \url{https://plotly.com/javascript/reference/#scatter}
 #' @param color color of bars
 #' @param tracename name of trace (for legend and hover)
 #' @param showlegend show in legend?
