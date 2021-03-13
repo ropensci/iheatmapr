@@ -24,8 +24,9 @@ iheatmaprOutput <- function(outputId, width = "100%", height = "400px") {
 #' @export
 renderIheatmap <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  expr <- call("to_widget", expr)
-  htmlwidgets::shinyRenderWidget(expr, iheatmaprOutput, env, quoted = TRUE)
+  func <- shiny::exprToFunction(expr, env, quoted = TRUE)
+  expr <- quote(getFromNamespace("to_widget", "iheatmapr")(func()))
+  htmlwidgets::shinyRenderWidget(expr, iheatmaprOutput, environment(), quoted = TRUE)
 }
 
 
