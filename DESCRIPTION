@@ -59,7 +59,8 @@ Imports:
     jsonlite,
     scales,
     knitr,
-    tools
+    tools,
+    plotly
 Suggests:
     htmltools,
     datasets,

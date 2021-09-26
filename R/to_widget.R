@@ -98,7 +98,8 @@ setMethod(to_widget,
                          height = out$layout$height,
                          sizingPolicy = sizingPolicy(browser.fill = TRUE,
                                                      defaultWidth = "100%",
-                                                     defaultHeight = 400))
+                                                     defaultHeight = 400),
+                         dependencies = c(list(plotly:::plotlyMainBundle())))
           })
 
 
