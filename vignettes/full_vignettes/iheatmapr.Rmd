@@ -668,7 +668,17 @@ library(webshot)
 install_phantomjs()
 ```
 
-With earlier versions of iheatmapr, there was also a BioC dependency, so it was necessary to specify the BioC repos in options. This can be done via `setRepositories()`. Verifying what repositories are set can be done via `getOption("repos")`. This should no longer be needed with versions 1.0 and up of this package.
+With earlier versions of iheatmapr, there was also a BioC dependency, so it was necessary to specify the BioC repos in options. This can be done via `setRepositories()`. Verifying what repositories are set can be done via `getOption("repos")`. This should no longer be needed with versions 0.5 and up of this package.
+
+## Using in combination with plotly R package
+
+Some version of this package may cause issues when used alongside the `plotly` R package as different version of the `plotly.js` library might be used. `iheatmapr` contains its own version of the `plotly` library, but as of version 0.6 you can tell it to use a different source for `plotly` via the `iheatmapr.plotly.source` option. The input to that option should be an html dependency as created by `htmltools::htmlDependency`, and it can be set to pull the version of `plotly` included in the `plotly` R package via:
+
+```{r, eval=FALSE}
+options(iheatmapr.plotly.source = plotly:::plotlyMainBundle())
+```
+
+Note that this is calling an internal function within `plotly` R package and thus should be used with caution. 
 
 # Session Info
 
