@@ -1,5 +1,5 @@
-[![R-CMD-check](https://github.com/ropensci/iheatmapr/actions?query=workflow%3AR-CMD-check)
-[![test-coverage](https://github.com/ropensci/iheatmapr/actions?query=workflow%3Atest-coverage)
+![R-CMD-check](https://github.com/ropensci/iheatmapr/actions/workflows/check-standard.yaml/badge.svg)
+![test-coverage](https://github.com/ropensci/iheatmapr/actions/workflows/test-coverage.yaml/badge.svg)
 [![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
 [![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
 [![CRAN](https://www.r-pkg.org/badges/version/iheatmapr)](https://cran.r-project.org/package=iheatmapr)
