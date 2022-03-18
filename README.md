@@ -1,4 +1,4 @@
-[![check-standard](https://github.com/ropensci/iheatmapr/actions?query=workflow%3Acheck-standard)
+[![R-CMD-check](https://github.com/ropensci/iheatmapr/actions?query=workflow%3AR-CMD-check)
 [![test-coverage](https://github.com/ropensci/iheatmapr/actions?query=workflow%3Atest-coverage)
 [![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
 [![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
