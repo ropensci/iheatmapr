@@ -1,8 +1,0 @@
-language: R
-sudo: false
-os:
-- linux
-- osx
-cache: packages
-after_success:
-- Rscript -e 'covr::codecov()'

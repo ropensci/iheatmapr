@@ -16,3 +16,4 @@
 ^codemeta\.json$
 ^CRAN-RELEASE$
 ^revdep$
+^\.github$
