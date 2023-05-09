@@ -135,8 +135,8 @@ setMethod("show", "Iheatmap",
 #' @keywords internal
 #' @export
 #' @importFrom knitr knit_print
-knit_print.Iheatmap <- function(x, options){
-  knit_print(to_widget(x), options = options)
+knit_print.Iheatmap <- function(x, ...){
+  knit_print(to_widget(x), ...)
 }
 
 
