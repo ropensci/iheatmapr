@@ -70,7 +70,7 @@ Suggests:
     roxygen2,
     covr,
     webshot
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 URL: https://docs.ropensci.org/iheatmapr (website) https://github.com/ropensci/iheatmapr
 BugReports: https://github.com/ropensci/iheatmapr/issues
