@@ -4,12 +4,12 @@
 \alias{knit_print.Iheatmap}
 \title{knit_print.Iheatmap}
 \usage{
-\method{knit_print}{Iheatmap}(x, options)
+\method{knit_print}{Iheatmap}(x, ...)
 }
 \arguments{
 \item{x}{Iheatmap object}
 
-\item{options}{knitr options}
+\item{...}{Passed to \code{\link[knitr]{knit_print}}.}
 }
 \description{
 knit_print.Iheatmap
