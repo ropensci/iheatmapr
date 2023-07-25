@@ -1,23 +1,23 @@
 Package: iheatmapr
 Type: Package
 Title: Interactive, Complex Heatmaps
-Version: 0.6.0.9000
+Version: 0.7.0
 Authors@R: c(person("Alicia", "Schep",
                   email = "aschep@gmail.com",
-                  role = c("aut", "cre"),
+                  role = c("aut"),
                   comment = c(ORCID = "orcid.org/0000-0002-3915-0618")),
-             person("Sarah","Kummerfeld",
+             person("Sarah", "Kummerfeld",
                   email = "kummerfeld.sarah@gene.com",
                   role = c("aut"),
                   comment = c(ORCID = "orcid.org/0000-0002-0089-2358")),
              person("Genentech", role = "cph"),
-             person("Andee","Kaplan", role = "rev",
+             person("Andee", "Kaplan", role = "rev",
                   comment = "Reviewer for rOpensci review process https://github.com/ropensci/onboarding/issues/107"),
-             person("Carl","Ganz", role = "rev",
+             person("Carl", "Ganz", role = "rev",
                   comment = "Reviewer for rOpensci review process https://github.com/ropensci/onboarding/issues/107"),    
              person("Alex", "Johnson", role = "ctb",
                   comment = "plotly.js library"),
-             person("Étienne ", "Tétreault-Pinard", role = "ctb",
+             person("Étienne", "Tétreault-Pinard", role = "ctb",
                   comment = "plotly.js library"),
              person("Mikola", "Lysenko", role = "ctb",
                   comment = "plotly.js library"),  
@@ -40,7 +40,9 @@ Authors@R: c(person("Alicia", "Schep",
              person("Plotly", role = "cph",
                   comment = "plotly.js library"), 
              person("Frederick", "Boehm", role = "ctb",
-                  comment = "colorbars & main_heatmap"))
+                  comment = "colorbars & main_heatmap"),
+             person("Alan", "O'Callaghan",
+                  email = "alan.ocallaghan@outlook.com", role = "cre"))
 Description: Make complex, interactive heatmaps. 'iheatmapr' includes a modular 
     system for iteratively building up complex heatmaps, as well as the 
     iheatmap() function for making relatively standard heatmaps.
