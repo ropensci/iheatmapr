@@ -5,3 +5,5 @@ inst/doc
 .RData
 .Rhistory
 revdep/
+*.Rcheck
+*.tar.gz
