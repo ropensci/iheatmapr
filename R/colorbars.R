@@ -45,7 +45,7 @@ setMethod("zmax", c(x = "DiscreteColorbar"),
 #' function to set parameters controlling colorbar placement in Iheatmap object
 #' @param nrows number of rows in colorbar grid
 #' @param y_length length of colorbar
-#' @param x_spacing spacing along horizonatal axis between colorbars
+#' @param x_spacing spacing along horizontal axis between colorbars
 #' @param y_spacing spacing along vertical axis between colorbars
 #' @param x_start left most position of colorbar grid
 #' @param y_start top most position of colorbar grid

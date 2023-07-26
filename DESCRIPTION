@@ -48,7 +48,7 @@ Description: Make complex, interactive heatmaps. 'iheatmapr' includes a modular
     iheatmap() function for making relatively standard heatmaps.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.5.0)
 Imports:
     methods,
     utils,
@@ -108,3 +108,4 @@ Collate:
 X-schema.org-applicationCategory: Visualization
 X-schema.org-keywords: heatmap, plotly, r, interactive-visualizations, data-visualization, htmlwidgets
 X-schema.org-isPartOf: https://ropensci.org
+Language: en-US
