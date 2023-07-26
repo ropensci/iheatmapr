@@ -1,3 +1,7 @@
+# iheatmapr 0.7.0 (CRAN Release)
+
+* Change maintainership from Alicia Schlep to Alan O'Callaghan.
+
 # iheatmapr 0.5.1 (CRAN Release)
 
 * Bug fix for column annotation labels

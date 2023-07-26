@@ -1,22 +1,20 @@
 {
-  "@context": [
-    "https://doi.org/doi:10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "iheatmapr",
-  "description": "Make complex, interactive heatmaps. 'iheatmapr' includes a modular \n    system for iteratively building up complex heatmaps, as well as the \n    iheatmap() function for making relatively standard heatmaps.",
+  "description": "Make complex, interactive heatmaps. 'iheatmapr' includes a modular system for iteratively building up complex heatmaps, as well as the iheatmap() function for making relatively standard heatmaps.",
   "name": "iheatmapr: Interactive, Complex Heatmaps",
+  "relatedLink": "https://docs.ropensci.org/iheatmapr",
   "codeRepository": "https://github.com/ropensci/iheatmapr",
   "issueTracker": "https://github.com/ropensci/iheatmapr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.2.3 (2023-03-15)",
   "author": [
     {
       "@type": "Person",
@@ -41,7 +39,7 @@
     },
     {
       "@type": "Person",
-      "givenName": "Étienne ",
+      "givenName": "Étienne",
       "familyName": "Tétreault-Pinard"
     },
     {
@@ -108,10 +106,9 @@
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Alicia",
-      "familyName": "Schep",
-      "email": "aschep@gmail.com",
-      "@id": "orcid.org/0000-0002-3915-0618"
+      "givenName": "Alan",
+      "familyName": "O'Callaghan",
+      "email": "alan.ocallaghan@outlook.com"
     }
   ],
   "softwareSuggestions": [
@@ -217,24 +214,24 @@
       "sameAs": "https://CRAN.R-project.org/package=webshot"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 3.2.0"
+      "version": ">= 3.5.0"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -246,12 +243,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "ggdendro",
       "name": "ggdendro",
@@ -263,7 +260,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggdendro"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "fastcluster",
       "name": "fastcluster",
@@ -275,7 +272,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=fastcluster"
     },
-    {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "RColorBrewer",
       "name": "RColorBrewer",
@@ -287,7 +284,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=RColorBrewer"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "htmlwidgets",
       "name": "htmlwidgets",
@@ -299,7 +296,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=htmlwidgets"
     },
-    {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -311,7 +308,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -323,7 +320,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
@@ -335,19 +332,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
     },
-    {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
-    }
-  ],
+    },
+    "SystemRequirements": null
+  },
   "applicationCategory": "Visualization",
   "isPartOf": "https://ropensci.org",
   "keywords": ["heatmap", "plotly", "r", "interactive-visualizations", "data-visualization", "htmlwidgets", "rstats", "r-package", "peer-reviewed"],
-  "contIntegration": ["https://travis-ci.org/ropensci/iheatmapr", "https://ci.appveyor.com/project/ropensci/iheatmapr", "https://codecov.io/gh/ropensci/iheatmapr"],
-  "releaseNotes": "https://github.com/ropensci/iheatmapr/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/iheatmapr/blob/master/README.md",
-  "fileSize": "10994.704KB",
+  "fileSize": "22659.166KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -379,17 +374,9 @@
       }
     }
   ],
-  "relatedLink": [
-    "https://docs.ropensci.org/iheatmapr",
-    "https://CRAN.R-project.org/package=iheatmapr"
-  ],
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
-  "funder": {},
+  "releaseNotes": "https://github.com/ropensci/iheatmapr/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/iheatmapr/blob/main/README.md",
+  "contIntegration": "https://github.com/ropensci/iheatmapr/actions?query=workflow%3AR-CMD-check",
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/107",
