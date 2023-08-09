@@ -1,3 +1,7 @@
+# iheatmapr 0.7.0
+
+* Change maintainership and re-release on CRAN.
+
 # iheatmapr 0.5.1 (CRAN Release)
 
 * Bug fix for column annotation labels
