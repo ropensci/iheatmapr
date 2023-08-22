@@ -7,3 +7,4 @@ inst/doc
 revdep/
 *.Rcheck
 *.tar.gz
+CRAN-SUBMISSION
