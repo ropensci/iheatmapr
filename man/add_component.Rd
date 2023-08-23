@@ -41,8 +41,6 @@ add_annotation(p, new_anno, ...)
 \item{new_shape}{new \code{\link{IheatmapShape-class}} object}
 
 \item{new_anno}{new \code{\link{IheatmapAnnotation-class}} object}
-
-\item{name}{internal name}
 }
 \description{
 These are generic methods for adding new plot components to an 

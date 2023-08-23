@@ -9,7 +9,6 @@
 #' @name add_component
 #' @rdname add_component
 #' @param p \code{\link{Iheatmap-class}} object
-#' @param name internal name
 #' @docType methods
 #' @aliases add_annotation,Iheatmap,IheatmapAnnotation-method
 #' add_axis,IheatmapHorizontal,IheatmapX-method
