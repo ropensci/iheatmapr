@@ -1,8 +1,9 @@
 ## Release Overview
 
-Bug fixes based on github issues.
+Fix problem with documentation.
 
-Tested on Windows, Mac, and Linux via Travis, Appveyor, and/or Rhub.
+Transfer maintainership from Alicia Schlep (aschep@gmail.com) to Alan O'Callaghan
+(alan.ocallaghan@outlook.com).
 
 ## R CMD check results
 

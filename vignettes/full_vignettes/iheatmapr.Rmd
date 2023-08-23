@@ -71,7 +71,7 @@ Hovering over the heatmaps yields a tooltip with the name of the row and column 
 
 ## Modular system for building up complex heatmaps
 
-In our example complex heatmap above, the various components are added iteratively. There are two main types of plots in `iheatmapr`-- "main heatmaps" and subplots. Subplots can be added to the left, right, top, or bottom of a main heatmap. We will go over the basics of adding together different components of a plot in this section, and the [Modular buidling blocks](#modular-building-blocks) section of the vignette will go into detail into each of the modular components available.   
+In our example complex heatmap above, the various components are added iteratively. There are two main types of plots in `iheatmapr`-- "main heatmaps" and subplots. Subplots can be added to the left, right, top, or bottom of a main heatmap. We will go over the basics of adding together different components of a plot in this section, and the [Modular building blocks](#modular-building-blocks) section of the vignette will go into detail into each of the modular components available.   
 
 ### Starting with basic heatmap
 
@@ -245,7 +245,7 @@ main_heatmap(Indometh_patient_cor, name = "Correlation") %>%
 
 Note that if the same "name" argument is given to both the first main heatmap and the additional main heatmap, the two heatmaps will share the same colorscale and colorbar. 
 
-See [Orientation](#orientation) for adding main heataps vertically instead of horizontally!
+See [Orientation](#orientation) for adding main heatmaps vertically instead of horizontally!
 
 ## Add labels
 

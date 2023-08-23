@@ -1,6 +1,6 @@
-# iheatmapr 0.7.0
+# iheatmapr 0.7.0 (CRAN Release)
 
-* Change maintainership and re-release on CRAN.
+* Change maintainership from Alicia Schlep to Alan O'Callaghan.
 
 # iheatmapr 0.5.1 (CRAN Release)
 

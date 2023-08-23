@@ -1,6 +1,7 @@
 citHeader("To cite the iheatmapr package in publications please use:")
 
-citEntry(entry = "Article",
+bibentry(
+  bibtype = "Article",
   author = "Alicia N Schep and Sarah K Kummerfeld",
   title = "iheatmapr: Interactive complex heatmaps in R",
   year = "2017",

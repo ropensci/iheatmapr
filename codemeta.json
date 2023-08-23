@@ -219,7 +219,7 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 3.2.0"
+      "version": ">= 3.5.0"
     },
     "2": {
       "@type": "SoftwareApplication",
@@ -342,7 +342,7 @@
   "applicationCategory": "Visualization",
   "isPartOf": "https://ropensci.org",
   "keywords": ["heatmap", "plotly", "r", "interactive-visualizations", "data-visualization", "htmlwidgets", "rstats", "r-package", "peer-reviewed"],
-  "fileSize": "6346.009KB",
+  "fileSize": "22659.166KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
