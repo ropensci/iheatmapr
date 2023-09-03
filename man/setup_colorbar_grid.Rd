@@ -18,7 +18,7 @@ setup_colorbar_grid(
 
 \item{y_length}{length of colorbar}
 
-\item{x_spacing}{spacing along horizonatal axis between colorbars}
+\item{x_spacing}{spacing along horizontal axis between colorbars}
 
 \item{y_spacing}{spacing along vertical axis between colorbars}
 

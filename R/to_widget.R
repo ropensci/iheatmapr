@@ -85,6 +85,11 @@ getPlotlySource <- function() {
   } 
 }
 
+call_to_widget <- function(p) {
+  class(p)
+  to_widget(p)
+}
+
 #' to_widget
 #' 
 #' Function to convert \code{link{Iheatmap-class}} object to widget object
@@ -109,7 +114,7 @@ getPlotlySource <- function() {
 #' if (interactive()) hm 
 setMethod(to_widget,
           signature = c("Iheatmap"),
-          function(p){
+          function(p) {
             out <- to_plotly_list(p)
             createWidget(name = "iheatmapr",
                          x = out,
