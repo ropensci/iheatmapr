@@ -1,5 +1,5 @@
 [![R-CMD-check](https://github.com/ropensci/iheatmapr/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/ropensci/iheatmapr/actions?query=workflow%3AR-CMD-check)
-[![](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
+[![iheatmapr peer review status in ROpenSci](https://badges.ropensci.org/107_status.svg)](https://github.com/ropensci/onboarding/issues/107)
 [![JOSS](http://joss.theoj.org/papers/10.21105/joss.00359/status.svg)](http://joss.theoj.org/papers/10.21105/joss.00359)
 [![CRAN](https://www.r-pkg.org/badges/version/iheatmapr)](https://cran.r-project.org/package=iheatmapr)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -28,7 +28,7 @@ devtools::install_github("ropensci/iheatmapr")
 
 As an example of a complex heatmap, we can make a version of the famous vaccines plot from the Wall Street Journal that has been recreated in several other heatmap frameworks in R. 
 
-![](https://raw.githubusercontent.com/ropensci/iheatmapr/master/vaccine.gif)
+![A graphical demo of an iheatmap in the RStudio plot viewer](https://raw.githubusercontent.com/ropensci/iheatmapr/master/vaccine.gif)
 
 The code to create this heatmap is:
 
