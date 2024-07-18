@@ -1,4 +1,5 @@
 templates:
+  bootstrap: 5
   params:
     bootswatch: cerulean
 
@@ -10,3 +11,5 @@ navbar:
   structure:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github, lightswitch]
+
+url: https://docs.ropensci.org/iheatmapr/
