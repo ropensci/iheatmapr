@@ -3,8 +3,11 @@ templates:
     bootswatch: cerulean
 
 navbar:
-  left:
-  - text: Vignette
-    href: articles/full_vignettes/iheatmapr.html
-  - text: Reference
-    href: reference/index.html
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github, lightswitch]
+  components:
+    articles:
+      text: vignette
+      href: articles/full_vignettes/iheatmapr.html
+
