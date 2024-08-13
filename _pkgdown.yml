@@ -1,10 +1,15 @@
 templates:
+  bootstrap: 5
   params:
     bootswatch: cerulean
 
 navbar:
-  left:
-  - text: Vignette
-    href: articles/full_vignettes/iheatmapr.html
-  - text: Reference
-    href: reference/index.html
+  components:
+    intro: 
+      text: Vignette
+      href: articles/full_vignettes/iheatmapr.html
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github, lightswitch]
+
+url: https://docs.ropensci.org/iheatmapr/
