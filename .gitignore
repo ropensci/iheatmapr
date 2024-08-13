@@ -8,3 +8,4 @@ revdep/
 *.Rcheck
 *.tar.gz
 CRAN-SUBMISSION
+docs/

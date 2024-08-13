@@ -1,3 +1,10 @@
+# iheatmapr 0.7.1 (CRAN Release)
+
+* Spellcheck and linting
+* Update tests
+* Fix `shiny::req` behaviour (See #85)
+* Always use autosize (see #84)
+
 # iheatmapr 0.7.0 (CRAN Release)
 
 * Change maintainership from Alicia Schlep to Alan O'Callaghan.
