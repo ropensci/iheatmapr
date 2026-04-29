@@ -32,3 +32,23 @@ test_that("can add groups with different elements",{
 })
 
 
+test_that("can add groups and reuse colors",{
+  expect_warning(
+    test_plot <- main_heatmap(a) %>% 
+      add_col_groups(col_grp,"Test1") %>%
+      add_col_groups(col_grp,"Test2") %>%
+      add_col_groups(col_grp,"Test3") %>%
+      add_col_groups(col_grp,"Test4") %>%
+      add_col_groups(col_grp,"Test5") %>%
+      add_col_groups(col_grp,"Test6") %>%
+      add_col_groups(col_grp,"Test7") %>%
+      add_col_groups(col_grp,"Test8") %>%
+      add_col_groups(col_grp,"Test9") %>%
+      add_col_groups(col_grp,"Test10") %>%
+      add_col_groups(col_grp,"Test11") %>%
+      add_main_heatmap(a),
+      "Reusing")
+  expect_iheatmap(test_plot, "col_groups_many")
+})
+
+

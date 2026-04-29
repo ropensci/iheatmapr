@@ -1,9 +1,9 @@
 ## Release Overview
 
-Fix problem with documentation.
-
-Transfer maintainership from Alicia Schlep (aschep@gmail.com) to Alan O'Callaghan
-(alan.ocallaghan@outlook.com).
+- Update test files
+- Spellcheck and linting fixes
+- Makes iheatmaps autosize
+- Fixes iheatmapr with shiny::req
 
 ## R CMD check results
 
@@ -11,5 +11,5 @@ Transfer maintainership from Alicia Schlep (aschep@gmail.com) to Alan O'Callagha
 
 ## Reverse dependencies
 
-No reverse dependencies on CRAN, checked reverse dependency on Bioconductor (lipidr). 
+Checked shinyExprPortal
 ---

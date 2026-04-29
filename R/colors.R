@@ -123,7 +123,7 @@ choose_discrete_palette <- function(x, existing = c()){
     tmp1 <- vapply(rownames(qual_colors), paste0, "", collapse = "")
     tmp2 <- vapply(existing, paste0, "",collapse = "")
     existing_matches<- vapply(tmp2[which(tmp2 %in% tmp1)],
-                              function(x) which(tmp1 == x), "")
+                              function(x) which(tmp1 == x), 0)
     existing_tab <- tabulate(existing_matches)
     new <- which(existing_tab < max(existing_tab))
   }
